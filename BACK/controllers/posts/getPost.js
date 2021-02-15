@@ -1,0 +1,40 @@
+const getDB = require("../../db");
+
+const getPost = async (req, res, next) => {
+  let connection;
+
+  try {
+    connection = await getDB();
+
+    const { id } = req.params;
+
+    const [result] = await connection.query(
+      `
+    SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, posts.comment, COUNT(link_likes.love) AS loves
+    FROM posts INNER JOIN link_likes ON (posts.id = link_likes.post_id)
+    WHERE posts.id = ?
+    `,
+      [id]
+    );
+
+    const [single] = result;
+
+    if (single.id === null) {
+      //El post no existe
+      const error = new Error("El post no existe");
+      error.httpStatus = 404;
+      throw error;
+    }
+
+    res.send({
+      status: "Ok",
+      data: single,
+    });
+  } catch (error) {
+    next(error);
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+module.exports = getPost;
