@@ -1,10 +1,11 @@
 require("dotenv").config();
 const express = require("express");
-
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 
 //Controladores
-const { listPosts, getPost } = require("./controllers/posts");
+const { listPosts, getPost, newPost } = require("./controllers/posts");
 
 const { PORT } = process.env;
 
@@ -12,7 +13,15 @@ const { PORT } = process.env;
 const app = express();
 
 //Aplico middlewares
+
+//Logger
 app.use(morgan("dev"));
+
+//Body parser (body en JSON)
+app.use(bodyParser.json());
+
+//Body parser (multipart form data <= subida de imágenes)
+app.use(fileUpload());
 
 //Rutas de la API
 
@@ -23,6 +32,10 @@ app.get("/posts", listPosts);
 //GET - /posts/:id
 //Devuelve el detalle de un post
 app.get("/posts/:id", getPost);
+
+//POST - /posts
+//Crea un nuevo post
+app.post("/posts", newPost);
 
 //Middleware de error
 app.use((error, req, res, next) => {

@@ -11,7 +11,7 @@ const getPost = async (req, res, next) => {
     const [result] = await connection.query(
       `
     SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, posts.comment, COUNT(link_likes.love) AS loves
-    FROM posts INNER JOIN link_likes ON (posts.id = link_likes.post_id)
+    FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
     WHERE posts.id = ?
     `,
       [id]

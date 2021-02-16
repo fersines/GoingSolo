@@ -1,0 +1,12 @@
+Registro de Uuario.
+Login de Usuario.
+Lista de Posts de Usuario (ordenar por fecha o por likes).
+Lista de Posts General (ordenar por fecha o por likes).
+Búsqueda de Posts.
+Detalle de un Post.
+Añadir Post.
+Votar Post.
+Eliminar Post.
+Lista de Usuarios.
+Detalle de Usuario.
+Eliminar Usuario.
