@@ -14,6 +14,7 @@ const deletePost = async (req, res, next) => {
       [id]
     );
 
+    //Si no existe devolver un 404
     if (current.length === 0) {
       const error = new Error("No hay ningún Post con ese id en la BBDD");
       error.httpStatus = 404;

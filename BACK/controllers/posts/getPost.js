@@ -12,6 +12,7 @@ const getPost = async (req, res, next) => {
       `
     SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, posts.story, COUNT(link_likes.love) AS loves
     FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
+    LEFT JOIN link_comments ON (posts.id = link_comments.post_id)
     WHERE posts.id = ?
     `,
       [id]
