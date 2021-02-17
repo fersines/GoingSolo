@@ -5,7 +5,14 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
 //Controladores
-const { listPosts, getPost, newPost } = require("./controllers/posts");
+const {
+  listPosts,
+  getPost,
+  newPost,
+  editPost,
+  deleletePost,
+  deletePost,
+} = require("./controllers/posts");
 
 const { PORT } = process.env;
 
@@ -36,6 +43,14 @@ app.get("/posts/:id", getPost);
 //POST - /posts
 //Crea un nuevo post
 app.post("/posts", newPost);
+
+//PUT - /posts
+//Edita un post
+app.put("/posts/:id", editPost);
+
+//DELETE - /posts/:id
+//Borra un post de la BBDD
+app.delete("/posts/:id", deletePost);
 
 //Middleware de error
 app.use((error, req, res, next) => {

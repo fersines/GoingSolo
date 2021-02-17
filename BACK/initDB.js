@@ -16,6 +16,9 @@ async function main() {
     await connection.query("DROP TABLE IF EXISTS link_likes");
     console.log("Tabla lin_likes borrada!");
 
+    await connection.query("DROP TABLE IF EXISTS link_comments");
+    console.log("Tabla link_comments borrada!");
+
     //Creo una tabla de links publicados
     await connection.query(`
             CREATE TABLE posts (
@@ -23,7 +26,7 @@ async function main() {
                 date DATETIME NOT NULL,
                 link VARCHAR(500) NOT NULL,
                 title VARCHAR(150) NOT NULL,
-                comment VARCHAR(1000) NOT NULL,
+                story VARCHAR(1000) NOT NULL,
                 post_user_id INT NOT NULl
             );
         `);
@@ -40,6 +43,18 @@ async function main() {
     `);
     console.log("Tabla link_likes creada!");
 
+    //Creo una tabla de comentarios a los posts
+    await connection.query(`
+            CREATE TABLE link_comments (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                comment_date DATETIME NOT NULL,
+                comment VARCHAR(500) NOT NULL,
+                comment_user_id INT NOT NULL,
+                post_id INT NOT NULL
+            );
+    `);
+    console.log("Tabla link_comments creada!");
+
     //Introduzco varios posts de prueba
     const posts = 25;
 
@@ -50,7 +65,7 @@ async function main() {
           date, 
           link, 
           title, 
-          comment,
+          story,
           post_user_id
           )
         VALUES (
@@ -82,6 +97,27 @@ async function main() {
       `);
     }
     console.log("Votos de prueba creados");
+
+    const comments = 100;
+
+    for (let index = 0; index < comments; index++) {
+      const now = new Date();
+      await connection.query(`
+        INSERT INTO link_comments(
+          comment_date,
+          comment,
+          comment_user_id,
+          post_id 
+          )
+        VALUES (
+          "${formateDateToDB(now)}",
+          "${faker.lorem.paragraph()}",
+          "${faker.random.number(999)}",
+          "${random(1, 25)}"
+          )
+      `);
+    }
+    console.log("Comentarios de prueba creados");
   } catch (error) {
     console.error(error);
   } finally {

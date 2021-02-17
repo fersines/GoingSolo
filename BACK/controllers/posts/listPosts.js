@@ -16,8 +16,8 @@ const listPosts = async (req, res, next) => {
         `
       SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, COUNT(link_likes.love) AS loves
       FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
-      WHERE posts.title LIKE ? OR posts.comment LIKE ? OR posts.post_user_id LIKE ?
-      GROUP BY posts.id, posts.title, posts.comment, posts.post_user_id
+      WHERE posts.title LIKE ? OR posts.story LIKE ? OR posts.post_user_id LIKE ?
+      GROUP BY posts.id, posts.title, posts.story, posts.post_user_id
       ORDER BY loves DESC;
         `,
         [`%${search}%`, `%${search}%`, `%${search}%`]
@@ -27,7 +27,7 @@ const listPosts = async (req, res, next) => {
       [results] = await connection.query(`
       SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, COUNT(link_likes.love) AS loves
       FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
-      GROUP BY posts.id, posts.title, posts.comment, posts.post_user_id
+      GROUP BY posts.id, posts.title, posts.story, posts.post_user_id
       ORDER BY loves DESC;
         `);
     }

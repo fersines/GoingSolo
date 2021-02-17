@@ -7,9 +7,9 @@ const newPost = async (req, res, next) => {
   try {
     connection = await getDB();
 
-    const { link, title, comment, post_user_id } = req.body;
+    const { link, title, story, post_user_id } = req.body;
 
-    if (!link || !title || !comment || !post_user_id) {
+    if (!link || !title || !story || !post_user_id) {
       const error = new Error("Faltan campos");
       error.httpStatus = 400;
       throw error;
@@ -19,10 +19,10 @@ const newPost = async (req, res, next) => {
 
     const [result] = await connection.query(
       `
-        INSERT INTO posts (date, link, title, comment, post_user_id)
+        INSERT INTO posts (date, link, title, story, post_user_id)
         VALUES (?,?,?,?,?);
         `,
-      [formateDateToDB(now), link, title, comment, post_user_id]
+      [formateDateToDB(now), link, title, story, post_user_id]
     );
 
     const { insertId } = result;
@@ -34,7 +34,7 @@ const newPost = async (req, res, next) => {
         date: now,
         link,
         title,
-        comment,
+        story,
         post_user_id,
         loves: 0,
       },
