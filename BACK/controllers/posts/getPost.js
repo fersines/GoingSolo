@@ -12,7 +12,6 @@ const getPost = async (req, res, next) => {
       `
     SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, posts.story, COUNT(link_likes.love) AS loves
     FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
-    LEFT JOIN link_comments ON (posts.id = link_comments.post_id)
     WHERE posts.id = ?
     `,
       [id]
@@ -27,9 +26,20 @@ const getPost = async (req, res, next) => {
       throw error;
     }
 
+    //Saco los comentarios de otra manera
+    const [comments] = await connection.query(
+      `
+      SELECT comment, comment_date FROM link_comments WHERE post_id=?
+    `,
+      [id]
+    );
+
     res.send({
       status: "Ok",
-      data: single,
+      data: {
+        ...single,
+        comments,
+      },
     });
   } catch (error) {
     next(error);

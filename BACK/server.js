@@ -10,7 +10,6 @@ const {
   getPost,
   newPost,
   editPost,
-  deleletePost,
   deletePost,
 } = require("./controllers/posts");
 
