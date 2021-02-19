@@ -13,6 +13,7 @@ const {
   deletePost,
   newComment,
   editComment,
+  deleteComment,
 } = require("./controllers/posts");
 
 const { PORT } = process.env;
@@ -60,6 +61,10 @@ app.post("/comments", newComment);
 //PUT - /comments/:id
 //Edita un comentario
 app.put("/comments/:id", editComment);
+
+//DELETE - /comments/:id
+//Borra un comentario de la BBDD
+app.delete("/comments/:id", deleteComment);
 
 //Middleware de error
 app.use((error, req, res, next) => {
