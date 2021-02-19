@@ -8,18 +8,6 @@ const editPost = async (req, res, next) => {
 
     const { id } = req.params;
 
-    //Compruebo si existe ese Post
-    const [current] = await connection.query(
-      `SELECT id FROM posts WHERE id=?`,
-      [id]
-    );
-
-    if (current.length === 0) {
-      const error = new Error("No hay ningún Post con ese id en la BBDD");
-      error.httpStatus = 404;
-      throw error;
-    }
-
     //Comprobar que vienen los datos mínimos
     const { date, link, title, story } = req.body;
 

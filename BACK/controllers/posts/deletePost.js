@@ -8,19 +8,6 @@ const deletePost = async (req, res, next) => {
 
     const { id } = req.params;
 
-    //Compruebo si existe ese Post
-    const [current] = await connection.query(
-      `SELECT id FROM posts WHERE id=?`,
-      [id]
-    );
-
-    //Si no existe devolver un 404
-    if (current.length === 0) {
-      const error = new Error("No hay ningún Post con ese id en la BBDD");
-      error.httpStatus = 404;
-      throw error;
-    }
-
     //Borrar los posibles comentarios comentarios asociados a ese Post
     await connection.query(
       `SELECT comment FROM link_comments WHERE post_id=?`,

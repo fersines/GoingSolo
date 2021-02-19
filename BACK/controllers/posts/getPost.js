@@ -19,13 +19,6 @@ const getPost = async (req, res, next) => {
 
     const [single] = result;
 
-    if (single.id === null) {
-      //El post no existe
-      const error = new Error("El post no existe");
-      error.httpStatus = 404;
-      throw error;
-    }
-
     //Saco los comentarios de otra manera
     const [comments] = await connection.query(
       `

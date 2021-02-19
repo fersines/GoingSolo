@@ -16,6 +16,10 @@ const {
   deleteComment,
 } = require("./controllers/posts");
 
+//Middlewares
+const postExists = require("./middlewares/postExists");
+const commentExists = require("./middlewares/commentExists");
+
 const { PORT } = process.env;
 
 //Creamos la app de express
@@ -40,7 +44,7 @@ app.get("/posts", listPosts);
 
 //GET - /posts/:id
 //Devuelve el detalle de un post
-app.get("/posts/:id", getPost);
+app.get("/posts/:id", postExists, getPost);
 
 //POST - /posts
 //Crea un nuevo post
@@ -48,11 +52,11 @@ app.post("/posts", newPost);
 
 //PUT - /posts
 //Edita un post
-app.put("/posts/:id", editPost);
+app.put("/posts/:id", postExists, editPost);
 
 //DELETE - /posts/:id
 //Borra un post de la BBDD
-app.delete("/posts/:id", deletePost);
+app.delete("/posts/:id", postExists, deletePost);
 
 //POST - /comments
 //Crea un comentario a un Post
@@ -60,11 +64,11 @@ app.post("/comments", newComment);
 
 //PUT - /comments/:id
 //Edita un comentario
-app.put("/comments/:id", editComment);
+app.put("/comments/:id", commentExists, editComment);
 
 //DELETE - /comments/:id
 //Borra un comentario de la BBDD
-app.delete("/comments/:id", deleteComment);
+app.delete("/comments/:id", commentExists, deleteComment);
 
 //Middleware de error
 app.use((error, req, res, next) => {

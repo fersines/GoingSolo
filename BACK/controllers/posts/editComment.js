@@ -8,17 +8,6 @@ const editComment = async (req, res, next) => {
 
     const { id } = req.params;
 
-    //Compruebo si existe ese Comentario
-    const [
-      current,
-    ] = await connection.query(`SELECT id FROM link_comments WHERE id=?`, [id]);
-
-    if (current.length === 0) {
-      const error = new Error("No hay ningún Comentario con ese id en la BBDD");
-      error.httpStatus = 404;
-      throw error;
-    }
-
     //Compruebo que vienen los datos mínimos
     const { comment_date, comment, comment_user_id, post_id } = req.body;
 
