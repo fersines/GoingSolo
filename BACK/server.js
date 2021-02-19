@@ -11,6 +11,7 @@ const {
   newPost,
   editPost,
   deletePost,
+  newComment,
 } = require("./controllers/posts");
 
 const { PORT } = process.env;
@@ -50,6 +51,10 @@ app.put("/posts/:id", editPost);
 //DELETE - /posts/:id
 //Borra un post de la BBDD
 app.delete("/posts/:id", deletePost);
+
+//POST - /comments
+//Crea un comentario a un Post
+app.post("/comments", newComment);
 
 //Middleware de error
 app.use((error, req, res, next) => {
