@@ -12,6 +12,7 @@ const {
   editPost,
   deletePost,
   newComment,
+  editComment,
 } = require("./controllers/posts");
 
 const { PORT } = process.env;
@@ -55,6 +56,10 @@ app.delete("/posts/:id", deletePost);
 //POST - /comments
 //Crea un comentario a un Post
 app.post("/comments", newComment);
+
+//PUT - /comments/:id
+//Edita un comentario
+app.put("/comments/:id", editComment);
 
 //Middleware de error
 app.use((error, req, res, next) => {
