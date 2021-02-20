@@ -14,6 +14,7 @@ const {
   newComment,
   editComment,
   deleteComment,
+  lovePost,
 } = require("./controllers/posts");
 
 //Middlewares
@@ -69,6 +70,10 @@ app.put("/comments/:id", commentExists, editComment);
 //DELETE - /comments/:id
 //Borra un comentario de la BBDD
 app.delete("/comments/:id", commentExists, deleteComment);
+
+//POST - /posts/:id/loves
+//Da like a un Post
+app.post("/posts/:id/likes", postExists, lovePost);
 
 //Middleware de error
 app.use((error, req, res, next) => {

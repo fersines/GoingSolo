@@ -22,7 +22,7 @@ const getPost = async (req, res, next) => {
     //Saco los comentarios de otra manera
     const [comments] = await connection.query(
       `
-      SELECT comment, comment_date FROM link_comments WHERE post_id=?
+      SELECT id, comment, comment_date FROM link_comments WHERE post_id=?
     `,
       [id]
     );
