@@ -1,5 +1,6 @@
+require("dotenv").config();
 const faker = require("faker");
-const { random } = require("lodash");
+const { random, now } = require("lodash");
 const getDB = require("./db");
 const { formateDateToDB } = require("./helpers");
 
@@ -18,6 +19,25 @@ async function main() {
 
     await connection.query("DROP TABLE IF EXISTS link_comments");
     console.log("Tabla link_comments borrada!");
+
+    await connection.query("DROP TABLE IF EXISTS users");
+    console.log("Tabla de usuarios borrada!");
+
+    //Creo tabla de usuarios
+    await connection.query(`
+      CREATE TABLE users (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        date DATETIME NOT NULL,
+        email VARCHAR(500) UNIQUE NOT NULL,
+        password VARCHAR(500) NOT NULL,
+        name VARCHAR(100),
+        avatar VARCHAR(50),
+        active BOOLEAN DEFAULT false,
+        role ENUM("admin", "normal") DEFAULT "normal" NOT NULL,
+        registrationCode VARCHAR(100)
+      )
+    `);
+    console.log("Tabla users creada!");
 
     //Creo una tabla de links publicados
     await connection.query(`
@@ -38,6 +58,7 @@ async function main() {
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 love_date DATETIME NOT NULL,
                 love TINYINT NOT NULL,
+                love_user_id INT NOT NULL,
                 post_id INT NOT NULL
             );
     `);
@@ -54,6 +75,20 @@ async function main() {
             );
     `);
     console.log("Tabla link_comments creada!");
+
+    //Meto datos de prueba
+
+    //Introduzco un usuario administrador
+    await connection.query(`
+              INSERT INTO users(date, email, password, name, active, role)
+              VALUES ("${formateDateToDB(
+                new Date()
+              )}", "fsinesc@gmail.com", SHA2(${
+      process.env.ADMIN_PASSWORD
+    }, 512), "Fernando Sines", true, "admin");
+    `);
+
+    //Introduzco varios usuarios de prueba
 
     //Introduzco varios posts de prueba
     const posts = 100;

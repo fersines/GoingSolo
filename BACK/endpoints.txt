@@ -1,16 +1,23 @@
-Registro de Uuario.
-Login de Usuario.
-Lista de Posts de Usuario (ordenar por fecha o por likes).
-Lista de Posts General (ordenar por fecha o por likes).
-Búsqueda de Posts.
-Detalle de un Post.
-Añadir Post.
-Votar Post.
-Eliminar Post.
-Editar Post.
-Añadir Comentario.
-Editar Comentario.
-Borrar Comentario.
-Lista de Usuarios.
-Detalle de Usuario.
-Eliminar Usuario.
+API Endpoints:
+
+Entradas de Post:
+
+    - Lista de Posts General (ordenar por fecha o por likes).
+    - Búsqueda de Posts.
+    - Detalle de un Post.
+    - Añadir Post.
+    - Votar Post.
+    - Eliminar Post.
+    - Editar Post.
+    - Añadir Comentario.
+    - Editar Comentario.
+    - Borrar Comentario.
+
+Entradas de Usuario:
+
+    - Registro de Uuario.
+    - Login de Usuario.
+    - Lista de Posts de Usuario (ordenar por fecha o por likes).
+    - Lista de Usuarios.
+    - Detalle de Usuario.
+    - Eliminar Usuario.
