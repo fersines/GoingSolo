@@ -56,7 +56,7 @@ async function main() {
     console.log("Tabla link_comments creada!");
 
     //Introduzco varios posts de prueba
-    const posts = 25;
+    const posts = 100;
 
     for (let index = 0; index < posts; index++) {
       const now = new Date();
@@ -92,7 +92,7 @@ async function main() {
         VALUES (
           "${formateDateToDB(now)}",
           "${random(1, 2)}",
-          "${random(1, 25)}"
+          "${random(1, 75)}"
           )
       `);
     }
@@ -113,7 +113,7 @@ async function main() {
           "${formateDateToDB(now)}",
           "${faker.lorem.paragraph()}",
           "${faker.random.number(999)}",
-          "${random(1, 25)}"
+          "${random(1, 100)}"
           )
       `);
     }

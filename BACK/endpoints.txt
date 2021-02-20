@@ -7,6 +7,10 @@ Detalle de un Post.
 Añadir Post.
 Votar Post.
 Eliminar Post.
+Editar Post.
+Añadir Comentario.
+Editar Comentario.
+Borrar Comentario.
 Lista de Usuarios.
 Detalle de Usuario.
 Eliminar Usuario.
