@@ -2,11 +2,14 @@ const { format } = require("date-fns");
 const sharp = require("sharp");
 const uuid = require("uuid");
 const path = require("path");
+const crypto = require("crypto");
+const sgMail = require("@sendgrid/mail");
 const { ensureDir, unlink } = require("fs-extra");
 const { fstat } = require("fs");
 
 const { UPLOADS_DIRECTORY } = process.env;
 const uploadsDir = path.join(__dirname, UPLOADS_DIRECTORY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function formateDateToDB(dateObject) {
   return format(dateObject, "yyyy-MM-dd HH:mm:ss");
@@ -46,8 +49,35 @@ async function saveImage(imageData) {
   return savedImageName;
 }
 
+function generateRandomString(length) {
+  return crypto.randomBytes(length).toString("hex");
+}
+
+async function sendMail({ to, subject, body }) {
+  try {
+    const msg = {
+      to,
+      from: process.env.SENDGRID_FROM,
+      subject,
+      text: body,
+      html: `
+        <div>
+          <h1>${subject}</h1>
+          <p>${body}</p>
+        </div>
+      `,
+    };
+
+    await sgMail.send(msg);
+  } catch (error) {
+    throw new Error("Error enviando mail");
+  }
+}
+
 module.exports = {
   formateDateToDB,
   saveImage,
   deletePhoto,
+  generateRandomString,
+  sendMail,
 };

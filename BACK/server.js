@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
-//Controladores
+//Controladores de Posts
 const {
   listPosts,
   getPost,
@@ -16,6 +16,9 @@ const {
   deleteComment,
   lovePost,
 } = require("./controllers/posts");
+
+//Controladores de Usuarios
+const { newUser, validateUser } = require("./controllers/users");
 
 //Middlewares
 const postExists = require("./middlewares/postExists");
@@ -37,7 +40,7 @@ app.use(bodyParser.json());
 //Body parser (multipart form data <= subida de imágenes)
 app.use(fileUpload());
 
-//Rutas de la API
+//Rutas de la API para Posts
 
 //GET - /posts
 //Devuelve todos los posts publicados
@@ -74,6 +77,16 @@ app.delete("/comments/:id", commentExists, deleteComment);
 //POST - /posts/:id/loves
 //Da like a un Post
 app.post("/posts/:id/likes", postExists, lovePost);
+
+//Rutas de la API para Posts
+
+//POST - /users
+//Registra un nuevo usuario sin validar
+app.post("/users", newUser);
+
+//GET - /users/validate/:registrationCode
+//Valida un usuario recien dado de alta
+app.get("/users/validate/:registrationCode", validateUser);
 
 //Middleware de error
 app.use((error, req, res, next) => {

@@ -89,6 +89,18 @@ async function main() {
     `);
 
     //Introduzco varios usuarios de prueba
+    const users = 20;
+
+    for (let index = 0; index < users; index++) {
+      const now = new Date();
+
+      await connection.query(`
+        INSERT INTO users(date, email, password, name, active)
+        VALUES("${formateDateToDB(
+          now
+        )}", "${faker.internet.email()}",SHA2("${faker.internet.password()}", 512), "${faker.name.findName()}", true)
+      `);
+    }
 
     //Introduzco varios posts de prueba
     const posts = 100;
@@ -108,13 +120,13 @@ async function main() {
           "${faker.internet.url()}",
           "${faker.lorem.words(7)}",
           "${faker.lorem.paragraph(1)}",
-          "${faker.random.number(999)}"
+          ${random(2, users + 1)}
           )
       `);
     }
     console.log("Posts de prueba creados");
 
-    const likes = 100;
+    const likes = 200;
 
     for (let index = 0; index < likes; index++) {
       const now = new Date();
@@ -122,12 +134,14 @@ async function main() {
         INSERT INTO link_likes(
           love_date,
           love,
+          love_user_id,
           post_id
           )
         VALUES (
           "${formateDateToDB(now)}",
-          "${random(1, 2)}",
-          "${random(1, 75)}"
+          ${random(1, 2)},
+          ${random(2, users + 1)},
+          ${random(1, 75)}
           )
       `);
     }
@@ -147,8 +161,8 @@ async function main() {
         VALUES (
           "${formateDateToDB(now)}",
           "${faker.lorem.paragraph()}",
-          "${faker.random.number(999)}",
-          "${random(1, 100)}"
+          ${random(2, users + 1)},
+          ${random(1, 100)}
           )
       `);
     }
