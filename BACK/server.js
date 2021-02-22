@@ -23,6 +23,7 @@ const { newUser, validateUser, loginUser } = require("./controllers/users");
 //Middlewares
 const postExists = require("./middlewares/postExists");
 const commentExists = require("./middlewares/commentExists");
+const isUser = require("./middlewares/isUser");
 
 const { PORT } = process.env;
 
@@ -50,9 +51,9 @@ app.get("/posts", listPosts);
 //Devuelve el detalle de un post
 app.get("/posts/:id", postExists, getPost);
 
-//POST - /posts
+//POST - /posts (con Token)
 //Crea un nuevo post
-app.post("/posts", newPost);
+app.post("/posts", isUser, newPost);
 
 //PUT - /posts
 //Edita un post

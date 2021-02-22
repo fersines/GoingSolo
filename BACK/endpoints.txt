@@ -4,18 +4,21 @@ Entradas de Post:
 
     - GET - /posts - Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). ✅
     - GET - /posts/:id - Detalle de un Post. ✅
-    - POST - /posts - Añadir nuevo Post. ✅
+    - POST - /posts - Añadir nuevo Post. ✅ 
     - POST - /posts/:id/loves - Votar Post. ✅
     - DELETE - /posts/:id - Eliminar Post. ✅
-    - PUT - /posts - Editar Post. ✅
+    - PUT - /posts - Editar Post. ✅ (Tanto por user normal o admin)
     - POST - /comments - Añadir Comentario. ✅
     - PUT - /comments/:id - Editar Comentario. ✅
     - DELETE - /comments/:id - Borrar Comentario. ✅
 
+    Para todas las entradas anteriores sería necesario Token, ya que partimos de de la idea de sólo 
+    los usuarios logados tienen acceso a los Posts publicados.
+
 Entradas de Usuario:
 
-    - Registro de Usuario.
-    - Login de Usuario.
+    - Registro de Usuario. ✅
+    - Login de Usuario. ✅
     - Lista de Posts de Usuario (ordenar por fecha o por likes).
     - Lista de Usuarios.
     - Detalle de Usuario.

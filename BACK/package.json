@@ -1,7 +1,7 @@
 {
   "name": "goingsolo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Un menéame de Hacendado, Link it UP!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
