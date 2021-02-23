@@ -8,7 +8,6 @@ const isUser = async (req, res, next) => {
     connection = await getDB();
 
     const { authorization } = req.headers;
-    console.log(authorization);
 
     //Si no hay auth devuelvo error
     if (!authorization) {

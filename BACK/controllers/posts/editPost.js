@@ -1,5 +1,6 @@
 const getDB = require("../../db");
 const { formateDateToDB } = require("../../helpers");
+const { differenceInHours } = require("date-fns");
 
 const editPost = async (req, res, next) => {
   let connection;
@@ -7,6 +8,40 @@ const editPost = async (req, res, next) => {
     connection = await getDB();
 
     const { id } = req.params;
+
+    //Seleccionar el Post para sacar quien la creó
+    const [post] = await connection.query(
+      `
+      SELECT date, post_user_id
+      FROM posts
+      WHERE id=?
+    `,
+      [id]
+    );
+
+    //Comprobar que el usuario creador sea el mismo que el del Token
+    if (
+      post[0].post_user_id !== req.userAuth.id &&
+      req.userAuth.role !== "admin"
+    ) {
+      const error = new Error("No tienes permisos para editar este Post");
+      error.httpStatus = 401;
+      throw error;
+    }
+
+    //Comprobar que el Token no está "caducado"
+    const difference = differenceInHours(new Date(), new Date(post[0].date));
+
+    if (
+      difference > Number(process.env.MAX_EDIT_POST_MARGIN) &&
+      req.userAuth.role !== "admin"
+    ) {
+      const error = new Error(
+        `No es posible editar un Post si han pasado más de ${process.env.MAX_EDIT_POST_MARGIN} horas desde su publicación y han pasado ya ${difference} horas.`
+      );
+      error.httpStatus = 403;
+      throw error;
+    }
 
     //Comprobar que vienen los datos mínimos
     const { date, link, title, story } = req.body;

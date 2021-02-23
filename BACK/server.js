@@ -57,7 +57,7 @@ app.post("/posts", isUser, newPost);
 
 //PUT - /posts
 //Edita un post
-app.put("/posts/:id", postExists, editPost);
+app.put("/posts/:id", isUser, postExists, editPost);
 
 //DELETE - /posts/:id
 //Borra un post de la BBDD
