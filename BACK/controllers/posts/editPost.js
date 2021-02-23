@@ -1,5 +1,4 @@
 const getDB = require("../../db");
-const { formateDateToDB } = require("../../helpers");
 const { differenceInHours } = require("date-fns");
 
 const editPost = async (req, res, next) => {
@@ -41,8 +40,6 @@ const editPost = async (req, res, next) => {
       error.httpStatus = 400;
       throw error;
     }
-
-    const dbDate = new Date(date);
 
     //Hacemos el UPDATE
     await connection.query(

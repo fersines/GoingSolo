@@ -21,10 +21,13 @@ const {
 const { newUser, validateUser, loginUser } = require("./controllers/users");
 
 //Middlewares
-const postExists = require("./middlewares/postExists");
-const commentExists = require("./middlewares/commentExists");
-const isUser = require("./middlewares/isUser");
-const canEditPost = require("./middlewares/canEditPost");
+const {
+  canEditComment,
+  canEditPost,
+  commentExists,
+  isUser,
+  postExists,
+} = require("./middlewares");
 
 const { PORT } = process.env;
 
@@ -70,11 +73,17 @@ app.post("/comments", isUser, newComment);
 
 //PUT - /comments/:id
 //Edita un comentario
-app.put("/comments/:id", isUser, commentExists, editComment);
+app.put("/comments/:id", isUser, commentExists, canEditComment, editComment);
 
 //DELETE - /comments/:id
 //Borra un comentario de la BBDD
-app.delete("/comments/:id", isUser, commentExists, deleteComment);
+app.delete(
+  "/comments/:id",
+  isUser,
+  commentExists,
+  canEditComment,
+  deleteComment
+);
 
 //POST - /posts/:id/loves
 //Da like a un Post

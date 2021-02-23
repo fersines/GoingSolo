@@ -1,6 +1,6 @@
 require("dotenv").config();
 const faker = require("faker");
-const { random, now } = require("lodash");
+const { random } = require("lodash");
 const getDB = require("./db");
 const { formateDateToDB } = require("./helpers");
 

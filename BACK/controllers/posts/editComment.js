@@ -1,5 +1,6 @@
 const getDB = require("../../db");
 const { formateDateToDB } = require("../../helpers");
+const { differenceInHours } = require("date-fns");
 
 const editComment = async (req, res, next) => {
   let connection;
@@ -8,10 +9,34 @@ const editComment = async (req, res, next) => {
 
     const { id } = req.params;
 
-    //Compruebo que vienen los datos mínimos
-    const { comment_date, comment, comment_user_id, post_id } = req.body;
+    //Seleccionar el Comentario para sacar la fecha
+    const [actual] = await connection.query(
+      `
+      SELECT comment_date
+      FROM link_comments
+      WHERE id=?
+    `,
+      [id]
+    );
 
-    if (!comment || !comment_user_id || !post_id) {
+    //Comprobar que el Token no está "caducado"
+    const difference = differenceInHours(new Date(), new Date(actual[0].date));
+
+    if (
+      difference > Number(process.env.MAX_EDIT_COMMENT_MARGIN) &&
+      req.userAuth.role !== "admin"
+    ) {
+      const error = new Error(
+        `No es posible editar un Comentario si han pasado más de ${process.env.MAX_EDIT_COMMENT_MARGIN} horas desde su publicación y han pasado ya ${difference} horas.`
+      );
+      error.httpStatus = 403;
+      throw error;
+    }
+
+    //Compruebo que vienen los datos mínimos
+    const { comment } = req.body;
+
+    if (!comment) {
       const error = new Error("Faltan campos!");
       error.httpStatus = 400;
       throw error;
@@ -22,17 +47,17 @@ const editComment = async (req, res, next) => {
     //Hacemos el UPDATE
     await connection.query(
       `
-        UPDATE link_comments SET comment_date=?, comment=?, comment_user_id=?, post_id=?;`,
-      [formateDateToDB(dbDate), comment, comment_user_id, post_id]
+        UPDATE link_comments SET comment_date=?, comment=? WHERE id=?;`,
+      [new Date(), comment, id]
     );
+
     res.send({
       status: "Ok",
       data: {
         id,
-        comment_date,
+        dbDate,
         comment,
-        comment_user_id,
-        post_id,
+        user: req.userAuth.id,
       },
     });
   } catch (error) {
