@@ -24,6 +24,7 @@ const { newUser, validateUser, loginUser } = require("./controllers/users");
 const postExists = require("./middlewares/postExists");
 const commentExists = require("./middlewares/commentExists");
 const isUser = require("./middlewares/isUser");
+const canEditPost = require("./middlewares/canEditPost");
 
 const { PORT } = process.env;
 
@@ -45,11 +46,11 @@ app.use(fileUpload());
 
 //GET - /posts
 //Devuelve todos los posts publicados
-app.get("/posts", listPosts);
+app.get("/posts", isUser, listPosts);
 
 //GET - /posts/:id
 //Devuelve el detalle de un post
-app.get("/posts/:id", postExists, getPost);
+app.get("/posts/:id", isUser, postExists, getPost);
 
 //POST - /posts (con Token)
 //Crea un nuevo post
@@ -57,29 +58,29 @@ app.post("/posts", isUser, newPost);
 
 //PUT - /posts
 //Edita un post
-app.put("/posts/:id", isUser, postExists, editPost);
+app.put("/posts/:id", isUser, postExists, canEditPost, editPost);
 
 //DELETE - /posts/:id
 //Borra un post de la BBDD
-app.delete("/posts/:id", postExists, deletePost);
+app.delete("/posts/:id", isUser, postExists, canEditPost, deletePost);
 
 //POST - /comments
 //Crea un comentario a un Post
-app.post("/comments", newComment);
+app.post("/comments", isUser, newComment);
 
 //PUT - /comments/:id
 //Edita un comentario
-app.put("/comments/:id", commentExists, editComment);
+app.put("/comments/:id", isUser, commentExists, editComment);
 
 //DELETE - /comments/:id
 //Borra un comentario de la BBDD
-app.delete("/comments/:id", commentExists, deleteComment);
+app.delete("/comments/:id", isUser, commentExists, deleteComment);
 
 //POST - /posts/:id/loves
 //Da like a un Post
-app.post("/posts/:id/likes", postExists, lovePost);
+app.post("/posts/:id/likes", isUser, postExists, lovePost);
 
-//Rutas de la API para Posts
+//Rutas de la API para Users
 
 //POST - /users
 //Registra un nuevo usuario sin validar

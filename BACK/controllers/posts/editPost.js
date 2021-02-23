@@ -9,25 +9,15 @@ const editPost = async (req, res, next) => {
 
     const { id } = req.params;
 
-    //Seleccionar el Post para sacar quien la creó
+    //Seleccionar el Post para sacar la fecha
     const [post] = await connection.query(
       `
-      SELECT date, post_user_id
+      SELECT date
       FROM posts
       WHERE id=?
     `,
       [id]
     );
-
-    //Comprobar que el usuario creador sea el mismo que el del Token
-    if (
-      post[0].post_user_id !== req.userAuth.id &&
-      req.userAuth.role !== "admin"
-    ) {
-      const error = new Error("No tienes permisos para editar este Post");
-      error.httpStatus = 401;
-      throw error;
-    }
 
     //Comprobar que el Token no está "caducado"
     const difference = differenceInHours(new Date(), new Date(post[0].date));
@@ -46,7 +36,7 @@ const editPost = async (req, res, next) => {
     //Comprobar que vienen los datos mínimos
     const { date, link, title, story } = req.body;
 
-    if (!date || !link || !title || !story) {
+    if (!link || !title || !story) {
       const error = new Error("Faltan campos!");
       error.httpStatus = 400;
       throw error;
@@ -58,7 +48,7 @@ const editPost = async (req, res, next) => {
     await connection.query(
       `
         UPDATE posts SET date=?, link=?, title=?, story=? WHERE id=?;`,
-      [formateDateToDB(dbDate), link, title, story, id]
+      [new Date(), link, title, story, id]
     );
     res.send({
       status: "Ok",
