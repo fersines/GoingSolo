@@ -18,7 +18,12 @@ const {
 } = require("./controllers/posts");
 
 //Controladores de Usuarios
-const { newUser, validateUser, loginUser } = require("./controllers/users");
+const {
+  newUser,
+  validateUser,
+  loginUser,
+  getUser,
+} = require("./controllers/users");
 
 //Middlewares
 const {
@@ -102,6 +107,10 @@ app.get("/users/validate/:registrationCode", validateUser);
 //POST - /users/login
 //Hace login de un Usuario
 app.post("/users/login", loginUser);
+
+//GET - /users/:id
+//Devuelve el detalle de un usuario
+app.get("/users/:id", isUser, getUser);
 
 //Middleware de error
 app.use((error, req, res, next) => {

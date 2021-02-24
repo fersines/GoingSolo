@@ -17,9 +17,10 @@ Entradas de Post:
 
 Entradas de Usuario:
 
-    - Registro de Usuario. ✅
-    - Login de Usuario. ✅
-    - Lista de Posts de Usuario (ordenar por fecha o por likes).
-    - Lista de Usuarios.
-    - Detalle de Usuario.
-    - Eliminar Usuario.
+    - POST - /users - Registro de Usuario sin validar. ✅
+    - GET - /users/validate/:registrationCode Validar Usuario. ✅
+    - POST - /users/login - Login de Usuario. ✅
+    - GET - /users/:id/posts - Lista de Posts de Usuario (ordenar por fecha o por likes).
+    - GET - /users/list - Lista de Usuarios.
+    - GET - /users/:id - Detalle de Usuario.
+    - DELETE - /users/:id - Eliminar Usuario.
