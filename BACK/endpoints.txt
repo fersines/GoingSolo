@@ -5,7 +5,7 @@ Entradas de Post:
     - GET - /posts - Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). ✅
     - GET - /posts/:id - Detalle de un Post. ✅
     - POST - /posts - Añadir nuevo Post. ✅ 
-    - POST - /posts/:id/loves - Votar Post. ✅
+    - POST - /posts/:id/loves - Votar Post. ✅ Sin que se pueda votar más de una vez el mismo Post o a tu propio Post.
     - DELETE - /posts/:id - Eliminar Post. ✅
     - PUT - /posts - Editar Post. ✅ (Tanto por user normal o admin)
     - POST - /comments - Añadir Comentario. ✅

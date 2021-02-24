@@ -1,5 +1,4 @@
 const getDB = require("../../db");
-const { formateDateToDB } = require("../../helpers");
 const { differenceInHours } = require("date-fns");
 
 const editComment = async (req, res, next) => {
