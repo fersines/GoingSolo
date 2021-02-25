@@ -33,8 +33,10 @@ async function main() {
         name VARCHAR(100),
         avatar VARCHAR(50),
         active BOOLEAN DEFAULT false,
+        deleted BOOLEAN DEFAULT false,
         role ENUM("admin", "normal") DEFAULT "normal" NOT NULL,
-        registrationCode VARCHAR(100)
+        registrationCode VARCHAR(100),
+        lastAuthUpdate DATETIME
       )
     `);
     console.log("Tabla users creada!");

@@ -23,6 +23,7 @@ const {
   validateUser,
   loginUser,
   getUser,
+  deleteUser,
 } = require("./controllers/users");
 
 //Middlewares
@@ -32,6 +33,7 @@ const {
   commentExists,
   isUser,
   postExists,
+  userExists,
 } = require("./middlewares");
 
 const { PORT } = process.env;
@@ -110,7 +112,11 @@ app.post("/users/login", loginUser);
 
 //GET - /users/:id
 //Devuelve el detalle de un usuario
-app.get("/users/:id", isUser, getUser);
+app.get("/users/:id", userExists, isUser, getUser);
+
+//DELETE - /users/:id
+//"Desactiva" el usuario
+app.delete("/users/:id", userExists, isUser, deleteUser);
 
 //Middleware de error
 app.use((error, req, res, next) => {
