@@ -1,4 +1,3 @@
-const { send } = require("@sendgrid/mail");
 const getDB = require("../../db");
 const { generateRandomString, sendMail } = require("../../helpers");
 

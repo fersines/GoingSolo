@@ -21,7 +21,7 @@ async function deletePhoto(photo) {
   await unlink(photoPath);
 }
 
-async function saveImage(imageData) {
+async function savePhoto(imageData) {
   //imageData es el objeto con información de la imagen
 
   //Asegurar que exista el directorio de subida
@@ -76,7 +76,7 @@ async function sendMail({ to, subject, body }) {
 
 module.exports = {
   formateDateToDB,
-  saveImage,
+  savePhoto,
   deletePhoto,
   generateRandomString,
   sendMail,
