@@ -44,7 +44,7 @@ const editUser = async (req, res, next) => {
     }
 
     //Si el mail nuevo es distinto al de BBDD procesamos el nuevo
-    if (email !== currentUser[0].email) {
+    if (email && email !== currentUser[0].email) {
       //Comprobar que no exista ya ese mail en BBDD
       const [existinEmail] = await connection.query(
         `

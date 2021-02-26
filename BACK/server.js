@@ -25,6 +25,7 @@ const {
   getUser,
   deleteUser,
   editUser,
+  editUserPassword,
 } = require("./controllers/users");
 
 //Middlewares
@@ -122,6 +123,10 @@ app.delete("/users/:id", userExists, isUser, deleteUser);
 //PUT - /users/:id
 //Edita los datos de un usuario
 app.put("/users/:id", userExists, isUser, editUser);
+
+//PUT - /users/:id/password
+//Edita la contraseña de un usuario
+app.put("/users/:id/password", userExists, isUser, editUserPassword);
 
 //Middleware de error
 app.use((error, req, res, next) => {

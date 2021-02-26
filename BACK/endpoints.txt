@@ -22,7 +22,7 @@ Entradas de Usuario:
     - POST - /users/login - Login de Usuario. ✅
     - GET - /users/:id/posts - Lista de Posts de Usuario (ordenar por fecha o por likes).
     - GET - /users/list - Lista de Usuarios.
-    - GET - /users/:id - Detalle de Usuario.
+    - GET - /users/:id - Detalle de Usuario. ✅
     - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). ✅
     - PUT - /users/:id - Editar Usuario. ✅
     - PUT - /users/:id/password - Editar contraseña de Usuario (cada uno la suya).
