@@ -28,6 +28,7 @@ const {
   editUserPassword,
   recoverUserPassword,
   resetUserPassword,
+  listUsers,
 } = require("./controllers/users");
 
 //Middlewares
@@ -113,6 +114,10 @@ app.get("/users/validate/:registrationCode", validateUser);
 //POST - /users/login
 //Hace login de un Usuario
 app.post("/users/login", loginUser);
+
+//GET - /users
+//Devuelve el listado de todos los usuarios
+app.get("/users", listUsers);
 
 //GET - /users/:id
 //Devuelve el detalle de un usuario
