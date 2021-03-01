@@ -36,7 +36,8 @@ async function main() {
         deleted BOOLEAN DEFAULT false,
         role ENUM("admin", "normal") DEFAULT "normal" NOT NULL,
         registrationCode VARCHAR(100),
-        lastAuthUpdate DATETIME
+        lastAuthUpdate DATETIME,
+        recoverCode VARCHAR(100)
       )
     `);
     console.log("Tabla users creada!");

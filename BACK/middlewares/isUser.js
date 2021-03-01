@@ -26,6 +26,25 @@ const isUser = async (req, res, next) => {
       throw error;
     }
 
+    //Comprobar que el Token no se generase antes del cambio de password
+    const [result] = await connection.query(
+      `
+      SELECT lastAuthUpdate
+      FROM users
+      WHERE id=?
+    `,
+      [tokenInfo.id]
+    );
+
+    const lastAuthUpdate = new Date(result[0].lastAuthUpdate);
+    const tokenEmissionDate = new Date(tokenInfo.iat * 1000);
+
+    if (tokenEmissionDate < lastAuthUpdate) {
+      const error = new Error("El Token no es válido");
+      error.httpStatus = 401;
+      throw error;
+    }
+
     //Inyectamos en la request la información del Token
     req.userAuth = tokenInfo;
 

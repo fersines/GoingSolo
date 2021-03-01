@@ -25,4 +25,4 @@ Entradas de Usuario:
     - GET - /users/:id - Detalle de Usuario. ✅
     - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). ✅
     - PUT - /users/:id - Editar Usuario. ✅
-    - PUT - /users/:id/password - Editar contraseña de Usuario (cada uno la suya).
+    - PUT - /users/:id/password - Editar contraseña de Usuario (cada uno la suya). ✅

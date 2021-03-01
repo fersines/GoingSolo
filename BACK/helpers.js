@@ -5,7 +5,6 @@ const path = require("path");
 const crypto = require("crypto");
 const sgMail = require("@sendgrid/mail");
 const { ensureDir, unlink } = require("fs-extra");
-const { fstat } = require("fs");
 
 const { UPLOADS_DIRECTORY } = process.env;
 const uploadsDir = path.join(__dirname, UPLOADS_DIRECTORY);
