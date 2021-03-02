@@ -16,6 +16,9 @@ const {
   deleteComment,
   lovePost,
   listUserPosts,
+  loveComment,
+  listUserComments,
+  listComments,
 } = require("./controllers/posts");
 
 //Controladores de Usuarios
@@ -84,6 +87,10 @@ app.delete("/posts/:id", isUser, postExists, canEditPost, deletePost);
 //Crea un comentario a un Post
 app.post("/comments", isUser, newComment);
 
+//GET - /comments
+//Lista todos los Comentarios
+app.get("/comments", listComments);
+
 //PUT - /comments/:id
 //Edita un comentario
 app.put("/comments/:id", isUser, commentExists, canEditComment, editComment);
@@ -98,13 +105,21 @@ app.delete(
   deleteComment
 );
 
-//POST - /posts/:id/loves
+//POST - /posts/:id/likes
 //Da like a un Post
 app.post("/posts/:id/likes", isUser, postExists, lovePost);
+
+//POST - /comments/:id/likes
+//Da like a un Comentario
+app.post("/comments/:id/likes", commentExists, loveComment);
 
 //GET - /users/:id/posts
 //Lista los posts de un usuario
 app.get("/users/:id/posts", listUserPosts);
+
+//GET - /users/:id/comments
+//List los comentarios de un usuario
+app.get("/users/:id/comments", listUserComments);
 
 //Rutas de la API para Users
 

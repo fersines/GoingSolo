@@ -8,6 +8,9 @@ const editComment = require("./editComment");
 const deleteComment = require("./deleteComment");
 const lovePost = require("./lovePost");
 const listUserPosts = require("./listUserPosts");
+const loveComment = require("./loveComment");
+const listComments = require("./listComments");
+const listUserComments = require("./listUserComments");
 
 module.exports = {
   listPosts,
@@ -20,4 +23,7 @@ module.exports = {
   deleteComment,
   lovePost,
   listUserPosts,
+  loveComment,
+  listComments,
+  listUserComments,
 };
