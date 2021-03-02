@@ -79,6 +79,18 @@ async function main() {
     `);
     console.log("Tabla link_comments creada!");
 
+    //Creo una tabla de comentarios votados
+    await connection.query(`
+            CREATE TABLE comment_likes (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                love_comment_date DATETIME NOT NULL,
+                love_comment TINYINT NOT NULL,
+                love_comment_user_id INT NOT NULL,
+                comment_id INT NOT NULL
+            );
+    `);
+    console.log("Tabla comment_likes creada!");
+
     //Meto datos de prueba
 
     //Introduzco un usuario administrador
@@ -105,7 +117,7 @@ async function main() {
       `);
     }
 
-    //Introduzco varios posts de prueba
+    //Introduzco varios datos de prueba
     const posts = 100;
 
     for (let index = 0; index < posts; index++) {
@@ -148,7 +160,7 @@ async function main() {
           )
       `);
     }
-    console.log("Votos de prueba creados");
+    console.log("Votos de prueba a Post creados");
 
     const comments = 100;
 
@@ -170,6 +182,27 @@ async function main() {
       `);
     }
     console.log("Comentarios de prueba creados");
+
+    const commentLikes = 200;
+
+    for (let index = 0; index < commentLikes; index++) {
+      const now = new Date();
+      await connection.query(`
+        INSERT INTO comment_likes(
+          love_comment_date,
+          love_comment,
+          love_comment_user_id,
+          comment_id
+          )
+        VALUES (
+          "${formateDateToDB(now)}",
+          ${random(1, 2)},
+          ${random(2, users + 1)},
+          ${random(1, 75)}
+          )
+      `);
+    }
+    console.log("Votos de prueba a comentarios creados");
   } catch (error) {
     console.error(error);
   } finally {
