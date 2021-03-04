@@ -111,7 +111,7 @@ app.post("/posts/:id/likes", isUser, postExists, lovePost);
 
 //POST - /comments/:id/likes
 //Da like a un Comentario
-app.post("/comments/:id/likes", commentExists, loveComment);
+app.post("/comments/:id/likes", isUser, commentExists, loveComment);
 
 //GET - /users/:id/posts
 //Lista los posts de un usuario
