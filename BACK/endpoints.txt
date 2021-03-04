@@ -11,7 +11,8 @@ Entradas de Post:
     - POST - /comments - Añadir Comentario. ✅
     - PUT - /comments/:id - Editar Comentario. ✅
     - DELETE - /comments/:id - Borrar Comentario. ✅
-    - GET - /comments/:id/list - Lista los comentarios de un usuario a cualquier Post. 
+    - GET - /comments - Lista todos los comentarios a cualquier Post. ✅
+    - GET - /comments/:id/list - Lista los comentarios de un usuario a cualquier Post. ✅
 
     Para todas las entradas anteriores sería necesario Token, ya que partimos de de la idea de sólo 
     los usuarios logados tienen acceso a los Posts publicados.

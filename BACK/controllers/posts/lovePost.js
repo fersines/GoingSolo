@@ -10,16 +10,18 @@ const lovePost = async (req, res, next) => {
     const { id } = req.params;
     const { love } = req.body;
 
+    //Compruebo que no esté votando el creador del Post
     const [narcisoLove] = await connection.query(
       `
-      SELECT love_user_id
-      FROM link_likes JOIN posts ON (posts.post_user_id = link_likes.love_user_id)
-      WHERE love_user_id=?
+      SELECT post_user_id
+      FROM posts
+      WHERE id=?
     `,
-      [req.userAuth.id]
+      [id]
     );
+    console.log(req.userAuth.id);
 
-    if (narcisoLove[0].love_user_id === req.userAuth.id) {
+    if (narcisoLove[0].post_user_id === req.userAuth.id) {
       const error = new Error("No puedes dar like a tu propio Post.");
       error.httpStatus = 403;
       throw error;

@@ -23,7 +23,8 @@ const recoverUserPassword = async (req, res, next) => {
         SELECT id
         FROM users
         WHERE email=?
-    `[email]
+    `,
+      [email]
     );
 
     if (currentEmail.length === 0) {

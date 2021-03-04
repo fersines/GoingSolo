@@ -12,14 +12,18 @@ const loveComment = async (req, res, next) => {
 
     const [narcisoLove] = await connection.query(
       `
-      SELECT love_comment_user_id
-      FROM comment_likes JOIN link_comments ON (link_comments.comment_user_id = comment_likes.love_comment_user_id)
-      WHERE love_comment_user_id=?
+      SELECT comment_user_id
+      FROM link_comments
+      WHERE id=?
     `,
-      [req.userAuth.id]
+      [id]
     );
 
-    if (narcisoLove[0].love_comment_user_id === req.userAuth.id) {
+    console.log(req.userAuth.id);
+    console.log(id);
+    console.log(narcisoLove[0].comment_user_id);
+
+    if (narcisoLove[0].comment_user_id === req.userAuth.id) {
       const error = new Error("No puedes dar like a tu propio Comentario.");
       error.httpStatus = 403;
       throw error;
