@@ -1,5 +1,7 @@
 const getDB = require("../../db");
 const { differenceInHours } = require("date-fns");
+const { postSchema } = require("../../schemas");
+const { validate } = require("../../helpers");
 
 const editPost = async (req, res, next) => {
   let connection;
@@ -35,11 +37,8 @@ const editPost = async (req, res, next) => {
     //Comprobar que vienen los datos mínimos
     const { date, link, title, story } = req.body;
 
-    if (!link || !title || !story) {
-      const error = new Error("Faltan campos!");
-      error.httpStatus = 400;
-      throw error;
-    }
+    //Valido que link, title y story cumplan los requisitos
+    await validate(postSchema, req.body);
 
     //Hacemos el UPDATE
     await connection.query(

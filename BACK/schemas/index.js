@@ -1,9 +1,13 @@
 const editUserSchema = require("./editUserSchema");
 const newUserSchema = require("./newUserSchema");
-const newPassSchema = require("./newPassSchema");
+const passSchema = require("./passSchema");
+const postSchema = require("./postSchema");
+const commentSchema = require("./commentSchema");
 
 module.exports = {
   newUserSchema,
   editUserSchema,
-  newPassSchema,
+  passSchema,
+  postSchema,
+  commentSchema,
 };

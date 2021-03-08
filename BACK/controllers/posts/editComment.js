@@ -1,5 +1,7 @@
 const getDB = require("../../db");
 const { differenceInHours } = require("date-fns");
+const { validate } = require("../../helpers");
+const { commentSchema } = require("../../schemas");
 
 const editComment = async (req, res, next) => {
   let connection;
@@ -32,14 +34,11 @@ const editComment = async (req, res, next) => {
       throw error;
     }
 
+    //Compruebo que el comentario cumple los requisitos
+    await validate(commentSchema, req.body);
+
     //Compruebo que vienen los datos mínimos
     const { comment } = req.body;
-
-    if (!comment) {
-      const error = new Error("Faltan campos!");
-      error.httpStatus = 400;
-      throw error;
-    }
 
     const dbDate = new Date();
 

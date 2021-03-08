@@ -1,5 +1,7 @@
 const getDB = require("../../db");
 const { formateDateToDB } = require("../../helpers");
+const { postSchema } = require("../../schemas");
+const { validate } = require("../../helpers");
 
 const newPost = async (req, res, next) => {
   let connection;
@@ -7,13 +9,11 @@ const newPost = async (req, res, next) => {
   try {
     connection = await getDB();
 
+    //Recojo del body los datos del nuevo Post
     const { link, title, story } = req.body;
 
-    if (!link || !title || !story) {
-      const error = new Error("Faltan campos");
-      error.httpStatus = 400;
-      throw error;
-    }
+    //Valido que link, title y story cumplan los requisitos
+    await validate(postSchema, req.body);
 
     const now = new Date();
 

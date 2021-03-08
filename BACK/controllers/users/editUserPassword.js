@@ -1,5 +1,5 @@
 const getDB = require("../../db");
-const { newPassSchema } = require("../../schemas");
+const { passSchema } = require("../../schemas");
 const { validate } = require("../../helpers");
 
 const editUserPassword = async (req, res, next) => {
@@ -12,7 +12,7 @@ const editUserPassword = async (req, res, next) => {
     const { id } = req.params;
 
     //Valido longitud de la nueva contraseña
-    await validate(newPassSchema, req.body);
+    await validate(passSchema, req.body);
 
     //Recojo de req.body la pass antigua y la nueva
     const { oldPassword, newPassword } = req.body;

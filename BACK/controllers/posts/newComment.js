@@ -1,5 +1,7 @@
 const getDB = require("../../db");
 const { formateDateToDB } = require("../../helpers");
+const { commentSchema } = require("../../schemas");
+const { validate } = require("../../helpers");
 
 const newComment = async (req, res, next) => {
   let connection;
@@ -7,13 +9,11 @@ const newComment = async (req, res, next) => {
   try {
     connection = await getDB();
 
-    const { comment, post_id } = req.body;
+    //Valido que comment cumpla requisitos
+    await validate(commentSchema, req.body);
 
-    if (!comment || !post_id) {
-      const error = new Error("Faltan campos");
-      error.httpStatus = 400;
-      throw error;
-    }
+    //Recojo datos del body
+    const { comment, post_id } = req.body;
 
     const now = new Date();
 

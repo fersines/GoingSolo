@@ -1,5 +1,5 @@
 const getDB = require("../../db");
-const { newPassSchema } = require("../../schemas");
+const { passSchema } = require("../../schemas");
 const { validate } = require("../../helpers");
 
 const resetUserPassword = async (req, res, next) => {
@@ -12,7 +12,7 @@ const resetUserPassword = async (req, res, next) => {
     const { recoverCode, newPassword } = req.body;
 
     //Valido que hay nueva contraseña y su longitud
-    await validate(newPassSchema, req.body);
+    await validate(passSchema, req.body);
 
     //Si falta algún campo damos error
     if (!recoverCode) {
