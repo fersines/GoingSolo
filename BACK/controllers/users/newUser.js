@@ -1,5 +1,6 @@
 const getDB = require("../../db");
-const { generateRandomString, sendMail } = require("../../helpers");
+const { generateRandomString, sendMail, validate } = require("../../helpers");
+const { registrationSchema } = require("../../schemas");
 
 const newUser = async (req, res, next) => {
   let connection;
@@ -7,15 +8,11 @@ const newUser = async (req, res, next) => {
   try {
     connection = await getDB();
 
+    //Valido que el email y la pass cumplan requisitos
+    await validate(registrationSchema, req.body);
+
     //Recojo de req.body mail y pass
     const { email, password } = req.body;
-
-    //Compruebo que no estén vacíos
-    if (!email || !password) {
-      const error = new Error("Faltan campos!");
-      error.httpStatus = 400;
-      throw error;
-    }
 
     //Compruebo que el mail sea único
     const [existingUser] = await connection.query(
