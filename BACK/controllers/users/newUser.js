@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 const { generateRandomString, sendMail, validate } = require("../../helpers");
-const { registrationSchema } = require("../../schemas");
+const { newUserSchema } = require("../../schemas");
 
 const newUser = async (req, res, next) => {
   let connection;
@@ -9,7 +9,7 @@ const newUser = async (req, res, next) => {
     connection = await getDB();
 
     //Valido que el email y la pass cumplan requisitos
-    await validate(registrationSchema, req.body);
+    await validate(newUserSchema, req.body);
 
     //Recojo de req.body mail y pass
     const { email, password } = req.body;

@@ -1,5 +1,11 @@
 const getDB = require("../../db");
-const { savePhoto, generateRandomString, sendMail } = require("../../helpers");
+const {
+  savePhoto,
+  generateRandomString,
+  sendMail,
+  validate,
+} = require("../../helpers");
+const { editUserSchema } = require("../../schemas");
 
 const editUser = async (req, res, next) => {
   let connection;
@@ -8,6 +14,9 @@ const editUser = async (req, res, next) => {
 
     //Sacar id de req.params
     const { id } = req.params;
+
+    //Valido email y name, dudo con el campo avatar
+    await validate(editUserSchema, req.body);
 
     //Sacar email y name de req.body
     const { name, email } = req.body;

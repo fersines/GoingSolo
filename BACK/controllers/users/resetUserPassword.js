@@ -1,4 +1,6 @@
 const getDB = require("../../db");
+const { newPassSchema } = require("../../schemas");
+const { validate } = require("../../helpers");
 
 const resetUserPassword = async (req, res, next) => {
   let connection;
@@ -9,9 +11,12 @@ const resetUserPassword = async (req, res, next) => {
     //Saco de req.body los campos recoverCode y newPassword
     const { recoverCode, newPassword } = req.body;
 
+    //Valido que hay nueva contraseña y su longitud
+    await validate(newPassSchema, req.body);
+
     //Si falta algún campo damos error
-    if (!recoverCode || !newPassword || newPassword.length < 8) {
-      const error = new Error("Faltan campos o la contraseña es muy corta");
+    if (!recoverCode) {
+      const error = new Error("Falta el recoverCode para el cambio");
       error.httpStatus = 400;
       throw error;
     }

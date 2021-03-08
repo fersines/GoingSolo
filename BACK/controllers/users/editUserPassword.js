@@ -1,4 +1,6 @@
 const getDB = require("../../db");
+const { newPassSchema } = require("../../schemas");
+const { validate } = require("../../helpers");
 
 const editUserPassword = async (req, res, next) => {
   let connection;
@@ -9,15 +11,11 @@ const editUserPassword = async (req, res, next) => {
     //Recojo de req.params el id de usuario
     const { id } = req.params;
 
+    //Valido longitud de la nueva contraseña
+    await validate(newPassSchema, req.body);
+
     //Recojo de req.body la pass antigua y la nueva
     const { oldPassword, newPassword } = req.body;
-
-    //Comprobamos tamaño de la nueva contraseña
-    if (!newPassword || newPassword.length < 8) {
-      const error = new Error("Faltan campos o la contraseña es muy corta");
-      error.httpStatus = 400;
-      throw error;
-    }
 
     //Comprobar que el usuario del token es el mismo que intenta el cambio
     if (req.userAuth.id !== Number(id)) {
