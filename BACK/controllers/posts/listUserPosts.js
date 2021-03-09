@@ -10,6 +10,13 @@ const listPosts = async (req, res, next) => {
     const { order, direction } = req.query;
     const { id } = req.params;
 
+    //Compruebo que el id que hace la petición es para si mismo o bien es el admin
+    if (req.userAuth.id !== Number(id) && req.userAuth.role !== "admin") {
+      const error = new Error("Sólo puedes listar tus Posts, no los de otros");
+      error.httpStatus = 403;
+      throw error;
+    }
+
     const validOrderFields = ["loves", "date"];
     const validOrderDirection = ["DESC", "ASC"];
 

@@ -10,6 +10,15 @@ const listUserComments = async (req, res, next) => {
     const { order, direction } = req.query;
     const { id } = req.params;
 
+    //Compruebo que el id es el propietario o el admin
+    if (req.userAuth.id !== Number(id) && req.userAuth.role !== "admin") {
+      const error = new Error(
+        "Sólo puedes listar tus comentarios, no los de otros usuarios"
+      );
+      error.httpStatus = 403;
+      throw error;
+    }
+
     const validOrderFields = ["loves", "date"];
     const validOrderDirection = ["DESC", "ASC"];
 
