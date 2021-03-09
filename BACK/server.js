@@ -85,7 +85,7 @@ app.delete("/posts/:id", isUser, postExists, canEditPost, deletePost);
 
 //POST - /comments
 //Crea un comentario a un Post
-app.post("/comments", isUser, newComment);
+app.post("/comments", isUser, postExists, newComment);
 
 //GET - /comments
 //Lista todos los Comentarios
