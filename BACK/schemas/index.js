@@ -3,6 +3,7 @@ const newUserSchema = require("./newUserSchema");
 const passSchema = require("./passSchema");
 const postSchema = require("./postSchema");
 const commentSchema = require("./commentSchema");
+const resetPassSchema = require("./resetPassSchema");
 
 module.exports = {
   newUserSchema,
@@ -10,4 +11,5 @@ module.exports = {
   passSchema,
   postSchema,
   commentSchema,
+  resetPassSchema,
 };

@@ -15,13 +15,16 @@ async function main() {
     console.log("Tabla posts borrada!");
 
     await connection.query("DROP TABLE IF EXISTS link_likes");
-    console.log("Tabla lin_likes borrada!");
+    console.log("Tabla link_likes borrada!");
 
     await connection.query("DROP TABLE IF EXISTS link_comments");
     console.log("Tabla link_comments borrada!");
 
     await connection.query("DROP TABLE IF EXISTS users");
     console.log("Tabla de usuarios borrada!");
+
+    await connection.query("DROP TABLE IF EXISTS comment_likes");
+    console.log("Tabla comment_likes borrada!");
 
     //Creo tabla de usuarios
     await connection.query(`
