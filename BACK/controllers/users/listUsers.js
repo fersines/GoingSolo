@@ -9,6 +9,15 @@ const listUsers = async (req, res, next) => {
     //Sacamos querystring
     const { search, order, direction } = req.query;
 
+    //Compruebo que el que hace la petición es el admin
+    if (req.userAuth.role !== "admin") {
+      const error = new Error(
+        "El listado de usuarios sólo está disponible para el admin"
+      );
+      error.httpStatus = 403;
+      throw error;
+    }
+
     const validOrderFields = ["loves", "date"];
     const validOrderDirection = ["DESC", "ASC"];
 

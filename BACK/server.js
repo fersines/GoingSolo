@@ -137,7 +137,7 @@ app.post("/users/login", loginUser);
 
 //GET - /users
 //Devuelve el listado de todos los usuarios
-app.get("/users/list", listUsers);
+app.get("/users/list", isUser, listUsers);
 
 //GET - /users/:id
 //Devuelve el detalle de un usuario
