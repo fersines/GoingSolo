@@ -118,7 +118,7 @@ app.post("/comments/:id/likes", isUser, commentExists, loveComment);
 app.get("/users/:id/posts", userExists, isUser, listUserPosts);
 
 //GET - /users/:id/comments
-//List los comentarios de un usuario
+//Lista los comentarios de un usuario
 app.get("/users/:id/comments", userExists, isUser, listUserComments);
 
 //Rutas de la API para Users
