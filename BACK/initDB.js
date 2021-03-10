@@ -98,12 +98,12 @@ async function main() {
 
     //Introduzco un usuario administrador
     await connection.query(`
-              INSERT INTO users(date, email, password, name, active, role)
+              INSERT INTO users(date, email, password, name, active, role, lastAuthUpdate)
               VALUES ("${formateDateToDB(
                 new Date()
               )}", "fsinesc@gmail.com", SHA2(${
       process.env.ADMIN_PASSWORD
-    }, 512), "Fernando Sines", true, "admin");
+    }, 512), "Fernando Sines", true, "admin", "${formateDateToDB(new Date())}");
     `);
 
     //Introduzco varios usuarios de prueba
@@ -113,10 +113,12 @@ async function main() {
       const now = new Date();
 
       await connection.query(`
-        INSERT INTO users(date, email, password, name, active)
+        INSERT INTO users(date, email, password, name, active, lastAuthUpdate)
         VALUES("${formateDateToDB(
           now
-        )}", "${faker.internet.email()}",SHA2("${faker.internet.password()}", 512), "${faker.name.findName()}", true)
+        )}", "${faker.internet.email()}",SHA2("${faker.internet.password()}", 512), "${faker.name.findName()}", true, "${formateDateToDB(
+        new Date()
+      )}")
       `);
     }
 

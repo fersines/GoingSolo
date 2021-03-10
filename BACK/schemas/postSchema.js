@@ -4,7 +4,7 @@ const postSchema = Joi.object().keys({
   link: Joi.string()
     .required()
     .uri()
-    .error(new Error("No has facilitado una url válida")),
+    .error(new Error("URL no válida, ha de empezar por http:")),
   title: Joi.string()
     .required()
     .min(7)

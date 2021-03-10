@@ -98,7 +98,7 @@ const editUser = async (req, res, next) => {
       );
 
       //Dar una respuesta
-      res.send({
+      return res.send({
         status: "Ok",
         message:
           "Datos de usuario actualizados. Mira tu email para validar los cambios",

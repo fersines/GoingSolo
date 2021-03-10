@@ -83,9 +83,9 @@ app.put("/posts/:id", isUser, postExists, canEditPost, editPost);
 //Borra un post de la BBDD
 app.delete("/posts/:id", isUser, postExists, canEditPost, deletePost);
 
-//POST - /comments
+//POST - /posts/:id/comments
 //Crea un comentario a un Post
-app.post("/comments", isUser, postExists, newComment);
+app.post("/posts/:id/comments", isUser, postExists, newComment);
 
 //GET - /comments
 //Lista todos los Comentarios

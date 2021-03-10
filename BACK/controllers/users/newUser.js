@@ -46,10 +46,10 @@ const newUser = async (req, res, next) => {
     //Meto el usuario en la BBDD desactivado y con ese código de registro
     await connection.query(
       `
-        INSERT INTO users(date, email, password, registrationCode)
-        VALUES(?,?,SHA2(?, 512),?)
+        INSERT INTO users(date, email, password, registrationCode, lastAuthUpdate)
+        VALUES(?,?,SHA2(?, 512),?, ?)
     `,
-      [new Date(), email, password, registrationCode]
+      [new Date(), email, password, registrationCode, new Date()]
     );
 
     //Mando una respuesta

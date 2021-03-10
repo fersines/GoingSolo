@@ -12,17 +12,19 @@ const newComment = async (req, res, next) => {
     //Valido que comment cumpla requisitos
     await validate(commentSchema, req.body);
 
-    //Recojo datos del body
-    const { comment, post_id } = req.body;
+    //Recojo datos del body y de params
+    const { id } = req.params;
+    const { comment } = req.body;
 
     const now = new Date();
 
+    //Añado el comentario a la tabla
     const [result] = await connection.query(
       `
-        INSERT INTO link_comments (comment_date, comment, comment_user_id, post_id)
+        INSERT INTO link_comments(comment_date, comment, comment_user_id, post_id)
         VALUES (?,?,?,?);
         `,
-      [formateDateToDB(now), comment, req.userAuth.id, post_id]
+      [formateDateToDB(now), comment, req.userAuth.id, id]
     );
 
     const { insertId } = result;
@@ -34,7 +36,6 @@ const newComment = async (req, res, next) => {
         date: now,
         comment,
         user: req.userAuth.id,
-        post_id,
       },
     });
   } catch (error) {
