@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+const cors = require("cors");
 
 //Controladores de Posts
 const {
@@ -162,6 +163,9 @@ app.post("/users/recover-password", recoverUserPassword);
 //POST - /users/reset-password
 //Cambiar la contraseña de un usuario
 app.post("/users/reset-password", resetUserPassword);
+
+//CORS
+app.use(cors());
 
 //Middleware de error
 app.use((error, req, res, next) => {
