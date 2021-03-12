@@ -1,19 +1,13 @@
 import { useForm } from "react-hook-form";
+import { login } from "../http/api";
 
-const apiLip = "http://localhost:3000";
-
-export default function Login() {
+export default function Login(params) {
   const { handleSubmit, register } = useForm();
 
   const loginSubmit = async (loginData) => {
-    const headers = new Headers({ "Content-Type": "application/json" });
-    const response = await fetch(`${apiLip}/users/login`, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(loginData),
-    });
+    const response = await login(loginData);
     const data = await response.json();
-    console.log(data);
+    console.log(response.status, data);
   };
 
   return (

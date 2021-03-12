@@ -62,6 +62,9 @@ app.use(bodyParser.json());
 //Body parser (multipart form data <= subida de imágenes)
 app.use(fileUpload());
 
+//CORS
+app.use(cors());
+
 //Rutas de la API para Posts
 
 //GET - /posts
@@ -163,9 +166,6 @@ app.post("/users/recover-password", recoverUserPassword);
 //POST - /users/reset-password
 //Cambiar la contraseña de un usuario
 app.post("/users/reset-password", resetUserPassword);
-
-//CORS
-app.use(cors());
 
 //Middleware de error
 app.use((error, req, res, next) => {
