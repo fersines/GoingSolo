@@ -5,6 +5,7 @@ export default function Header() {
     <header>
       <Link to="/">Home</Link>
       <Link to="/login">Login</Link>
+      <Link to="/register">Registro</Link>
     </header>
   );
 }

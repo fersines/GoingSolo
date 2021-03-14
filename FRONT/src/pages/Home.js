@@ -1,3 +1,16 @@
+import useAuth from "../shared/hooks/useAuth";
+
 export default function Home() {
-  return <h1>HOME</h1>;
+  const { testData, userData, isLogged } = useAuth();
+
+  return (
+    <section>
+      <h1>HOME claro!</h1>
+      {userData?.role}
+      {isLogged}
+      {testData.map((item) => {
+        return <p key="item">{item}</p>;
+      })}
+    </section>
+  );
 }

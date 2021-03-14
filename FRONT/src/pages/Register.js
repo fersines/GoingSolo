@@ -1,17 +1,17 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../shared/hooks/useAuth";
+import { register } from "../http/api";
 
-export default function Login(params) {
+export default function Register(params) {
   const { handleSubmit, register } = useForm();
-  const { signIn, setTestData } = useAuth();
 
-  const loginSubmit = async (loginData) => {
-    signIn(loginData);
-    setTestData([1, 2, 3, 4, 5]);
+  const registerSubmit = async (loginData) => {
+    const response = await register(loginData);
+    const data = await response.json();
+    console.log(response.status, data);
   };
 
   return (
-    <form onSubmit={handleSubmit(loginSubmit)}>
+    <form onSubmit={handleSubmit(registerSubmit)}>
       <label htmlFor="email">email</label>
       <input id="email" name="email" ref={register()} />
 
