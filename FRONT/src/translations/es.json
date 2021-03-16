@@ -1,0 +1,4 @@
+{
+  "app.greeting": "Hola {name}",
+  "app.foo": "Para subir tu link, <a>Únete a nuestra comunidad</a> y <cta>registrate</cta>"
+}

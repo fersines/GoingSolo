@@ -1,10 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
+import "./App.css";
 import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import Register from "./pages/Register";
 import { AuthProvider } from "./shared/context/authContext";
 
 function App() {
@@ -12,19 +9,11 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <Route path="/register">
-            <Register></Register>
-          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route component={NotFound}></Route>
         </Switch>
       </AuthProvider>
-      <Header></Header>
     </Router>
   );
 }

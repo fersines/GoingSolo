@@ -1,35 +1,71 @@
-const apiLip = "http://localhost:3000";
+const apiUrl = "http://localhost:3000";
 
-/**
- * Este método es genérico y me va a servir para hacer peticiones en las que no se suban ficheros
- */
+const requestMethods = { post: "POST", get: "GET" };
+const endpoints = {
+  login: "/users/login",
+  signUpApi: "/users",
+  getUserInfo: "/users/",
+  entries: "/posts",
+};
 
-async function genericRequest(path, { body, method }) {
+async function fetchFormData(path, { body, method }) {
+  const token = localStorage.getItem("token");
+  const headers = new Headers();
+  headers.append("Authorization", token);
+
+  return await fetch(`${apiUrl}${path}`, { method, headers, body });
+}
+
+async function fetchTravelApi(path, { body, method }) {
+  const token = localStorage.getItem("token");
   const headers = new Headers({ "Content-Type": "application/json" });
-  const response = await fetch(`${apiLip}${path}`, {
-    method: method,
+  if (token) {
+    headers.append("Authorization", token);
+  }
+  const request = await fetch(`${apiUrl}${path}`, {
     headers: headers,
+    method: method,
     body: JSON.stringify(body),
   });
-  return response;
+  const requestData = await request.json();
+  if (requestData.status === "error") {
+    throw requestData.message;
+  }
+  return requestData;
 }
 
-/**
- * Esta función hará peticiones de login
- */
-export function login(loginData) {
-  return genericRequest("/users/login", {
-    method: "POST",
-    body: loginData,
+export async function login(email, password) {
+  const tokenData = await fetchTravelApi(endpoints.login, {
+    method: requestMethods.post,
+    body: { email, password },
+  });
+  const token = tokenData.data.token;
+  localStorage.setItem("token", token);
+  return token;
+}
+
+export async function signUpApi(email, password) {
+  return await fetchTravelApi(endpoints.signUp, {
+    method: requestMethods.post,
+    body: { email, password, invite: "moduloreact" },
   });
 }
 
-/**
- * Esta función hará peticiones de login
- */
-export function register(registerData) {
-  return genericRequest("/users", {
-    method: "POST",
-    body: register,
+export async function getUserInfo(userId) {
+  const userData = await fetchTravelApi(`${endpoints.getUserInfo}${userId}`, {
+    method: requestMethods.get,
+  });
+  return userData.data;
+}
+
+export async function newEntry(data) {
+  const body = new FormData();
+  body.append("place", data.place);
+  body.append("description", data.description);
+  body.append("foto1", data.foto1[0]);
+
+  return await fetchFormData(endpoints.entries, {
+    method: requestMethods.post,
+    body,
   });
 }
