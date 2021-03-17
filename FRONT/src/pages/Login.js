@@ -1,4 +1,4 @@
-import LoginForm from "../components/LoginForm";
+import AuthForm from "../components/AuthForm";
 import useAuth from "../shared/hooks/useAuth";
 
 export default function Login() {
@@ -6,7 +6,7 @@ export default function Login() {
 
   return (
     <>
-      <LoginForm signIn={signIn}></LoginForm>
+      <AuthForm signIn={signIn}></AuthForm>
     </>
   );
 }

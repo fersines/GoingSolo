@@ -16,7 +16,7 @@ async function fetchFormData(path, { body, method }) {
   return await fetch(`${apiUrl}${path}`, { method, headers, body });
 }
 
-async function fetchTravelApi(path, { body, method }) {
+async function fetchLipApi(path, { body, method }) {
   const token = localStorage.getItem("token");
   const headers = new Headers({ "Content-Type": "application/json" });
   if (token) {
@@ -35,7 +35,7 @@ async function fetchTravelApi(path, { body, method }) {
 }
 
 export async function login(email, password) {
-  const tokenData = await fetchTravelApi(endpoints.login, {
+  const tokenData = await fetchLipApi(endpoints.login, {
     method: requestMethods.post,
     body: { email, password },
   });
@@ -45,14 +45,14 @@ export async function login(email, password) {
 }
 
 export async function signUpApi(email, password) {
-  return await fetchTravelApi(endpoints.signUp, {
+  return await fetchLipApi(endpoints.signUp, {
     method: requestMethods.post,
     body: { email, password, invite: "moduloreact" },
   });
 }
 
 export async function getUserInfo(userId) {
-  const userData = await fetchTravelApi(`${endpoints.getUserInfo}${userId}`, {
+  const userData = await fetchLipApi(`${endpoints.getUserInfo}${userId}`, {
     method: requestMethods.get,
   });
   return userData.data;
