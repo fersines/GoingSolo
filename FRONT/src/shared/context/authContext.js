@@ -25,13 +25,13 @@ export function AuthProvider({ children }) {
     const tokenObject = decodeToken(loginData);
     setUserData(tokenObject);
     setIsUserLogged(true);
-    history.push("/");
+    history.push("/loggeduser");
   };
 
   //Método para registrarse
   const signUp = async (email, password) => {
     const message = await signUpApi(email, password);
-    return message();
+    return message("Tu usuario se ha registrado, comprueba tu mail");
   };
 
   // Método que borra las credenciales del localStorage y del state

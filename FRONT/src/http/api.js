@@ -45,9 +45,9 @@ export async function login(email, password) {
 }
 
 export async function signUpApi(email, password) {
-  return await fetchLipApi(endpoints.signUp, {
+  return await fetchLipApi(endpoints.signUpApi, {
     method: requestMethods.post,
-    body: { email, password, invite: "moduloreact" },
+    body: { email, password },
   });
 }
 
