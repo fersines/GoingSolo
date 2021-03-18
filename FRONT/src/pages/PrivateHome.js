@@ -2,9 +2,14 @@ import useAuth from "../shared/hooks/useAuth";
 
 export default function PrivateHome() {
   const { userData } = useAuth();
+  console.log(userData);
 
   if (userData.role === "admin") {
-    <h1>Esta es la Home del Admin logado</h1>;
+    return (
+      <section>
+        <h1>Esta es la Home del Admin</h1>
+      </section>
+    );
   } else {
   }
   return (
