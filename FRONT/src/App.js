@@ -8,21 +8,23 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./shared/context/authContext";
 import PublicHeader from "./components/PublicHeader";
 import SignUpApi from "./pages/SignUpApi";
+import PrivateHeader from "./components/PrivateHeader";
+import PrivateHome from "./pages/PrivateHome";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
         <Switch>
+          <Route path="/loggeduser">
+            <PrivateHeader></PrivateHeader>
+            <PrivateHome></PrivateHome>
+          </Route>
           <Route path="/users">
-            <PublicRoute>
-              <SignUpApi></SignUpApi>
-            </PublicRoute>
+            <SignUpApi></SignUpApi>
           </Route>
           <Route path="/login">
-            <PublicRoute>
-              <Login></Login>
-            </PublicRoute>
+            <Login></Login>
           </Route>
           <Route exact path="/">
             <PublicHeader></PublicHeader>

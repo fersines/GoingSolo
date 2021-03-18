@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import EscapeHome from "./EscapeHome";
 import EscapeLogin from "./EscapeLogin";
-import EscapeSignUp from "./EscapeSignUp";
 
 export default function SignUpForm(props) {
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
-    await props.signUpApi(data.email, data.password);
+    await props.signUp(data.email, data.password);
   };
 
   console.log(errors);
