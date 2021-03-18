@@ -10,6 +10,7 @@ import PublicHeader from "./components/PublicHeader";
 import SignUpApi from "./pages/SignUpApi";
 import PrivateHeader from "./components/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Home></Home>
           </Route>
         </Switch>
+        <Footer></Footer>
       </AuthProvider>
     </Router>
   );

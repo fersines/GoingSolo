@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function PublicHeader() {
   return (
     <header>
+      <div>Logo</div>
       <Link className="left" to="/">
         Home
       </Link>
