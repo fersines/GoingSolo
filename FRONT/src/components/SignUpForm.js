@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import EscapeHome from "./EscapeHome";
+import EscapeLogin from "./EscapeLogin";
+import EscapeSignUp from "./EscapeSignUp";
 
 export default function SignUpForm(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -30,14 +33,8 @@ export default function SignUpForm(props) {
         <label htmlFor="button">Vamos!</label>
         <button type="submit">Regístrate</button>
       </form>
-      <h5>Pero si ya estás registrado..., entonces haz click aquí!</h5>
-      <button>
-        <Link to="/login">Login</Link>
-      </button>
-      <h5>O si lo prefieres, puedes volver a la Home</h5>
-      <button>
-        <Link to="/">Home</Link>
-      </button>
+      <EscapeLogin></EscapeLogin>
+      <EscapeHome></EscapeHome>
     </section>
   );
 }

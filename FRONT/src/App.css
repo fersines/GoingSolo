@@ -20,6 +20,7 @@ button {
   color: rebeccapurple;
   border: 2px solid rebeccapurple;
   border-radius: 5px;
+  margin: 10px 10px;
 }
 
 .error {
@@ -38,5 +39,15 @@ header {
 a {
   margin: 5px 15px;
   color: whitesmoke;
+  text-decoration: none;
+}
+
+div.escape {
+  margin: 5px 15px;
+  /* border: dotted black; */
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
 }
