@@ -20,7 +20,7 @@ function App() {
             <PrivateHeader></PrivateHeader>
             <PrivateHome></PrivateHome>
           </Route>
-          <Route path="/users">
+          <Route path="/register">
             <SignUpApi></SignUpApi>
           </Route>
           <Route path="/login">

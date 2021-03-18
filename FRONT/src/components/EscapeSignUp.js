@@ -5,7 +5,7 @@ export default function EscapeSignUp() {
     <div className="escape">
       <h5>Que todavía no estás registrado???..., pase usted por aquí!</h5>
       <button>
-        <Link to="/users">Registro</Link>
+        <Link to="/register">Registro</Link>
       </button>
     </div>
   );

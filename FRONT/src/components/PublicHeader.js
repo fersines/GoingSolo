@@ -9,7 +9,7 @@ export default function PublicHeader() {
       <Link className="right" to="/login">
         Login
       </Link>
-      <Link className="right" to="/users">
+      <Link className="right" to="/register">
         Registro
       </Link>
     </header>
