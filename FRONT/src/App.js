@@ -11,10 +11,12 @@ import SignUpApi from "./pages/SignUpApi";
 import PrivateHeader from "./components/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
+import { Global } from "@emotion/react";
 
 function App() {
   return (
     <Router>
+      <Global />
       <AuthProvider>
         <Switch>
           <Route path="/loggeduser">
