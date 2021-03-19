@@ -10,6 +10,7 @@ import PrivateHeader from "./components/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
+import UserForm from "./components/UserForm";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
       <Global />
       <AuthProvider>
         <Switch>
+          <Route path="/usersarea">
+            <PrivateHeader></PrivateHeader>
+            <UserForm></UserForm>
+          </Route>
           <Route path="/loggeduser">
             <PrivateHeader></PrivateHeader>
             <PrivateHome></PrivateHome>

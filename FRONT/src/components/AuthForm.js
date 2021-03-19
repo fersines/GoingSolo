@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import EscapeSignUp from "./EscapeSignUp";
 import EscapeHome from "./EscapeHome";
 

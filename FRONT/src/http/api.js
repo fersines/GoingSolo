@@ -60,6 +60,7 @@ export async function getUserInfo(userId) {
   const userData = await fetchLipApi(`${endpoints.getUserInfo}${userId}`, {
     method: requestMethods.get,
   });
+  console.log(userData);
   return userData.data;
 }
 

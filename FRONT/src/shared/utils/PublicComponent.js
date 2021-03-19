@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useAuth from "../shared/hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 
 export default function PublicComponent({ children }) {
   const { isLogged } = useAuth();
