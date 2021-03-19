@@ -1,6 +1,11 @@
 const apiUrl = "http://localhost:3000";
 
-const requestMethods = { post: "POST", get: "GET" };
+const requestMethods = {
+  post: "POST",
+  get: "GET",
+  put: "PUT",
+  delete: "DELETE",
+};
 const endpoints = {
   login: "/users/login",
   signUpApi: "/users",

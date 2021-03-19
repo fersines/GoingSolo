@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EscapeSignUp from "./EscapeSignUp";
+import EscapeHome from "./EscapeHome";
 
 export default function AuthForm(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -30,14 +32,8 @@ export default function AuthForm(props) {
         <label htmlFor="button">Vamos!</label>
         <button type="submit">Entra</button>
       </form>
-      <h5>Que todavía no estás registrado???..., pase usted por aquí!</h5>
-      <button>
-        <Link to="/users">Registro</Link>
-      </button>
-      <h5>O si lo prefieres, puedes volver a la Home</h5>
-      <button>
-        <Link to="/">Home</Link>
-      </button>
+      <EscapeSignUp></EscapeSignUp>
+      <EscapeHome></EscapeHome>
     </section>
   );
 }
