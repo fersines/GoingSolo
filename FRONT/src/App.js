@@ -15,6 +15,9 @@ import MasComentados from "./components/MasComentados";
 import MasVotados from "./components/MasVotados";
 import MisLinks from "./components/MisLinks";
 import NuevoLink from "./components/NuevoLink";
+import FindUsers from "./components/FindUsers";
+import FindComments from "./components/FindComments";
+import FindPosts from "./components/FindPosts";
 
 function App() {
   return (
@@ -22,6 +25,18 @@ function App() {
       <Global />
       <AuthProvider>
         <Switch>
+          <Route path="/findposts">
+            <PrivateHeader></PrivateHeader>
+            <FindPosts></FindPosts>
+          </Route>
+          <Route path="/findcomments">
+            <PrivateHeader></PrivateHeader>
+            <FindComments></FindComments>
+          </Route>
+          <Route path="/findusers">
+            <PrivateHeader></PrivateHeader>
+            <FindUsers></FindUsers>
+          </Route>
           <Route path="/nuevolink">
             <PrivateHeader></PrivateHeader>
             <NuevoLink></NuevoLink>
