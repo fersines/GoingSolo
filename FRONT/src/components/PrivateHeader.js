@@ -10,6 +10,7 @@ export default function PrivateHeader() {
         <Link to="/posts">Buscar Posts</Link>
         <Link to="/comments">Buscar Comentarios</Link>
         <Link to="/users">Buscar Usuarios</Link>
+        <Link to="/usersarea">Área personal</Link>
         <button onClick={signOut}>Bye!</button>
       </header>
     );
@@ -17,10 +18,10 @@ export default function PrivateHeader() {
   }
   return (
     <header>
-      <Link to="/posts">Nuevo Link</Link>
-      <Link to="/users/:id/posts">Mis Links</Link>
-      <Link to="/posts">Más votados</Link>
-      <Link to="/posts">Más comentados</Link>
+      <Link to="/nuevolink">Nuevo Link</Link>
+      <Link to="/mislinks">Mis Links</Link>
+      <Link to="/masvotados">Más votados</Link>
+      <Link to="/mascomentados">Más comentados</Link>
       <Link to="/usersarea">Área personal</Link>
       <button onClick={signOut}>Bye!</button>
     </header>

@@ -11,6 +11,10 @@ import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
 import UserForm from "./components/UserForm";
+import MasComentados from "./components/MasComentados";
+import MasVotados from "./components/MasVotados";
+import MisLinks from "./components/MisLinks";
+import NuevoLink from "./components/NuevoLink";
 
 function App() {
   return (
@@ -18,6 +22,22 @@ function App() {
       <Global />
       <AuthProvider>
         <Switch>
+          <Route path="/nuevolink">
+            <PrivateHeader></PrivateHeader>
+            <NuevoLink></NuevoLink>
+          </Route>
+          <Route path="/mislinks">
+            <PrivateHeader></PrivateHeader>
+            <MisLinks></MisLinks>
+          </Route>
+          <Route path="/masvotados">
+            <PrivateHeader></PrivateHeader>
+            <MasVotados></MasVotados>
+          </Route>
+          <Route path="/mascomentados">
+            <PrivateHeader></PrivateHeader>
+            <MasComentados></MasComentados>
+          </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>
             <UserForm></UserForm>
