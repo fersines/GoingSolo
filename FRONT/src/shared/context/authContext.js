@@ -1,7 +1,7 @@
 import React from "react";
 import decodeToken from "../utils/decodeToken";
 import { useState } from "react";
-import { getUserInfo, login, signUpApi } from "../../http/api";
+import { getUserInfo, login, newPost, signUpApi } from "../../http/api";
 import { useHistory } from "react-router-dom";
 
 // 1 Creamos el contexto y exportamos para usar en el hook
@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
   const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
   const history = useHistory();
 
-  // Método para hacer log in desde los componentes
+  // Método para hacer login desde los componentes
   const signIn = async (email, password) => {
     const loginData = await login(email, password);
     localStorage.setItem("token", loginData);
@@ -32,6 +32,7 @@ export function AuthProvider({ children }) {
   const signUp = async (email, password) => {
     const message = await signUpApi(email, password);
     history.push("/login");
+    console.log(message);
     return message;
   };
 
@@ -41,6 +42,13 @@ export function AuthProvider({ children }) {
     history.push("/");
     setUserData(null);
     setIsUserLogged(false);
+  };
+
+  //Método para un nuevo post
+  const newLink = async (data) => {
+    const posting = await newPost(data);
+    console.log(posting);
+    return posting;
   };
 
   /* const getUser = async () => {
@@ -53,7 +61,7 @@ export function AuthProvider({ children }) {
   // 4 devolvemos el provider metiendole dentro los children
   return (
     <AuthContextProvider
-      value={{ userData, isUserLogged, signIn, signOut, signUp }}
+      value={{ userData, isUserLogged, signIn, signOut, signUp, newLink }}
     >
       {children}
     </AuthContextProvider>
