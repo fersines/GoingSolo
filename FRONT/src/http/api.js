@@ -57,18 +57,20 @@ export async function signUpApi(email, password) {
 }
 
 export async function getUserInfo(userId) {
-  const userData = await fetchLipApi(`${endpoints.getUserInfo}${userId}`, {
-    method: requestMethods.get,
-  });
-  console.log(userData);
+  const userData = await fetchLipApi(
+    `${endpoints.getUserInfo}/users/${userId}`,
+    {
+      method: requestMethods.get,
+    }
+  );
   return userData.data;
 }
 
-export async function newEntry(data) {
+export async function newPost(data) {
   const body = new FormData();
-  body.append("place", data.place);
-  body.append("description", data.description);
-  body.append("foto1", data.foto1[0]);
+  body.append("link", data.link);
+  body.append("title", data.title);
+  body.append("story", data.story);
 
   return await fetchFormData(endpoints.entries, {
     method: requestMethods.post,

@@ -43,16 +43,17 @@ export function AuthProvider({ children }) {
     setIsUserLogged(false);
   };
 
-  const getUser = async () => {
+  /* const getUser = async () => {
     const userDetails = await getUserInfo();
-    history.push(`/users/${userData.id}`);
+    history.push(`/usersarea`);
+    console.log(userDetails);
     return userDetails;
   };
-
+ */
   // 4 devolvemos el provider metiendole dentro los children
   return (
     <AuthContextProvider
-      value={{ userData, isUserLogged, signIn, signOut, signUp, getUser }}
+      value={{ userData, isUserLogged, signIn, signOut, signUp }}
     >
       {children}
     </AuthContextProvider>
