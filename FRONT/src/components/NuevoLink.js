@@ -5,7 +5,7 @@ import { AuthContext } from "../shared/context/authContext";
 export default function NuevoLink(props) {
   const { newLink } = useContext(AuthContext);
   const { register, handleSubmit, errors } = useForm();
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const onSubmit = async (data) => {
     try {
@@ -14,8 +14,6 @@ export default function NuevoLink(props) {
       setErrorMessage(error);
     }
   };
-
-  console.log(setErrorMessage);
 
   return (
     <section className="page">
@@ -42,6 +40,7 @@ export default function NuevoLink(props) {
         {errors.title && <p className="error">Falta la story</p>}
         <label htmlFor="button">¿Todo correcto?</label>
         <button type="submit">Link it UP!</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
     </section>
   );

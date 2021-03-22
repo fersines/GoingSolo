@@ -29,6 +29,7 @@ const newPost = async (req, res, next) => {
 
     res.send({
       status: "Ok",
+      message: "Tu Link se ha publicado!",
       data: {
         id: insertId,
         date: now,
