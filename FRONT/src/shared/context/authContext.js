@@ -21,6 +21,7 @@ export function AuthProvider({ children }) {
   // Método para hacer login desde los componentes
   const signIn = async (email, password) => {
     const loginData = await login(email, password);
+    console.log(loginData);
     localStorage.setItem("token", loginData);
     const tokenObject = decodeToken(loginData);
     setUserData(tokenObject);
@@ -47,21 +48,29 @@ export function AuthProvider({ children }) {
   //Método para un nuevo post
   const newLink = async (data) => {
     const posting = await newPost(data);
-    console.log(posting);
+
     return posting;
   };
 
-  /* const getUser = async () => {
+  const getUser = async () => {
     const userDetails = await getUserInfo();
-    history.push(`/usersarea`);
+
     console.log(userDetails);
     return userDetails;
   };
- */
+
   // 4 devolvemos el provider metiendole dentro los children
   return (
     <AuthContextProvider
-      value={{ userData, isUserLogged, signIn, signOut, signUp, newLink }}
+      value={{
+        userData,
+        isUserLogged,
+        signIn,
+        signOut,
+        signUp,
+        newLink,
+        getUser,
+      }}
     >
       {children}
     </AuthContextProvider>

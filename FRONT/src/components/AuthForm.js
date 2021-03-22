@@ -5,10 +5,14 @@ import EscapeHome from "./EscapeHome";
 
 export default function AuthForm(props) {
   const { register, handleSubmit, errors } = useForm();
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const onSubmit = async (data) => {
-    await props.signIn(data.email, data.password);
+    try {
+      await props.signIn(data.email, data.password);
+    } catch (error) {
+      setErrorMessage(error);
+    }
   };
 
   console.log(errors);
@@ -30,6 +34,7 @@ export default function AuthForm(props) {
         {errors.password && <p className="error">Falta contraseña</p>}
         <label htmlFor="button">Vamos!</label>
         <button type="submit">Entra</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
       <EscapeSignUp></EscapeSignUp>
       <EscapeHome></EscapeHome>

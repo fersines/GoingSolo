@@ -18,6 +18,7 @@ import NuevoLink from "./components/NuevoLink";
 import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
+import userDetails from "./components/UserDetails";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>
             <UserForm></UserForm>
+            <userDetails></userDetails>
           </Route>
           <Route path="/loggeduser">
             <PrivateHeader></PrivateHeader>

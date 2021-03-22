@@ -1,27 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../shared/hooks/useAuth";
 
-const apiUrl = "https://localhost:3000";
+const apiUrl = "http://localhost:3000";
 
 export default function UserForm() {
   const { userData } = useAuth();
+  const [profile, setProfile] = useState(null);
 
   const token = localStorage.getItem("token");
 
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-  headers.append("Authorization", token);
-
   useEffect(() => {
-    console.log(userData);
-    fetch(`${apiUrl}/users/${userData.id}`, { method: "GET", headers: headers })
-      .then((response) => {
-        return response.json();
-      })
-      .then((profile) => {
-        console.log(profile);
-      });
-  }, []);
+    const getProfile = async () => {
+      const headers = new Headers();
+      headers.append("Content-Type", "application/json");
+      headers.append("Authorization", token);
 
-  return <h1>Aquí deberían salir los datos del perfil del usuario</h1>;
+      try {
+        const response = await fetch(`${apiUrl}/users/${userData.id}`, {
+          method: "GET",
+          headers: headers,
+        });
+
+        const json = await response.json();
+
+        if (response.ok) {
+          setProfile(json.data);
+        } else {
+          throw new Error(json.message);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getProfile();
+  }, [token, userData.id]);
+
+  if (!profile) return <div>Cargando...</div>;
+
+  return (
+    <section>
+      <h1>Aquí deberían salir los datos del perfil del usuario</h1>
+      <div>{profile.email}</div>
+    </section>
+  );
 }

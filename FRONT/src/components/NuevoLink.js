@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../shared/context/authContext";
 
 export default function NuevoLink(props) {
+  const { newLink } = useContext(AuthContext);
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
-    await props.newLink(data.link, data.title, data.story);
+    try {
+      await newLink(data.link, data.title, data.story);
+    } catch (error) {
+      setErrorMessage(error);
+    }
   };
 
   console.log(errors);
