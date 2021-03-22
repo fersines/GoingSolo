@@ -1,3 +1,4 @@
+import ListPosts from "../components/ListPosts";
 import useAuth from "../shared/hooks/useAuth";
 
 export default function PrivateHome() {
@@ -15,6 +16,7 @@ export default function PrivateHome() {
   return (
     <section>
       <h1>Esta es la Home de un usuario logado con role === "normal"</h1>
+      <ListPosts></ListPosts>
     </section>
   );
 }
