@@ -10,7 +10,7 @@ const endpoints = {
   login: "/users/login",
   signUpApi: "/users",
   getUserInfo: "/users/",
-  entries: "/posts",
+  posts: "/posts",
 };
 
 async function fetchFormData(path, { body, method }) {
@@ -72,7 +72,7 @@ export async function newPost(data) {
   body.append("title", data.title);
   body.append("story", data.story);
 
-  return await fetchFormData(endpoints.entries, {
+  return await fetchFormData(endpoints.posts, {
     method: requestMethods.post,
     body,
   });
