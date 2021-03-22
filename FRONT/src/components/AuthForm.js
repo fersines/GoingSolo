@@ -15,8 +15,6 @@ export default function AuthForm(props) {
     }
   };
 
-  console.log(errors);
-
   return (
     <section className="page">
       <h1>Inicia tu sesión</h1>

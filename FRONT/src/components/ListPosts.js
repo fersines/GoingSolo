@@ -6,6 +6,7 @@ const apiUrl = "http://localhost:3000";
 export default function ListPosts() {
   const { userData } = useAuth();
   const [posts, setposts] = useState(null);
+  console.log(posts);
 
   const token = localStorage.getItem("token");
 
@@ -14,16 +15,24 @@ export default function ListPosts() {
   headers.append("Authorization", token);
 
   useEffect(() => {
-    console.log(userData);
     fetch(`${apiUrl}/posts`, { method: "GET", headers: headers })
       .then((response) => {
         return response.json();
       })
-      .then((profile) => {
-        console.log(profile);
-        setposts(profile.data);
+      .then((results) => {
+        console.log(results);
+        setposts(results.data);
       });
   }, []);
 
-  return <h1>Aquí debería salir el listado de Posts {posts?.link}</h1>;
+  return (
+    <section>
+      <h1>Aquí debería salir el listado de Posts</h1>
+      <ul>
+        {posts.map((post) => {
+          return <li key={post.id}>{post.link}</li>;
+        })}
+      </ul>
+    </section>
+  );
 }

@@ -41,7 +41,7 @@ export default function UserForm() {
   return (
     <section>
       <h1>Aquí deberían salir los datos del perfil del usuario</h1>
-      <div>{profile.email}</div>
+      <div>{profile.name}</div>
     </section>
   );
 }

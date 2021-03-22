@@ -3,7 +3,6 @@ import useAuth from "../shared/hooks/useAuth";
 
 export default function PrivateHome() {
   const { userData } = useAuth();
-  console.log(userData);
 
   if (userData.role === "admin") {
     return (

@@ -21,7 +21,6 @@ export function AuthProvider({ children }) {
   // Método para hacer login desde los componentes
   const signIn = async (email, password) => {
     const loginData = await login(email, password);
-    console.log(loginData);
     localStorage.setItem("token", loginData);
     const tokenObject = decodeToken(loginData);
     setUserData(tokenObject);
