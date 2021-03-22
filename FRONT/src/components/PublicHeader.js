@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function PublicHeader() {
   return (
     <header>
-      <div class="footer-logo">
+      <div className="footer-logo">
         <Link to="/" className="social-logo">
           <img className="logoLIU" src="images/logoLIU.png" alt="" />
         </Link>

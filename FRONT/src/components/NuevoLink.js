@@ -15,7 +15,7 @@ export default function NuevoLink(props) {
     }
   };
 
-  console.log(errors);
+  console.log(setErrorMessage);
 
   return (
     <section className="page">

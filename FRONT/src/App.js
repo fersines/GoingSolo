@@ -10,7 +10,6 @@ import PrivateHeader from "./components/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
-import UserForm from "./components/UserForm";
 import MasComentados from "./components/MasComentados";
 import MasVotados from "./components/MasVotados";
 import MisLinks from "./components/MisLinks";
@@ -18,7 +17,7 @@ import NuevoLink from "./components/NuevoLink";
 import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
-import userDetails from "./components/UserDetails";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   return (
@@ -56,8 +55,7 @@ function App() {
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>
-            <UserForm></UserForm>
-            <userDetails></userDetails>
+            <UserInfo></UserInfo>
           </Route>
           <Route path="/loggeduser">
             <PrivateHeader></PrivateHeader>

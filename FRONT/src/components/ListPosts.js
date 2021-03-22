@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
 export default function ListPosts() {
-  const { userData } = useAuth();
-  const [posts, setposts] = useState(null);
+  const [posts, setposts] = useState([]);
   console.log(posts);
 
   const token = localStorage.getItem("token");

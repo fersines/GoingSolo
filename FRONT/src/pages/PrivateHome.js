@@ -8,6 +8,7 @@ export default function PrivateHome() {
     return (
       <section>
         <h1>Esta es la Home del Admin</h1>
+        <ListPosts></ListPosts>
       </section>
     );
   } else {
