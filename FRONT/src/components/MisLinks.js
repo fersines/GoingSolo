@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import useAuth from "../shared/hooks/useAuth";
 
-const apiUrl = "https://localhost:3000";
+const apiUrl = "http://localhost:3000";
 
 export default function MisLinks() {
   const { userData } = useAuth();
-  const [posts, setposts] = useState(null);
+  const [posts, setposts] = useState([]);
+  console.log(posts);
 
   const token = localStorage.getItem("token");
 
@@ -22,11 +23,20 @@ export default function MisLinks() {
       .then((response) => {
         return response.json();
       })
-      .then((profile) => {
-        console.log(profile);
-        setposts(profile.data);
+      .then((results) => {
+        console.log(results);
+        setposts(results.data);
       });
   }, []);
 
-  return <h1>Aquí saldría el listado con los links del usuario</h1>;
+  return (
+    <section>
+      <h1>Aquí saldría el listado con los links del usuario</h1>
+      <ul>
+        {posts.map((post) => {
+          return <li key={post.id}>{post.link}</li>;
+        })}
+      </ul>
+    </section>
+  );
 }
