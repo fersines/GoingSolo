@@ -66,14 +66,14 @@ export async function getUserInfo(userId) {
   return userData.data;
 }
 
-export async function newPost(data) {
+export async function newPost(link, title, story) {
   const body = new FormData();
-  body.append("link", data.link);
-  body.append("title", data.title);
-  body.append("story", data.story);
+  body.append("link", link);
+  body.append("title", title);
+  body.append("story", story);
 
-  return await fetchFormData(endpoints.posts, {
+  return await fetchLipApi(endpoints.posts, {
     method: requestMethods.post,
-    body,
+    body: { link, title, story },
   });
 }

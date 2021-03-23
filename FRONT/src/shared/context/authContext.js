@@ -45,8 +45,8 @@ export function AuthProvider({ children }) {
   };
 
   //Método para un nuevo post
-  const newLink = async (data) => {
-    const posting = await newPost(data);
+  const newLink = async (link, title, story) => {
+    const posting = await newPost(link, title, story);
     history.push("/mislinks");
     console.log(posting);
     return posting;
