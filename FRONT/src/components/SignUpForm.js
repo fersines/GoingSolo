@@ -5,10 +5,14 @@ import EscapeLogin from "./EscapeLogin";
 
 export default function SignUpForm(props) {
   const { register, handleSubmit, errors } = useForm();
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const onSubmit = async (data) => {
-    await props.signUp(data.email, data.password);
+    try {
+      await props.signUp(data.email, data.password);
+    } catch (error) {
+      setErrorMessage(error);
+    }
   };
 
   console.log(errors);
@@ -30,6 +34,7 @@ export default function SignUpForm(props) {
         {errors.password && <p className="error">Falta contraseña</p>}
         <label htmlFor="button">Vamos!</label>
         <button type="submit">Regístrate</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
       <EscapeLogin></EscapeLogin>
       <EscapeHome></EscapeHome>
