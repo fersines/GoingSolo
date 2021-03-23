@@ -10,8 +10,10 @@ export default function NewLink(data) {
   const token = localStorage.getItem("token");
 
   const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-  headers.append("Authorization", token);
+  if (token) {
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", token);
+  }
 
   const body = new FormData();
   body.append("link", data.link);
@@ -21,15 +23,15 @@ export default function NewLink(data) {
   const onSubmit = async (data) => {
     try {
       await fetch(`${apiUrl}/posts`, {
-        method: "POST",
         headers: headers,
-        body: body,
+        method: "POST",
+        body: JSON.stringify(data),
       });
     } catch (error) {
       setErrorMessage(error);
     }
   };
-
+  console.log("errorMessage");
   return (
     <section className="page">
       <h1>Sube aquí tu nuevo Link!</h1>
