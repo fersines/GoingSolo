@@ -18,6 +18,7 @@ import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
+import NewLink from "./components/NewLink";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/nuevolink">
             <PrivateHeader></PrivateHeader>
             <NuevoLink></NuevoLink>
+            <NewLink></NewLink>
           </Route>
           <Route path="/mislinks">
             <PrivateHeader></PrivateHeader>

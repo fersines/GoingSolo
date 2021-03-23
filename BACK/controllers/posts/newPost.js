@@ -12,6 +12,10 @@ const newPost = async (req, res, next) => {
     //Recojo del body los datos del nuevo Post
     const { link, title, story } = req.body;
 
+    console.log(link);
+    console.log(title);
+    console.log(story);
+
     //Valido que link, title y story cumplan los requisitos
     await validate(postSchema, req.body);
 
