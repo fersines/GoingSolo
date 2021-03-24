@@ -1,7 +1,13 @@
 import React from "react";
 import decodeToken from "../utils/decodeToken";
 import { useState } from "react";
-import { getUserInfo, login, newPost, signUpApi } from "../../http/api";
+import {
+  changeUser,
+  getUserInfo,
+  login,
+  newPost,
+  signUpApi,
+} from "../../http/api";
 import { useHistory } from "react-router-dom";
 
 // 1 Creamos el contexto y exportamos para usar en el hook
@@ -52,6 +58,14 @@ export function AuthProvider({ children }) {
     return posting;
   };
 
+  //Método para editar usuario
+  const editUser = async (email, name, avatar) => {
+    const editingUser = await changeUser(email, name, avatar);
+    history.push("/usersarea");
+    console.log(editingUser);
+    return editingUser;
+  };
+
   const getUser = async () => {
     const userDetails = await getUserInfo();
 
@@ -70,6 +84,7 @@ export function AuthProvider({ children }) {
         signUp,
         newLink,
         getUser,
+        editUser,
       }}
     >
       {children}

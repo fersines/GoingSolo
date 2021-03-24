@@ -19,6 +19,7 @@ import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewLink from "./components/NewLink";
+import EditUserForm from "./components/EditUserForm";
 
 function App() {
   return (
@@ -54,6 +55,10 @@ function App() {
           <Route path="/mascomentados">
             <PrivateHeader></PrivateHeader>
             <MasComentados></MasComentados>
+          </Route>
+          <Route path="/edituser">
+            <PrivateHeader></PrivateHeader>
+            <EditUserForm></EditUserForm>
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>

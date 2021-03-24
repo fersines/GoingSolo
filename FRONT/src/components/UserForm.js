@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
@@ -64,7 +65,7 @@ export default function UserForm() {
           ) : (
             <p>No tienes avatar</p>
           )}
-          <button type="submit">Cambia tus Datos</button>
+          <Link to="/edituser">Edita tu usuario</Link>
         </form>
       </section>
     </section>

@@ -10,7 +10,8 @@ const endpoints = {
   login: "/users/login",
   signUpApi: "/users",
   getUserInfo: "/users/",
-  posts: "/posts",
+  newPost: "/posts",
+  changeUser: "/users/",
 };
 
 async function fetchFormData(path, { body, method }) {
@@ -72,8 +73,20 @@ export async function newPost(link, title, story) {
   body.append("title", title);
   body.append("story", story);
 
-  return await fetchLipApi(endpoints.posts, {
+  return await fetchLipApi(endpoints.newPost, {
     method: requestMethods.post,
     body: { link, title, story },
+  });
+}
+
+export async function changeUser(email, name, avatar) {
+  const body = new FormData();
+  body.append("email", email);
+  body.append("name", name);
+  body.append("avatar", avatar);
+
+  return await fetchLipApi(endpoints.changeUser, {
+    method: requestMethods.put,
+    body: { email, name, avatar },
   });
 }
