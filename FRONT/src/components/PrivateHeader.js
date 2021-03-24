@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import PrivateHome from "../pages/PrivateHome";
 import useAuth from "../shared/hooks/useAuth";
 
 export default function PrivateHeader() {

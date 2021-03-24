@@ -3,7 +3,7 @@ import { useState } from "react";
 import EscapeSignUp from "./EscapeSignUp";
 import EscapeHome from "./EscapeHome";
 
-export default function AuthForm(props) {
+export default function LoginForm(props) {
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState(null);
 

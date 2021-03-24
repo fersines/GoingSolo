@@ -20,6 +20,7 @@ import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewLink from "./components/NewLink";
 import EditUserForm from "./components/EditUserForm";
+import EditandoUsuario from "./components/EditandoUsuario";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>
             <EditUserForm></EditUserForm>
+            <EditandoUsuario></EditandoUsuario>
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>

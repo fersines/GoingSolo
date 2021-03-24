@@ -79,13 +79,13 @@ export async function newPost(link, title, story) {
   });
 }
 
-export async function changeUser(email, name, avatar) {
+export async function changeUser(email, name, avatar, userId) {
   const body = new FormData();
   body.append("email", email);
   body.append("name", name);
   body.append("avatar", avatar);
 
-  return await fetchLipApi(endpoints.changeUser, {
+  return await fetchLipApi(`${endpoints.changeUser}${userId}`, {
     method: requestMethods.put,
     body: { email, name, avatar },
   });
