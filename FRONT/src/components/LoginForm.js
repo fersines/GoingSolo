@@ -34,8 +34,6 @@ export default function LoginForm(props) {
         <button type="submit">Entra</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-      <EscapeSignUp></EscapeSignUp>
-      <EscapeHome></EscapeHome>
     </section>
   );
 }

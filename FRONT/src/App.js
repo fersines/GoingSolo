@@ -21,6 +21,9 @@ import UserInfo from "./pages/UserInfo";
 import NewLink from "./components/NewLink";
 import EditUserForm from "./components/EditUserForm";
 import EditandoUsuario from "./components/EditandoUsuario";
+import NewPassword from "./components/NewPassword";
+import EscapeSignUp from "./components/EscapeSignUp";
+import EscapeHome from "./components/EscapeHome";
 
 function App() {
   return (
@@ -75,6 +78,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+            <NewPassword></NewPassword>
+            <EscapeSignUp></EscapeSignUp>
+            <EscapeHome></EscapeHome>
           </Route>
           <Route exact path="/">
             <PublicHeader></PublicHeader>
