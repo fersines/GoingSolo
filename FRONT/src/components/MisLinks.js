@@ -38,7 +38,7 @@ export default function MisLinks() {
         <ul>
           {posts.map((post) => {
             return (
-              <li>
+              <li key={post.id}>
                 {post.link} {post.date}
               </li>
             );

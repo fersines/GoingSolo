@@ -36,12 +36,37 @@ export default function UserForm() {
     getProfile();
   }, [token, userData.id]);
 
-  if (!profile) return <div>Cargando...</div>;
+  if (!profile)
+    return (
+      <div>
+        Puede que estemos yendo un poco lentos hoy..., o también puede que hayas
+        realizado un cambio en tu perfil y no lo hayas validado todavía!
+      </div>
+    );
 
   return (
     <section>
-      <h1>Aquí deberían salir los datos del perfil del usuario</h1>
-      <div>{profile.email}</div>
+      <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
+      <h2>Estos son tus datos de perfil</h2>
+      <section>
+        <form onSubmit="">
+          <label htmlFor="email">Email</label>
+          <p>{profile.email}</p>
+          <label htmlFor="name">Tu nombre</label>
+          {profile.name ? (
+            <p>{profile.name}</p>
+          ) : (
+            <p>Todavía no tenemos tu nombre</p>
+          )}
+          <label htmlFor="avatar">Avatar</label>
+          {profile.avatar ? (
+            <img className="avatar" alt="avatar" src={profile.avatar} />
+          ) : (
+            <p>No tienes avatar</p>
+          )}
+          <button type="submit">Cambia tus Datos</button>
+        </form>
+      </section>
     </section>
   );
 }
