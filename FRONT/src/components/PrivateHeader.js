@@ -21,7 +21,6 @@ export default function PrivateHeader() {
   return (
     <header>
       <Link to="/nuevolink">Nuevo Link</Link>
-      <Link to="/mislinks">Mis Links</Link>
       <Link to="/masvotados">Más votados</Link>
       <Link to="/mascomentados">Más comentados</Link>
       <Link to="/loggeduser">Mi Home</Link>

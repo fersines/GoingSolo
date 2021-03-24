@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
   //Método para registrarse
   const signUp = async (email, password) => {
     const message = await signUpApi(email, password);
-    history.push("/login");
+
     console.log(message);
     return message;
   };

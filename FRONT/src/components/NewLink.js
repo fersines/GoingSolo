@@ -31,7 +31,7 @@ export default function NewLink(data) {
       setErrorMessage(error);
     }
   };
-  console.log("errorMessage");
+
   return (
     <section className="page">
       <h1>Sube aquí tu nuevo Link!</h1>

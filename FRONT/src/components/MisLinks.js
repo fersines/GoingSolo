@@ -29,14 +29,22 @@ export default function MisLinks() {
       });
   }, []);
 
-  return (
-    <section>
-      <h1>Aquí saldría el listado con los links del usuario</h1>
-      <ul>
-        {posts.map((post) => {
-          return <li key={post.id}>{post.link}</li>;
-        })}
-      </ul>
-    </section>
-  );
+  if (posts.length === 0) {
+    return <h1>Aquí verás tus Links, pero cuando los publiques...</h1>;
+  } else {
+    return (
+      <section>
+        <h1>Estos son los Links que has publicado hasta ahora</h1>
+        <ul>
+          {posts.map((post) => {
+            return (
+              <li>
+                {post.link} {post.date}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  }
 }
