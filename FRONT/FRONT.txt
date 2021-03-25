@@ -2,33 +2,33 @@ Componentes:
 
 Componentes de Post:
 
-    - GET - /posts - ListPosts.js - Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). ✅ (faltan opciones de ordenación)
+    - GET - /posts - ListPosts.js - ✅ Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). (faltan opciones de ordenación)
     - GET - /posts/:id - PostDetails.js - Detalle de un Post. 
-    - POST - /posts - NewPost.js - Añadir nuevo Post. ✅ 
+    - POST - /posts - NewPost.js - ✅ Añadir nuevo Post. 
     - POST - /posts/:id/loves - Votar Post. 
-    - DELETE - /posts/:id - Eliminar Post. ✅
-    - GET - /users/:id/posts - Lista de Posts de Usuario (ordenar por fecha o por likes). ✅ (falta poner opciones para ordenación)
+    - DELETE - /posts/:id - Eliminar Post. 
+    - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (ordenar por fecha o por likes). (falta poner opciones para ordenación)
     - PUT - /posts - Editar Post. (Tanto por user normal o admin)
     - POST - /comments - Añadir Comentario. 
     - PUT - /comments/:id - Editar Comentario. 
     - DELETE - /comments/:id - Borrar Comentario. 
-    - GET - /comments - Lista todos los comentarios a cualquier Post. 
-    - GET - /comments/:id/list - Lista los comentarios de un usuario a cualquier Post. 
+    - GET - /comments - ListComments.js - Lista todos los comentarios a cualquier Post. 
+    - GET - /comments/:id/list - ListUserComments.js - Lista los comentarios de un usuario a cualquier Post. 
 
     Para todas las entradas anteriores sería necesario Token, ya que partimos de de la idea de sólo 
     los usuarios logados tienen acceso a los Posts publicados.
 
 Componentes de Usuario:
 
-    - POST - /users - SignUpForm.js -  Registro de Usuario sin validar. ✅
-    - POST - /users/login - LoginForm.js - Login de Usuario. ✅
-    - GET - /users/:id - UserProfile.js - Detalle de Usuario. ✅ 
+    - POST - /users - SignUpForm.js - ✅ Registro de Usuario sin validar. 
+    - POST - /users/login - LoginForm.js - ✅ Login de Usuario. 
+    - GET - /users/:id - UserProfile.js - ✅ Detalle de Usuario. 
     - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). 
-    - PUT - /users/:id - Editar Usuario. ✅ (problemas con el avatar)
-    - PUT - /users/:id/password - EditPassword.js - Editar contraseña de Usuario (cada uno la suya). ✅ (sin devolver respuesta OK en pantalla)
-    - POST - /users/recover-password - NewPassword.js - Solicitar nueva contraseña (código). ✅ 
-    - POST - /users/reset-password - ResetPassword.js - Resetear contraseña olvidada. ✅ (no se borran los datos en el submit, quedan en pantalla)
-    - GET - /users/list - Lista de Usuarios. ✅ (falta sacar listado con detalle)
+    - PUT - /users/:id - EditUserProfile.js - ✅ Editar Usuario (problemas con el avatar)
+    - PUT - /users/:id/password - EditPassword.js - ✅ Editar contraseña de Usuario (sin devolver respuesta OK en pantalla)
+    - POST - /users/recover-password - ✅ NewPassword.js - Solicitar nueva contraseña (código) 
+    - POST - /users/reset-password - ✅ ResetPassword.js - Resetear contraseña olvidada (no se borran los datos en el submit, quedan en pantalla)
+    - GET - /users/list - ListUsers.js - ✅ Lista de Usuarios (falta sacar listado con detalle)
     - GET - /users/list - Busqueda de Usuarios.
     
     

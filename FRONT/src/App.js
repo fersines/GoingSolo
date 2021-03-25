@@ -18,7 +18,6 @@ import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewPost from "./components/NewPost";
-
 import EditandoUsuario from "./components/EditandoUsuario";
 import NewPassword from "./components/NewPassword";
 import EscapeSignUp from "./components/EscapeSignUp";
@@ -28,6 +27,7 @@ import ResetPassword from "./components/ResetPassword";
 import ListUsers from "./components/ListUsers";
 import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
+import ListComments from "./components/ListComments";
 
 function App() {
   return (
@@ -42,6 +42,7 @@ function App() {
           <Route path="/findcomments">
             <PrivateHeader></PrivateHeader>
             <FindComments></FindComments>
+            <ListComments></ListComments>
           </Route>
           <Route path="/findusers">
             <PrivateHeader></PrivateHeader>
