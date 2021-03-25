@@ -24,6 +24,7 @@ import EditandoUsuario from "./components/EditandoUsuario";
 import NewPassword from "./components/NewPassword";
 import EscapeSignUp from "./components/EscapeSignUp";
 import EscapeHome from "./components/EscapeHome";
+import EditPassword from "./components/EditPassword";
 
 function App() {
   return (
@@ -59,6 +60,10 @@ function App() {
           <Route path="/mascomentados">
             <PrivateHeader></PrivateHeader>
             <MasComentados></MasComentados>
+          </Route>
+          <Route path="/editpassword">
+            <PrivateHeader></PrivateHeader>
+            <EditPassword></EditPassword>
           </Route>
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>

@@ -66,6 +66,7 @@ export default function UserForm() {
             <p>No tienes avatar</p>
           )}
           <Link to="/edituser">Edita tu usuario</Link>
+          <Link to="/editpassword">Cambia tu contraseña</Link>
         </form>
       </section>
     </section>

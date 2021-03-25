@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:3000";
 
 export default function EditandoUsuario(data) {
   const { userData } = useAuth();
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState();
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
@@ -16,11 +16,6 @@ export default function EditandoUsuario(data) {
 
   headers.append("Content-Type", "application/json");
   headers.append("Authorization", token);
-
-  const body = new FormData();
-  body.append("email", data.email);
-  body.append("name", data.name);
-  body.append("avatar", data.avatar);
 
   useEffect(() => {
     const getProfile = async () => {
@@ -50,6 +45,11 @@ export default function EditandoUsuario(data) {
   }, [token, userData.id]);
 
   console.log(profile);
+
+  const body = new FormData();
+  body.append("email", data.email);
+  body.append("name", data.name);
+  body.append("avatar", data.avatar);
 
   const onSubmit = async (data) => {
     try {
