@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
 import MasComentados from "./components/MasComentados";
 import MasVotados from "./components/MasVotados";
-import MisLinks from "./components/MisLinks";
 import NuevoLink from "./components/NuevoLink";
 import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
@@ -27,6 +26,7 @@ import EscapeHome from "./components/EscapeHome";
 import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
 import ListUsers from "./components/ListUsers";
+import UserPosts from "./components/UserPosts";
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
           </Route>
           <Route path="/mislinks">
             <PrivateHeader></PrivateHeader>
-            <MisLinks></MisLinks>
+            <UserPosts></UserPosts>
           </Route>
           <Route path="/masvotados">
             <PrivateHeader></PrivateHeader>

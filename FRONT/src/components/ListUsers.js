@@ -26,9 +26,19 @@ export default function ListPosts() {
   return (
     <section>
       <h1>Aquí debería salir el listado de Posts</h1>
+      <table>
+        {users.map((user) => {
+          return <tr key={user.id}>{user.email}</tr>;
+        })}
+      </table>
       <ul>
         {users.map((user) => {
-          return <li key={user.id}>{user.id}</li>;
+          return (
+            <li key={user.id}>
+              {user.id}
+              {user.email}
+            </li>
+          );
         })}
       </ul>
     </section>

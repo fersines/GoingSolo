@@ -3,7 +3,7 @@ import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
-export default function MisLinks() {
+export default function UserPosts() {
   const { userData } = useAuth();
   const [posts, setposts] = useState([]);
   console.log(posts);

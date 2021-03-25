@@ -28,7 +28,7 @@ Componentes de Usuario:
     - PUT - /users/:id/password - EditPassword.js - Editar contraseña de Usuario (cada uno la suya). ✅ (sin devolver respuesta OK en pantalla)
     - POST - /users/recover-password - NewPassword.js - Solicitar nueva contraseña (código). ✅ 
     - POST - /users/reset-password - ResetPassword.js - Resetear contraseña olvidada. ✅ (no se borran los datos en el submit, quedan en pantalla)
-    - GET - /users/list - Lista de Usuarios.
+    - GET - /users/list - Lista de Usuarios. ✅ (falta sacar listado con detalle)
     - GET - /users/list - Busqueda de Usuarios.
     
     
