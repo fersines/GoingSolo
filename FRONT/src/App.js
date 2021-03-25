@@ -18,7 +18,7 @@ import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewLink from "./components/NewLink";
-import EditUserForm from "./components/EditUserForm";
+
 import EditandoUsuario from "./components/EditandoUsuario";
 import NewPassword from "./components/NewPassword";
 import EscapeSignUp from "./components/EscapeSignUp";
@@ -27,6 +27,7 @@ import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
 import ListUsers from "./components/ListUsers";
 import UserPosts from "./components/UserPosts";
+import EditUserProfile from "./components/EditUserProfile";
 
 function App() {
   return (
@@ -70,7 +71,7 @@ function App() {
           </Route>
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>
-            <EditUserForm></EditUserForm>
+            <EditUserProfile></EditUserProfile>
             <EditandoUsuario></EditandoUsuario>
           </Route>
           <Route path="/usersarea">

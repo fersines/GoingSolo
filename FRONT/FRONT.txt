@@ -22,7 +22,7 @@ Componentes de Usuario:
 
     - POST - /users - SignUpForm.js -  Registro de Usuario sin validar. ✅
     - POST - /users/login - LoginForm.js - Login de Usuario. ✅
-    - GET - /users/:id - UserForm.js - Detalle de Usuario. ✅ 
+    - GET - /users/:id - UserProfile.js - Detalle de Usuario. ✅ 
     - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). 
     - PUT - /users/:id - Editar Usuario. ✅ (problemas con el avatar)
     - PUT - /users/:id/password - EditPassword.js - Editar contraseña de Usuario (cada uno la suya). ✅ (sin devolver respuesta OK en pantalla)

@@ -4,7 +4,7 @@ import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
-export default function UserForm() {
+export default function UserProfile() {
   const { userData } = useAuth();
   const [profile, setProfile] = useState(null);
 

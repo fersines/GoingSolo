@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../shared/context/authContext";
 
-export default function EditUserForm(props) {
+export default function EditUserProfile(props) {
   const { editUser } = useContext(AuthContext);
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState(null);

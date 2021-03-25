@@ -1,10 +1,9 @@
-import UserForm from "../components/UserForm";
-import useAuth from "../shared/hooks/useAuth";
+import UserProfile from "../components/UserProfile";
 
 export default function UserInfo() {
   return (
     <>
-      <UserForm></UserForm>
+      <UserProfile></UserProfile>
     </>
   );
 }
