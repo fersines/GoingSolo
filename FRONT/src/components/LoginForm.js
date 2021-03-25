@@ -1,7 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import EscapeSignUp from "./EscapeSignUp";
-import EscapeHome from "./EscapeHome";
 
 export default function LoginForm(props) {
   const { register, handleSubmit, errors } = useForm();

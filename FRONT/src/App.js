@@ -25,6 +25,7 @@ import NewPassword from "./components/NewPassword";
 import EscapeSignUp from "./components/EscapeSignUp";
 import EscapeHome from "./components/EscapeHome";
 import EditPassword from "./components/EditPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
           <Route path="/login">
             <Login></Login>
             <NewPassword></NewPassword>
+            <ResetPassword> </ResetPassword>
             <EscapeSignUp></EscapeSignUp>
             <EscapeHome></EscapeHome>
           </Route>

@@ -7,6 +7,7 @@ Componentes de Post:
     - POST - /posts - Añadir nuevo Post. ✅ 
     - POST - /posts/:id/loves - Votar Post. 
     - DELETE - /posts/:id - Eliminar Post. ✅
+    - GET - /users/:id/posts - Lista de Posts de Usuario (ordenar por fecha o por likes). ✅ (falta poner opciones para ordenación)
     - PUT - /posts - Editar Post. (Tanto por user normal o admin)
     - POST - /comments - Añadir Comentario. 
     - PUT - /comments/:id - Editar Comentario. 
@@ -19,11 +20,16 @@ Componentes de Post:
 
 Componentes de Usuario:
 
-    - POST - /users - Registro de Usuario sin validar. ✅
-    - POST - /users/login - Login de Usuario. ✅
-    - GET - /users/:id/posts - Lista de Posts de Usuario (ordenar por fecha o por likes). ✅ (falta poner opciones para ordenación)
-    - GET - /users/list - Lista de Usuarios. 
-    - GET - /users/:id - Detalle de Usuario. ✅ 
-    - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). ✅
+    - POST - /users - SignUpForm.js -  Registro de Usuario sin validar. ✅
+    - POST - /users/login - LoginForm.js - Login de Usuario. ✅
+    - GET - /users/:id - UserForm.js - Detalle de Usuario. ✅ 
+    - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). 
     - PUT - /users/:id - Editar Usuario. ✅ (problemas con el avatar)
-    - PUT - /users/:id/password - Editar contraseña de Usuario (cada uno la suya). ✅ (sin devolver respuesta OK en pantalla)
+    - PUT - /users/:id/password - EditPassword.js - Editar contraseña de Usuario (cada uno la suya). ✅ (sin devolver respuesta OK en pantalla)
+    - POST - /users/recover-password - NewPassword.js - Solicitar nueva contraseña (código). ✅ 
+    - POST - /users/reset-password - - Resetear contraseña olvidada. 
+    - GET - /users/list - Lista de Usuarios.
+    - GET - /users/list - Busqueda de Usuarios.
+    
+    
+    
