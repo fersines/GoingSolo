@@ -28,6 +28,7 @@ import ListUsers from "./components/ListUsers";
 import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
 import ListComments from "./components/ListComments";
+import UserComments from "./components/UserComments";
 
 function App() {
   return (
@@ -62,9 +63,10 @@ function App() {
             <PrivateHeader></PrivateHeader>
             <MasVotados></MasVotados>
           </Route>
-          <Route path="/mascomentados">
+          <Route path="/miscomentarios">
             <PrivateHeader></PrivateHeader>
             <MasComentados></MasComentados>
+            <UserComments></UserComments>
           </Route>
           <Route path="/editpassword">
             <PrivateHeader></PrivateHeader>
