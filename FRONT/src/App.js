@@ -26,6 +26,7 @@ import EscapeSignUp from "./components/EscapeSignUp";
 import EscapeHome from "./components/EscapeHome";
 import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
+import ListUsers from "./components/ListUsers";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/findusers">
             <PrivateHeader></PrivateHeader>
             <FindUsers></FindUsers>
+            <ListUsers></ListUsers>
           </Route>
           <Route path="/nuevolink">
             <PrivateHeader></PrivateHeader>
