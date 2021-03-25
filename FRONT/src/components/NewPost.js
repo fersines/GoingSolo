@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 const apiUrl = "http://localhost:3000";
 
-export default function NewLink(data) {
+export default function NewPost(data) {
   const { register, handleSubmit, errors } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 

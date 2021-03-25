@@ -17,7 +17,7 @@ import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
-import NewLink from "./components/NewLink";
+import NewPost from "./components/NewPost";
 
 import EditandoUsuario from "./components/EditandoUsuario";
 import NewPassword from "./components/NewPassword";
@@ -51,7 +51,7 @@ function App() {
           <Route path="/nuevolink">
             <PrivateHeader></PrivateHeader>
             <NuevoLink></NuevoLink>
-            <NewLink></NewLink>
+            <NewPost></NewPost>
           </Route>
           <Route path="/mislinks">
             <PrivateHeader></PrivateHeader>
