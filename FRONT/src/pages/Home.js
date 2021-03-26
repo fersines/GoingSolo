@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section>
+    <section className="home">
       <h1>HOME de Link It UP!</h1>
     </section>
   );

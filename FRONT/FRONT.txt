@@ -3,13 +3,14 @@ Componentes:
 Componentes de Post:
 
     - GET - /posts - ListPosts.js - ✅ Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). (faltan opciones de ordenación)
+    - GET - /posts - FindPosts.js - Busqueda de Posts
     - GET - /posts/:id - PostDetails.js - Detalle de un Post. 
     - POST - /posts - NewPost.js - ✅ Añadir nuevo Post. 
     - POST - /posts/:id/loves - Votar Post. 
     - DELETE - /posts/:id - Eliminar Post. 
-    - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (ordenar por fecha o por likes). (falta poner opciones para ordenación)
+    - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (falta poner opciones para ordenación)
     - PUT - /posts - Editar Post. (Tanto por user normal o admin)
-    - POST - /comments - Añadir Comentario. 
+    - POST - /posts/:id/comments - Añadir Comentario. 
     - PUT - /comments/:id - Editar Comentario. 
     - DELETE - /comments/:id - Borrar Comentario. 
     - GET - /comments - ListComments.js - ✅ Lista todos los comentarios a cualquier Post. 
@@ -30,6 +31,17 @@ Componentes de Usuario:
     - POST - /users/reset-password - ✅ ResetPassword.js - Resetear contraseña olvidada (no se borran los datos en el submit, quedan en pantalla)
     - GET - /users/list - ListUsers.js - ✅ Lista de Usuarios (falta sacar listado con detalle)
     - GET - /users/list - Busqueda de Usuarios.
-    
+
+Componentes de "atajos" y "piezas":
+
+    - EscapeHome.js
+    - EscapeLogin.js
+    - EscapeSignUp.js
+    - Footer.js
+    - MasComentados.js
+    - MasVotados.js
+    - PrivateHeader.js
+    - PublicHeader.js
+
     
     

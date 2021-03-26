@@ -48,7 +48,7 @@ export default function NewPost(data) {
         />
         {errors.title && <p className="error">Falta el title</p>}
         <label htmlFor="story">Cuéntanos algo sobre tu Link</label>
-        <input
+        <textarea
           ref={register({ required: true, minLength: 1 })}
           name="story"
           type="story"

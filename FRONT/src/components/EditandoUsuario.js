@@ -62,10 +62,9 @@ export default function EditandoUsuario(data) {
       setErrorMessage(error);
     }
   };
-  console.log(profile.email);
-  console.log(profile.name);
+
   console.log(userData.id);
-  console.log(userData.email);
+  console.log(profile.email);
   return (
     <section>
       <h1>{"Nos alegra verte " + data.name + "!"}</h1>
@@ -74,7 +73,7 @@ export default function EditandoUsuario(data) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="email">Email</label>
           <input
-            ref={register({ required: false })}
+            ref={register ? <p>{register}</p> : profile.email}
             type="email"
             name="email"
             id="email"
