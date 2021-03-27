@@ -23,6 +23,8 @@ export default function ListPosts() {
       });
   }, []);
 
+  console.log(posts[0]);
+
   return (
     <section>
       <h1>Aquí debería salir el listado de Posts</h1>

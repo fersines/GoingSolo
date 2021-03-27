@@ -12,13 +12,11 @@ import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
 import MasComentados from "./components/MasComentados";
 import MasVotados from "./components/MasVotados";
-import NuevoLink from "./components/NuevoLink";
 import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewPost from "./components/NewPost";
-import EditandoUsuario from "./components/EditandoUsuario";
 import NewPassword from "./components/NewPassword";
 import EscapeSignUp from "./components/EscapeSignUp";
 import EscapeHome from "./components/EscapeHome";
@@ -29,7 +27,6 @@ import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
 import ListComments from "./components/ListComments";
 import UserComments from "./components/UserComments";
-import Link from "./components/LinkDetails";
 import LinkDetails from "./components/LinkDetails";
 
 function App() {
@@ -54,7 +51,6 @@ function App() {
           </Route>
           <Route path="/nuevolink">
             <PrivateHeader></PrivateHeader>
-            <NuevoLink></NuevoLink>
             <NewPost></NewPost>
           </Route>
           <Route path="/mislinks">
@@ -77,7 +73,7 @@ function App() {
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>
 
-            <EditandoUsuario></EditandoUsuario>
+            <EditUserProfile></EditUserProfile>
           </Route>
           <Route path="/link/:id" exact>
             <LinkDetails></LinkDetails>

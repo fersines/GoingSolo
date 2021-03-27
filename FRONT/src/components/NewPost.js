@@ -55,7 +55,7 @@ export default function NewPost(data) {
           id="story"
         />
         {errors.title && <p className="error">Falta story</p>}
-        <label htmlFor="button">Si ya está todo...</label>
+
         <button type="submit">LinkItUP!</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>

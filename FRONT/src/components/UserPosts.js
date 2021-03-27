@@ -33,6 +33,9 @@ export default function UserPosts() {
   if (posts.length === 0) {
     return <h1>Aquí verás tus Links, pero cuando los publiques...</h1>;
   } else {
+    const stringDate = new Date();
+    const miDate = stringDate.toString(posts.date);
+    console.log(miDate);
     return (
       <section>
         <h1>Estos son los Links que has publicado hasta ahora</h1>
@@ -41,7 +44,7 @@ export default function UserPosts() {
             return (
               <li key={post.id}>
                 <Link to={`/link/${post.id}`}>
-                  {post.link} {post.date}
+                  {post.link} {miDate}
                 </Link>
               </li>
             );
