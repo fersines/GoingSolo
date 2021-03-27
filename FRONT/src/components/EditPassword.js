@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../shared/hooks/useAuth";
+import useAuth from "../pages/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
@@ -21,9 +21,6 @@ export default function EditPassword(data) {
     body.append("oldPassword", data.oldPasswordword);
     body.append("newPassword", data.newPassword);
   }
-
-  console.log(data.oldPassword);
-  console.log(data.newPassword);
 
   const onSubmit = async (data) => {
     try {

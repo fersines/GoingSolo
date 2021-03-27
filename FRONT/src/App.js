@@ -29,6 +29,8 @@ import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
 import ListComments from "./components/ListComments";
 import UserComments from "./components/UserComments";
+import Link from "./components/LinkDetails";
+import LinkDetails from "./components/LinkDetails";
 
 function App() {
   return (
@@ -74,8 +76,11 @@ function App() {
           </Route>
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>
-            <EditUserProfile></EditUserProfile>
+
             <EditandoUsuario></EditandoUsuario>
+          </Route>
+          <Route path="/link/:id" exact>
+            <LinkDetails></LinkDetails>
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>

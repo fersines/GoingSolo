@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import useAuth from "../shared/hooks/useAuth";
+import { Link, useHistory } from "react-router-dom";
+import useAuth from "../pages/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
@@ -44,31 +44,34 @@ export default function UserProfile() {
         realizado un cambio en tu perfil y no lo hayas validado todavía!
       </div>
     );
+  console.log(profile);
 
   return (
     <section>
       <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
       <h2>Estos son tus datos de perfil</h2>
       <section>
-        <form onSubmit="">
-          <label htmlFor="email">Email</label>
-          <p>{profile.email}</p>
-          <label htmlFor="name">Tu nombre</label>
-          {profile.name ? (
-            <p>{profile.name}</p>
-          ) : (
-            <p>Todavía no tenemos tu nombre</p>
-          )}
-          <label htmlFor="avatar">Avatar</label>
-          {profile.avatar ? (
-            <img className="avatar" alt="avatar" src={profile.avatar} />
-          ) : (
-            <p>No tienes avatar</p>
-          )}
-          <Link to="/edituser">Edita tu usuario</Link>
-          <Link to="/editpassword">Cambia tu contraseña</Link>
-        </form>
+        <h3>Email</h3>
+        <p>{profile.email}</p>
+        <h3 htmlFor="name">Tu nombre</h3>
+        {profile.name ? (
+          <p>{profile.name}</p>
+        ) : (
+          <p>Todavía no tenemos tu nombre</p>
+        )}
+        <h3>Avatar</h3>
+        {profile.avatar ? (
+          <img
+            className="avatar"
+            alt="avatar"
+            src={`${apiUrl}/uploads/${profile.avatar}`}
+          />
+        ) : (
+          <p>No tienes avatar</p>
+        )}
       </section>
+      <Link to="/edituser">Edita tu usuario</Link>
+      <Link to="/editpassword">Cambia tu contraseña</Link>
     </section>
   );
 }

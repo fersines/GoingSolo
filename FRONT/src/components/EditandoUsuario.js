@@ -1,28 +1,25 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../shared/hooks/useAuth";
+import useAuth from "../pages/hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
 export default function EditandoUsuario(data) {
+  const history = useHistory();
   const { userData } = useAuth();
   const [profile, setProfile] = useState();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
   const token = localStorage.getItem("token");
 
-  const headers = new Headers();
-
-  headers.append("Content-Type", "application/json");
-  headers.append("Authorization", token);
-
   useEffect(() => {
     const getProfile = async () => {
       const headers = new Headers();
+
       headers.append("Content-Type", "application/json");
       headers.append("Authorization", token);
-
       try {
         const response = await fetch(`${apiUrl}/users/${userData.id}`, {
           method: "GET",
@@ -44,39 +41,54 @@ export default function EditandoUsuario(data) {
     getProfile();
   }, [token, userData.id]);
 
-  console.log(profile);
-
-  const body = new FormData();
-  body.append("email", data.email);
-  body.append("name", data.name);
-  body.append("avatar", data.avatar);
-
   const onSubmit = async (data) => {
     try {
-      await fetch(`${apiUrl}/users/${userData.id}`, {
+      const headers = new Headers();
+      headers.append("Authorization", token);
+
+      const body = new FormData();
+      body.append("email", data.email);
+      body.append("name", data.name);
+
+      if (data.avatar.length) {
+        body.append("avatar", data.avatar[0]);
+      }
+      /*  body.append("avatar", data.avatar); */
+      const response = await fetch(`${apiUrl}/users/${userData.id}`, {
         method: "PUT",
         headers: headers,
-        body: JSON.stringify(data),
+        body: body,
       });
+      const json = await response.json();
+      if (response.ok) {
+        history.push("/usersarea");
+      } else {
+        throw new Error(json.message);
+      }
     } catch (error) {
-      setErrorMessage(error);
+      setErrorMessage(error.message);
     }
   };
 
-  console.log(userData.id);
-  console.log(profile.email);
+  if (!profile) return <p>Cargando...</p>;
+
   return (
     <section>
-      <h1>{"Nos alegra verte " + data.name + "!"}</h1>
+      {profile.name ? (
+        <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
+      ) : (
+        <h1>Hola de nuevo!</h1>
+      )}
       <h2>Estos son tus datos de perfil</h2>
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="email">Email</label>
           <input
-            ref={register ? <p>{register}</p> : profile.email}
+            ref={register({ required: false })}
             type="email"
             name="email"
             id="email"
+            defaultValue={profile.email}
           />
           <label htmlFor="name">Tu nombre</label>
           <input
@@ -84,6 +96,7 @@ export default function EditandoUsuario(data) {
             type="text"
             name="name"
             id="name"
+            defaultValue={profile.name}
           />
           <label htmlFor="avatar">Tu avatar</label>
           <input
@@ -91,8 +104,9 @@ export default function EditandoUsuario(data) {
             type="file"
             name="avatar"
             id="avatar"
+            accept="image/*"
           />
-          <label htmlFor="button">Si ya está todo...</label>
+
           <button type="submit">Guarda los cambios!</button>
           {errorMessage ? <p>{errorMessage}</p> : null}
         </form>

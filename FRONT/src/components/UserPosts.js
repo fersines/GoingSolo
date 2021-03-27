@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import useAuth from "../shared/hooks/useAuth";
+import { Link } from "react-router-dom";
+import useAuth from "../pages/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
@@ -39,7 +40,9 @@ export default function UserPosts() {
           {posts.map((post) => {
             return (
               <li key={post.id}>
-                {post.link} {post.date}
+                <Link to={`/link/${post.id}`}>
+                  {post.link} {post.date}
+                </Link>
               </li>
             );
           })}

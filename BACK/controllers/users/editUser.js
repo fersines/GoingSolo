@@ -14,7 +14,7 @@ const editUser = async (req, res, next) => {
 
     //Sacar id de req.params
     const { id } = req.params;
-
+    console.log(req.body);
     //Valido email y name, dudo con el campo avatar
     await validate(editUserSchema, req.body);
 

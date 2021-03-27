@@ -65,6 +65,9 @@ app.use(fileUpload());
 //CORS
 app.use(cors());
 
+//Archivos estáticos
+app.use(express.static("static"));
+
 //Rutas de la API para Posts
 
 //GET - /posts
