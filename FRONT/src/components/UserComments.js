@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../pages/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
@@ -32,6 +33,8 @@ export default function UserComments() {
   if (comments.length === 0) {
     return <h1>Aquí verás tus Comentarios, pero cuando los publiques...</h1>;
   } else {
+    const stringDate = new Date();
+    const miDate = stringDate.toString(comments.date);
     return (
       <section>
         <h1>Estos son los Comentarios que has publicado hasta ahora</h1>
@@ -39,7 +42,9 @@ export default function UserComments() {
           {comments.map((comment) => {
             return (
               <li key={comment.id}>
-                {comment.link} {comment.date}
+                <Link to={`/comment/${comment.id}`}>
+                  {comment.link} {miDate}
+                </Link>
               </li>
             );
           })}

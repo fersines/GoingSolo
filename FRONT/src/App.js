@@ -28,6 +28,7 @@ import EditUserProfile from "./components/EditUserProfile";
 import ListComments from "./components/ListComments";
 import UserComments from "./components/UserComments";
 import LinkDetails from "./components/LinkDetails";
+import UserDetails from "./components/UserDetails";
 
 function App() {
   return (
@@ -74,6 +75,10 @@ function App() {
             <PrivateHeader></PrivateHeader>
 
             <EditUserProfile></EditUserProfile>
+          </Route>
+          <Route path="/user/:id">
+            <PrivateHeader></PrivateHeader>
+            <UserDetails></UserDetails>
           </Route>
           <Route path="/link/:id">
             <PrivateHeader></PrivateHeader>

@@ -5,9 +5,7 @@ const apiUrl = "http://localhost:3000";
 
 export default function LinkDetails() {
   const { id } = useParams();
-  console.log();
   const [post, setpost] = useState([]);
-  console.log(post);
 
   const token = localStorage.getItem("token");
 
