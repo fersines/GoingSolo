@@ -24,6 +24,12 @@ export default function UserDetails() {
       });
   }, []);
 
+  console.log(Boolean(user.active));
+  console.log(Boolean.prototype.valueOf(user.active));
+  console.log(user.name);
+
+  console.log(user.active);
+  console.log(user.deleted);
   return (
     <section>
       <h1>Perifl del Usuario con id: {id}</h1>
@@ -33,11 +39,7 @@ export default function UserDetails() {
       <p>{user.name}</p>
       <h3>Activo</h3>
       <p>
-        {user.active === "0" ? (
-          <p>Usuario No Activado</p>
-        ) : (
-          <p>Usuario Activado</p>
-        )}
+        {user.active === true ? <p>{user.active}</p> : <p>{user.active}</p>}
       </p>
       <h3>Eliminado</h3>
       <p>

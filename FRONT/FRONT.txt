@@ -4,7 +4,7 @@ Componentes de Post:
 
     - GET - /posts - ListPosts.js - ✅ Lista de Posts General y búsqueda de Posts (ordenar por fecha o por likes). (faltan opciones de ordenación)
     - GET - /posts - FindPosts.js - Busqueda de Posts
-    - GET - /posts/:id - PostDetails.js - ✅ Detalle de un Post. 
+    - GET - /posts/:id - LinkDetails.js - ✅ Detalle de un Post. 
     - POST - /posts - NewPost.js - ✅ Añadir nuevo Post. 
     - POST - /posts/:id/loves - Votar Post. 
     - DELETE - /posts/:id - Eliminar Post. 
@@ -25,7 +25,7 @@ Componentes de Usuario:
     - POST - /users/login - LoginForm.js - ✅ Login de Usuario. 
     - GET - /users/:id - UserProfile.js - ✅ Detalle de Usuario. 
     - GET - /users/:id - UserProfile.js - ✅ Detalle de Usuario para el Admin.
-    - DELETE - /users/:id - Eliminar/desactivar un Usuario (sólo el admin). 
+    - DELETE - /users/:id - ✅ Eliminar/desactivar un Usuario (sólo el admin). Acabado con reservas (habría que hacer botón)
     - PUT - /users/:id - EditUserProfile.js - ✅ Editar Usuario (problemas con el avatar)
     - PUT - /users/:id/password - EditPassword.js - ✅ Editar contraseña de Usuario (sin devolver respuesta OK en pantalla)
     - POST - /users/recover-password - ✅ NewPassword.js - Solicitar nueva contraseña (código) 
