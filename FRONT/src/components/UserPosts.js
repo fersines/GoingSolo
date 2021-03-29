@@ -35,7 +35,7 @@ export default function UserPosts() {
   } else {
     const stringDate = new Date();
     const miDate = stringDate.toString(posts.date);
-    console.log(miDate);
+
     return (
       <section>
         <h1>Estos son los Links que has publicado hasta ahora</h1>

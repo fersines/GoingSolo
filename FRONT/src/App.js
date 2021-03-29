@@ -75,7 +75,8 @@ function App() {
 
             <EditUserProfile></EditUserProfile>
           </Route>
-          <Route path="/link/:id" exact>
+          <Route path="/link/:id">
+            <PrivateHeader></PrivateHeader>
             <LinkDetails></LinkDetails>
           </Route>
           <Route path="/usersarea">

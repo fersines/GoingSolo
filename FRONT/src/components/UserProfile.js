@@ -53,7 +53,7 @@ export default function UserProfile() {
       <section>
         <h3>Email</h3>
         <p>{profile.email}</p>
-        <h3 htmlFor="name">Tu nombre</h3>
+        <h3>Tu nombre</h3>
         {profile.name ? (
           <p>{profile.name}</p>
         ) : (
