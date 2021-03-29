@@ -31,6 +31,7 @@ import LinkDetails from "./components/LinkDetails";
 import UserDetails from "./components/UserDetails";
 import CommentDetails from "./components/CommentDetails";
 import DeleteUser from "./components/DeleteUser";
+import DeleteComment from "./components/DeleteComment";
 
 function App() {
   return (

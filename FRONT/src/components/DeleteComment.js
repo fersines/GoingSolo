@@ -4,22 +4,22 @@ import { useParams } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
-export default function DeleteLink(data) {
+export default function DeleteComment(data) {
   const { id } = useParams();
-  const [post, setPost] = useState([]);
+  const [comment, setComment] = useState([]);
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const getPost = async () => {
+    const getComment = async () => {
       const headers = new Headers();
 
       headers.append("Content-Type", "application/json");
       headers.append("Authorization", token);
       try {
-        const response = await fetch(`${apiUrl}/posts/${id}`, {
+        const response = await fetch(`${apiUrl}/comments/${id}`, {
           method: "DELETE",
           headers: headers,
         });
@@ -27,7 +27,7 @@ export default function DeleteLink(data) {
         const json = await response.json();
 
         if (response.ok) {
-          setPost(json.data);
+          setComment(json.data);
         } else {
           throw new Error(json.message);
         }
@@ -36,7 +36,7 @@ export default function DeleteLink(data) {
       }
     };
 
-    getPost();
+    getComment();
   }, [token, id]);
 
   const onSubmit = async (data) => {
@@ -67,11 +67,11 @@ export default function DeleteLink(data) {
     }
   };
 
-  if (!post) return <p>Buscando Link...</p>;
+  if (!comment) return <p>Buscando Comentario...</p>;
 
   return (
     <section>
-      <h1>Detalle del Link a eliminar</h1>
+      <h1>Detalle del Comentario a eliminar</h1>
 
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
