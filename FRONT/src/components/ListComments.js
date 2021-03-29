@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import LinkDetails from "./LinkDetails";
 
 const apiUrl = "http://localhost:3000";
 
@@ -23,12 +25,21 @@ export default function ListComments() {
       });
   }, []);
 
+  const stringDate = new Date();
+  const miDate = stringDate.toString(comments.date);
+
   return (
     <section>
       <h1>Aquí debería salir el listado de Comentarios</h1>
       <ul>
         {comments.map((comment) => {
-          return <li key={comment.id}>{comment.comment}</li>;
+          return (
+            <li key={comment.id}>
+              <Link to={`/comment/${comment.id}`}>
+                {comment.comment} {miDate}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </section>

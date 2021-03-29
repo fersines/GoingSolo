@@ -45,6 +45,7 @@ const {
   postExists,
   userExists,
 } = require("./middlewares");
+const getComment = require("./controllers/posts/getComment");
 
 const { PORT } = process.env;
 
@@ -77,6 +78,10 @@ app.get("/posts", isUser, listPosts);
 //GET - /posts/:id
 //Devuelve el detalle de un post
 app.get("/posts/:id", isUser, postExists, getPost);
+
+//GET - /comments/:id
+//Devuelve el detalle de un comentario
+app.get("/comments/:id", isUser, commentExists, getComment);
 
 //POST - /posts (con Token)
 //Crea un nuevo post

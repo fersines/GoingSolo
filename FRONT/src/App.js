@@ -29,6 +29,7 @@ import ListComments from "./components/ListComments";
 import UserComments from "./components/UserComments";
 import LinkDetails from "./components/LinkDetails";
 import UserDetails from "./components/UserDetails";
+import CommentDetails from "./components/CommentDetails";
 
 function App() {
   return (
@@ -78,6 +79,10 @@ function App() {
           <Route path="/user/:id">
             <PrivateHeader></PrivateHeader>
             <UserDetails></UserDetails>
+          </Route>
+          <Route path="/comment/:id">
+            <PrivateHeader></PrivateHeader>
+            <CommentDetails></CommentDetails>
           </Route>
           <Route path="/link/:id">
             <PrivateHeader></PrivateHeader>
