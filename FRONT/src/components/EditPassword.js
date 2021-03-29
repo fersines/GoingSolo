@@ -30,7 +30,7 @@ export default function EditPassword(data) {
         body: JSON.stringify(data),
       });
     } catch (error) {
-      setErrorMessage(error);
+      setErrorMessage(error.message);
     }
   };
 

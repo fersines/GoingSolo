@@ -4,9 +4,9 @@ import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { AuthProvider } from "./shared/context/authContext";
-import PublicHeader from "./components/PublicHeader";
+import PublicHeader from "./pages/PublicHeader";
 import SignUpApi from "./pages/SignUpApi";
-import PrivateHeader from "./components/PrivateHeader";
+import PrivateHeader from "./pages/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
@@ -32,6 +32,8 @@ import UserDetails from "./components/UserDetails";
 import CommentDetails from "./components/CommentDetails";
 import DeleteUser from "./components/DeleteUser";
 import DeleteComment from "./components/DeleteComment";
+import EditLink from "./components/EditLink";
+import LinkInfo from "./pages/LinkInfo";
 
 function App() {
   return (
@@ -86,9 +88,13 @@ function App() {
             <PrivateHeader></PrivateHeader>
             <CommentDetails></CommentDetails>
           </Route>
+          <Route path="/editlink">
+            <PrivateHeader></PrivateHeader>
+            <EditLink></EditLink>
+          </Route>
           <Route path="/link/:id">
             <PrivateHeader></PrivateHeader>
-            <LinkDetails></LinkDetails>
+            <LinkInfo></LinkInfo>
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>
