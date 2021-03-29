@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import useAuth from "../pages/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";

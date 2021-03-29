@@ -1,13 +1,7 @@
 import React from "react";
 import decodeToken from "../utils/decodeToken";
 import { useState } from "react";
-import {
-  changeUser,
-  getUserInfo,
-  login,
-  newPost,
-  signUpApi,
-} from "../../http/api";
+import { login, signUpApi } from "../../http/api";
 import { useHistory } from "react-router-dom";
 
 // 1 Creamos el contexto y exportamos para usar en el hook
@@ -50,29 +44,6 @@ export function AuthProvider({ children }) {
     setIsUserLogged(false);
   };
 
-  //Método para un nuevo post
-  const newLink = async (link, title, story) => {
-    const posting = await newPost(link, title, story);
-    history.push("/mislinks");
-    console.log(posting);
-    return posting;
-  };
-
-  //Método para editar usuario
-  const editUser = async (email, name, avatar) => {
-    const editingUser = await changeUser(email, name, avatar);
-    history.push("/usersarea");
-    console.log(editingUser);
-    return editingUser;
-  };
-
-  const getUser = async () => {
-    const userDetails = await getUserInfo();
-
-    console.log(userDetails);
-    return userDetails;
-  };
-
   // 4 devolvemos el provider metiendole dentro los children
   return (
     <AuthContextProvider
@@ -82,9 +53,6 @@ export function AuthProvider({ children }) {
         signIn,
         signOut,
         signUp,
-        newLink,
-        getUser,
-        editUser,
       }}
     >
       {children}

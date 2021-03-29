@@ -34,6 +34,7 @@ import DeleteUser from "./components/DeleteUser";
 import DeleteComment from "./components/DeleteComment";
 import EditLink from "./components/EditLink";
 import LinkInfo from "./pages/LinkInfo";
+import DeleteLink from "./components/DeleteLink";
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
           <Route path="/link/:id">
             <PrivateHeader></PrivateHeader>
             <LinkInfo></LinkInfo>
+            <DeleteLink></DeleteLink>
           </Route>
           <Route path="/usersarea">
             <PrivateHeader></PrivateHeader>

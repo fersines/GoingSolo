@@ -48,9 +48,7 @@ export default function DeleteLink(data) {
       body.append("link", data.link);
       body.append("title", data.title);
 
-      if (data.story.length) {
-        body.append("avatar", data.avatar[0]);
-      }
+      body.append("story", data.story);
 
       const response = await fetch(`${apiUrl}/posts/${id}`, {
         method: "DELETE",
@@ -59,6 +57,7 @@ export default function DeleteLink(data) {
       });
       const json = await response.json();
       if (response.ok) {
+        return <h1>El Link ha sido borrado.</h1>;
       } else {
         throw new Error(json.message);
       }
@@ -67,18 +66,14 @@ export default function DeleteLink(data) {
     }
   };
 
-  if (!post) return <p>Buscando Link...</p>;
+  if (post) return <p>Buscando Link...</p>;
 
   return (
     <section>
-      <h1>Detalle del Link a eliminar</h1>
-
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <button type="submit">Borrar Usuario</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <button type="submit">Eliminar Link</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+      </form>
     </section>
   );
 }

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
 export default function ListPosts() {
+  const { userData } = useAuth();
   const [posts, setposts] = useState([]);
   console.log(posts);
 
@@ -29,6 +31,25 @@ export default function ListPosts() {
   const stringDate = new Date();
   const miDate = stringDate.toString(posts.date);
 
+  if (userData.role === "admin") {
+    return (
+      <section>
+        <h1>Aquí debería salir el listado de Posts</h1>
+        <ul>
+          {posts.map((post) => {
+            return (
+              <li key={post.id}>
+                <Link to={`/link/${post.id}`}>
+                  {post.link} {miDate}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  } else {
+  }
   return (
     <section>
       <h1>Aquí debería salir el listado de Posts</h1>
@@ -36,9 +57,11 @@ export default function ListPosts() {
         {posts.map((post) => {
           return (
             <li key={post.id}>
-              <Link to={`/link/${post.id}`}>
-                {post.link} {miDate}
-              </Link>
+              <p>
+                Link: <a href={post.link}>{post.link}</a>
+              </p>
+              <p>Publicado el: {miDate}</p>
+              <p>Likes:{post.loves}</p>
             </li>
           );
         })}

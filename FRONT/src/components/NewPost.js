@@ -28,7 +28,7 @@ export default function NewPost(data) {
         body: JSON.stringify(data),
       });
     } catch (error) {
-      setErrorMessage(error);
+      setErrorMessage(error.message);
     }
   };
 

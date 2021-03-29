@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DeleteLink from "../components/DeleteLink";
 import LinkDetails from "../components/LinkDetails";
 
 export default function LinkInfo() {
@@ -6,7 +7,6 @@ export default function LinkInfo() {
     <>
       <LinkDetails></LinkDetails>
       <Link to="/editlink">Edita el Link</Link>
-      <Link to="/editpassword">Cambia tu contraseña</Link>
     </>
   );
 }

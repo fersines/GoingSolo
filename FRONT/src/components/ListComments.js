@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import LinkDetails from "./LinkDetails";
 
 const apiUrl = "http://localhost:3000";
 

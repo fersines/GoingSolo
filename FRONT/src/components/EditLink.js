@@ -40,7 +40,7 @@ export default function EditLink(data) {
 
     getPost();
   }, [token, id]);
-  console.log(post);
+  console.log(post.id);
   console.log(id);
   const onSubmit = async (data) => {
     try {
