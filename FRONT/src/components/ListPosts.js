@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
@@ -25,12 +26,21 @@ export default function ListPosts() {
 
   console.log(posts[0]);
 
+  const stringDate = new Date();
+  const miDate = stringDate.toString(posts.date);
+
   return (
     <section>
       <h1>Aquí debería salir el listado de Posts</h1>
       <ul>
         {posts.map((post) => {
-          return <li key={post.id}>{post.link}</li>;
+          return (
+            <li key={post.id}>
+              <Link to={`/link/${post.id}`}>
+                {post.link} {miDate}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </section>

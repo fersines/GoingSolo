@@ -73,7 +73,6 @@ function App() {
           </Route>
           <Route path="/edituser">
             <PrivateHeader></PrivateHeader>
-
             <EditUserProfile></EditUserProfile>
           </Route>
           <Route path="/user/:id">

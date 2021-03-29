@@ -24,13 +24,16 @@ export default function LinkDetails() {
       });
   }, []);
 
+  const stringDate = new Date();
+  const miDate = stringDate.toString(post.date);
+
   return (
     <section>
       <h1>Detalles del Link con id: {id}</h1>
       <h3>Link</h3>
       <p>{post.link}</p>
       <h3>Lo publicaste:</h3>
-      <p>{post.date}</p>
+      <p>{miDate}</p>
       <h3>Título</h3>
       <p>{post.title}</p>
       <h3>Story</h3>
