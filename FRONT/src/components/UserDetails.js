@@ -33,7 +33,7 @@ export default function UserDetails() {
       <p>{user.name}</p>
       <h3>Activo</h3>
       <p>
-        {user.active === false ? (
+        {user.active === "0" ? (
           <p>Usuario No Activado</p>
         ) : (
           <p>Usuario Activado</p>

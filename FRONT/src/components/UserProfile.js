@@ -70,8 +70,6 @@ export default function UserProfile() {
           <p>No tienes avatar</p>
         )}
       </section>
-      <Link to="/edituser">Edita tu usuario</Link>
-      <Link to="/editpassword">Cambia tu contraseña</Link>
     </section>
   );
 }
