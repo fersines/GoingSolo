@@ -5,8 +5,10 @@ export default function SignUpApi() {
   const { signUp } = useAuth();
 
   return (
-    <>
-      <SignUpForm signUp={signUp}></SignUpForm>
-    </>
+    <section>
+      <>
+        <SignUpForm signUp={signUp}></SignUpForm>
+      </>
+    </section>
   );
 }

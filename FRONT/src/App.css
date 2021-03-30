@@ -5,14 +5,30 @@
   font-family: "Poppins", sans-serif;
 }
 
+section {
+  margin: 30px auto;
+  width: 60%;
+  background: rgb(161, 163, 163) 0%;
+
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 form {
   max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: ;
 }
 
 form input {
+  border-style: none;
+
   margin-bottom: 20px;
 }
 

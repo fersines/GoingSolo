@@ -5,8 +5,10 @@ export default function Login() {
   const { signIn } = useAuth();
 
   return (
-    <>
-      <LoginForm signIn={signIn}></LoginForm>
-    </>
+    <section>
+      <>
+        <LoginForm signIn={signIn}></LoginForm>
+      </>
+    </section>
   );
 }

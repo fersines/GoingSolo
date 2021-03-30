@@ -87,7 +87,7 @@ app.get("/comments/:id", isUser, commentExists, getComment);
 //Crea un nuevo post
 app.post("/posts", isUser, newPost);
 
-//PUT - /posts
+//PUT - /posts/:id
 //Edita un post
 app.put("/posts/:id", isUser, postExists, canEditPost, editPost);
 
