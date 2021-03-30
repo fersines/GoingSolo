@@ -49,7 +49,7 @@ export default function UserProfile() {
     <section>
       <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
       <h2>Estos son tus datos de perfil</h2>
-      <section>
+      <div>
         <h3>Email</h3>
         <p>{profile.email}</p>
         <h3>Tu nombre</h3>
@@ -68,7 +68,7 @@ export default function UserProfile() {
         ) : (
           <p>No tienes avatar</p>
         )}
-      </section>
+      </div>
     </section>
   );
 }

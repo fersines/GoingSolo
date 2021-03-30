@@ -13,7 +13,7 @@ export default function Header() {
           <Link to="/findusers">Buscar Usuarios</Link>
           <Link to="/loggeduser">Admin Home</Link>
           <Link to="/usersarea">Área personal</Link>
-          <button onClick={signOut}>Bye!</button>
+          <Link onClick={signOut}>Cerrar Sesión</Link>
         </header>
       );
     } else {
