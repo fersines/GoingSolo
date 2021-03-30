@@ -4,9 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { AuthProvider } from "./shared/context/authContext";
-import PublicHeader from "./pages/PublicHeader";
 import SignUpApi from "./pages/SignUpApi";
-import PrivateHeader from "./pages/PrivateHeader";
 import PrivateHome from "./pages/PrivateHome";
 import Footer from "./components/Footer";
 import { Global } from "@emotion/react";
@@ -36,88 +34,72 @@ import EditLink from "./components/EditLink";
 import LinkInfo from "./pages/LinkInfo";
 import DeleteLink from "./components/DeleteLink";
 import SignUpForm from "./components/SignUpForm";
+import Header from "./pages/Header";
 
 function App() {
   return (
     <Router>
       <Global />
       <AuthProvider>
+        <Header></Header>
         <Switch>
           <Route path="/findposts">
-            <PrivateHeader></PrivateHeader>
             <FindPosts></FindPosts>
           </Route>
           <Route path="/findcomments">
-            <PrivateHeader></PrivateHeader>
             <FindComments></FindComments>
             <ListComments></ListComments>
           </Route>
           <Route path="/findusers">
-            <PrivateHeader></PrivateHeader>
             <FindUsers></FindUsers>
             <ListUsers></ListUsers>
           </Route>
           <Route path="/nuevolink">
-            <PrivateHeader></PrivateHeader>
             <NewPost></NewPost>
           </Route>
           <Route path="/mislinks">
-            <PrivateHeader></PrivateHeader>
             <UserPosts></UserPosts>
           </Route>
           <Route path="/masvotados">
-            <PrivateHeader></PrivateHeader>
             <MasVotados></MasVotados>
           </Route>
           <Route path="/miscomentarios">
-            <PrivateHeader></PrivateHeader>
             <MasComentados></MasComentados>
             <UserComments></UserComments>
           </Route>
           <Route path="/editpassword">
-            <PrivateHeader></PrivateHeader>
             <EditPassword></EditPassword>
           </Route>
           <Route path="/edituser">
-            <PrivateHeader></PrivateHeader>
             <EditUserProfile></EditUserProfile>
           </Route>
           <Route path="/user/:id">
-            <PrivateHeader></PrivateHeader>
             <UserDetails></UserDetails>
           </Route>
           <Route path="/comment/:id">
-            <PrivateHeader></PrivateHeader>
             <CommentDetails></CommentDetails>
           </Route>
           <Route path="/editlink">
-            <PrivateHeader></PrivateHeader>
             <EditLink></EditLink>
           </Route>
           <Route path="/link/:id">
-            <PrivateHeader></PrivateHeader>
             <LinkInfo></LinkInfo>
             <DeleteLink></DeleteLink>
           </Route>
           <Route path="/usersarea">
-            <PrivateHeader></PrivateHeader>
             <UserInfo></UserInfo>
           </Route>
           <Route path="/loggeduser">
-            <PrivateHeader></PrivateHeader>
             <PrivateHome></PrivateHome>
           </Route>
           <Route path="/register">
-            <PublicHeader></PublicHeader>
             <SignUpApi></SignUpApi>
             <SignUpForm></SignUpForm>
           </Route>
           <Route path="/login">
-            <PublicHeader></PublicHeader>
             <Login></Login>
           </Route>
           <Route exact path="/">
-            <PublicHeader></PublicHeader>
             <Home></Home>
           </Route>
         </Switch>
