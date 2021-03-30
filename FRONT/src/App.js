@@ -35,6 +35,7 @@ import DeleteComment from "./components/DeleteComment";
 import EditLink from "./components/EditLink";
 import LinkInfo from "./pages/LinkInfo";
 import DeleteLink from "./components/DeleteLink";
+import SignUpForm from "./components/SignUpForm";
 
 function App() {
   return (
@@ -109,6 +110,7 @@ function App() {
           <Route path="/register">
             <PublicHeader></PublicHeader>
             <SignUpApi></SignUpApi>
+            <SignUpForm></SignUpForm>
           </Route>
           <Route path="/login">
             <PublicHeader></PublicHeader>
