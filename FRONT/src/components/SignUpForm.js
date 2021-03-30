@@ -18,13 +18,13 @@ export default function SignUpForm(props) {
   console.log(errors);
 
   return (
-    <section className="page">
+    <div className="page">
       <h1>Regístrate en Link It UP!</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email</label>
+        <h4 htmlFor="email">Email</h4>
         <input ref={register({ required: true })} name="email" id="email" />
         {errors.email && <p className="error">Falta email</p>}
-        <label htmlFor="password">Tu contraseña</label>
+        <h4 htmlFor="password">Contraseña</h4>
         <input
           ref={register({ required: true, minLength: 1 })}
           name="password"
@@ -32,12 +32,10 @@ export default function SignUpForm(props) {
           id="password"
         />
         {errors.password && <p className="error">Falta contraseña</p>}
-        <label htmlFor="button">Vamos!</label>
+
         <button type="submit">Regístrate</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-      <EscapeLogin></EscapeLogin>
-      <EscapeHome></EscapeHome>
-    </section>
+    </div>
   );
 }

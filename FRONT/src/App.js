@@ -107,14 +107,12 @@ function App() {
             <PrivateHome></PrivateHome>
           </Route>
           <Route path="/register">
+            <PublicHeader></PublicHeader>
             <SignUpApi></SignUpApi>
           </Route>
           <Route path="/login">
+            <PublicHeader></PublicHeader>
             <Login></Login>
-            <NewPassword></NewPassword>
-            <ResetPassword> </ResetPassword>
-            <EscapeSignUp></EscapeSignUp>
-            <EscapeHome></EscapeHome>
           </Route>
           <Route exact path="/">
             <PublicHeader></PublicHeader>

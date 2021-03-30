@@ -1,7 +1,7 @@
 .footer {
   height: 40px;
-  background-color: rgb(37, 84, 153);
-  color: wheat;
+  background-color: #6b7a8f;
+  color: #dcc7aa;
   display: flex;
   flex-direction: row;
   align-items: center;

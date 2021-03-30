@@ -8,15 +8,21 @@ export default function PublicHeader() {
           <img className="logoLIU" src="images/logoLIU.png" alt="" />
         </Link>
       </div>
-      <Link className="left" to="/">
-        Home
-      </Link>
-      <Link className="right" to="/login">
-        Login
-      </Link>
-      <Link className="right" to="/register">
-        Registro
-      </Link>
+      <div className="left">
+        <h3>
+          <Link to="/">Home</Link>
+        </h3>
+      </div>
+      <div className="right">
+        <h3>
+          <Link to="/login">Login</Link>
+        </h3>
+      </div>
+      <div className="right">
+        <h3>
+          <Link to="/register">Registro</Link>
+        </h3>
+      </div>
     </header>
   );
 }
