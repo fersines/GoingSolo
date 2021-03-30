@@ -5,12 +5,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+.error {
+  color: whitesmoke;
+  background-color: tomato;
+}
 section {
   margin: 30px auto;
   width: 60%;
-  background: #d7cec7;
-
-  box-shadow: 0 5px 8px 0#d7cec7, 0 7px 20px 0#d7cec7;
+  background: #c09f80;
+  text-align: center;
+  box-shadow: 0 5px 8px 0#c09f80, 0 7px 20px 0#d7cec7#c09f80;
   position: relative;
   border-radius: 10px;
   height: 600px;
@@ -34,11 +38,11 @@ form input {
 }
 
 /* .page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: center;
-} */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: center;
+  } */
 
 button {
   background-color: gold;
@@ -48,17 +52,13 @@ button {
   margin: 10px 10px;
 }
 
-.error {
-  color: whitesmoke;
-  background-color: tomato;
-}
-
 header {
   height: 50px;
-  background-color: #565656;
+  background-color: #76323f;
   color: black;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 a {
