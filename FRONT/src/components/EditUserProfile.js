@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../pages/hooks/useAuth";
 import { useHistory } from "react-router-dom";
+import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 

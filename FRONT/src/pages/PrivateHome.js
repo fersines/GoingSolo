@@ -1,6 +1,6 @@
 import ListPosts from "../components/ListPosts";
 import UserPosts from "../components/UserPosts";
-import useAuth from "./hooks/useAuth";
+import useAuth from "../shared/hooks/useAuth";
 
 export default function PrivateHome() {
   const { userData } = useAuth();

@@ -1,5 +1,5 @@
 import SignUpForm from "../components/SignUpForm";
-import useAuth from "./hooks/useAuth";
+import useAuth from "../shared/hooks/useAuth";
 
 export default function SignUpApi() {
   const { signUp } = useAuth();

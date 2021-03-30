@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAuth from "../pages/hooks/useAuth";
+import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
 
