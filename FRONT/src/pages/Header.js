@@ -24,7 +24,7 @@ export default function Header() {
           <Link to="/miscomentarios">Mis Comentarios</Link>
           <Link to="/mislinks">Mis Links</Link>
           <Link to="/usersarea">Área personal</Link>
-          <button onClick={signOut}>Bye!</button>
+          <Link onClick={signOut}>Cerrar Sesión</Link>
         </header>
       );
     }
