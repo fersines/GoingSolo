@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
@@ -38,6 +38,9 @@ export default function LinkDetails() {
       <p>{post.title}</p>
       <h3>Story</h3>
       <p>{post.story}</p>
+      <div>
+        <Link to="/editlink">Edita el Link</Link>
+      </div>
     </section>
   );
 }

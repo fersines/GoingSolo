@@ -39,28 +39,12 @@ form input {
   margin-bottom: 33px;
 }
 
-/* .page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: center;
-  } */
-
 button {
   background-color: gold;
   color: rebeccapurple;
   border: 2px solid rebeccapurple;
   border-radius: 5px;
   margin: 10px 10px;
-}
-
-header {
-  height: 50px;
-  background-color: #76323f;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 a {

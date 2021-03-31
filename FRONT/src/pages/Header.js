@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
+import "../css/Header.css";
 
 export default function Header() {
   const { isUserLogged, signOut, userData } = useAuth();

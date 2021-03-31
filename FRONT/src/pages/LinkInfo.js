@@ -6,7 +6,6 @@ export default function LinkInfo() {
   return (
     <>
       <LinkDetails></LinkDetails>
-      <Link to="/editlink">Edita el Link</Link>
     </>
   );
 }
