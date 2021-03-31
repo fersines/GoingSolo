@@ -76,37 +76,36 @@ export default function EditLink(data) {
   return (
     <section>
       <h2>Este es el detalle del Link a editar</h2>
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="link">Link</label>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="link"
-            id="link"
-            defaultValue={post.link}
-          />
-          <label htmlFor="title">Título</label>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="title"
-            id="title"
-            defaultValue={post.title}
-          />
-          <label htmlFor="avatar">Story</label>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="story"
-            id="story"
-            defaultValue={post.story}
-          />
 
-          <button type="submit">Guarda los cambios!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="link">Link</label>
+        <input
+          ref={register({ required: false })}
+          type="text"
+          name="link"
+          id="link"
+          defaultValue={post.link}
+        />
+        <label htmlFor="title">Título</label>
+        <input
+          ref={register({ required: false })}
+          type="text"
+          name="title"
+          id="title"
+          defaultValue={post.title}
+        />
+        <label htmlFor="avatar">Story</label>
+        <input
+          ref={register({ required: false })}
+          type="text"
+          name="story"
+          id="story"
+          defaultValue={post.story}
+        />
+
+        <button type="submit">Guarda los cambios!</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+      </form>
     </section>
   );
 }

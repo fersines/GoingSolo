@@ -27,7 +27,7 @@ export default function ResetPassword(data) {
   };
 
   return (
-    <div className="page">
+    <section className="page">
       <h1>Desde aquí podrás recuperar tu Contraseña</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="recoverCode">
@@ -51,6 +51,6 @@ export default function ResetPassword(data) {
         <button type="submit">Recuperar Contraseña</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-    </div>
+    </section>
   );
 }

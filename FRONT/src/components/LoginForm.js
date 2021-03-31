@@ -14,7 +14,7 @@ export default function LoginForm(props) {
   };
 
   return (
-    <div className="page">
+    <section className="page">
       <h1>Inicia tu sesión</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="email">Email</label>
@@ -32,6 +32,6 @@ export default function LoginForm(props) {
         <button type="submit">Entra</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-    </div>
+    </section>
   );
 }

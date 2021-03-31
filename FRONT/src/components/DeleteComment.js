@@ -71,14 +71,10 @@ export default function DeleteComment(data) {
 
   return (
     <section>
-      <h1>Detalle del Comentario a eliminar</h1>
-
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <button type="submit">Borrar Usuario</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <button type="submit">Borrar Usuario</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+      </form>
     </section>
   );
 }

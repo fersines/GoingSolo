@@ -10,16 +10,15 @@
   background-color: tomato;
 }
 section {
-  margin: 30px auto;
-  width: 60%;
+  width: 80vh;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1rem;
   background: #c09f80;
-  text-align: center;
-  box-shadow: 0 5px 8px 0#c09f80, 0 7px 20px 0#d7cec7#c09f80;
-  position: relative;
-  border-radius: 10px;
-  height: 600px;
+  -webkit-backdrop-filter: blur(10px);
+  margin: 15px 40px;
+  align-items: center;
   display: grid;
-  grid-template-columns: 1fr;
 }
 
 form {
@@ -29,7 +28,10 @@ form {
   align-items: center;
 }
 
-div {
+h {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
 form input {

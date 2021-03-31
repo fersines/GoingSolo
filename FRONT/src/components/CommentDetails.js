@@ -32,11 +32,11 @@ export default function CommentDetails() {
       <h1>Detalles del Comentarios con id: {id}</h1>
       <h3>Comentario</h3>
       <p>{comment.comment}</p>
-      <h3>Fue publicado</h3>
+      <h3>Fecha de publicación:</h3>
       <p>{miDate}</p>
-      <h3>Comentado por</h3>
+      <h3>Comentado por:</h3>
       <p>{comment.comment_user_id}</p>
-      <h3>Link Comentado</h3>
+      <h3>Link publicado por:</h3>
       <p>{comment.post_id}</p>
     </section>
   );

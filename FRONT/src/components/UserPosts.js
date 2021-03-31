@@ -37,20 +37,22 @@ export default function UserPosts() {
     const miDate = stringDate.toString(posts.date);
 
     return (
-      <section>
+      <>
         <h1>Estos son los Links que has publicado hasta ahora</h1>
-        <ul>
-          {posts.map((post) => {
-            return (
-              <li key={post.id}>
-                <Link to={`/link/${post.id}`}>
-                  {post.link} {miDate}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+        <section>
+          <ul>
+            {posts.map((post) => {
+              return (
+                <li key={post.id}>
+                  <Link to={`/link/${post.id}`}>
+                    {post.link} {miDate}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </>
     );
   }
 }

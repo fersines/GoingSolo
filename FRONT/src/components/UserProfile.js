@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 
 const apiUrl = "http://localhost:3000";
@@ -47,7 +48,7 @@ export default function UserProfile() {
 
   return (
     <section>
-      <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
+      <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
       <h2>Estos son tus datos de perfil</h2>
       <div>
         <h3>Email</h3>
@@ -68,6 +69,10 @@ export default function UserProfile() {
         ) : (
           <p>No tienes avatar</p>
         )}
+      </div>
+      <div>
+        <Link to="/edituser">Edita tu usuario</Link>
+        <Link to="/editpassword">Cambia tu contraseña</Link>
       </div>
     </section>
   );

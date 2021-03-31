@@ -26,7 +26,6 @@ export default function ListPosts() {
 
   return (
     <section>
-      <h1>Este es el listado de Usuarios</h1>
       <ul>
         {users.map((user) => {
           return (

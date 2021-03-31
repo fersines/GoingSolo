@@ -26,7 +26,7 @@ export default function NewPassword(data) {
   };
 
   return (
-    <div className="page">
+    <section className="page">
       <h1>Déjanos tu email para recuperar tu contraseña</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="email">Tu email</label>
@@ -40,6 +40,6 @@ export default function NewPassword(data) {
         <button type="submit">Nueva Contraseña</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-    </div>
+    </section>
   );
 }

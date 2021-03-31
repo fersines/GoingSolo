@@ -29,7 +29,6 @@ export default function ListComments() {
 
   return (
     <section>
-      <h1>Aquí debería salir el listado de Comentarios</h1>
       <ul>
         {comments.map((comment) => {
           return (

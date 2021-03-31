@@ -18,7 +18,7 @@ export default function SignUpForm(props) {
   console.log(errors);
 
   return (
-    <div className="page">
+    <section className="page">
       <h1>Regístrate en Link It UP!</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h4 htmlFor="email">Email</h4>
@@ -36,6 +36,6 @@ export default function SignUpForm(props) {
         <button type="submit">Regístrate</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-    </div>
+    </section>
   );
 }

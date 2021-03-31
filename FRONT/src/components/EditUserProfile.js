@@ -80,37 +80,36 @@ export default function EditUserProfile(data) {
         <h1>Hola de nuevo!</h1>
       )}
       <h2>Estos son tus datos de perfil</h2>
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="email">Email</label>
-          <input
-            ref={register({ required: false })}
-            type="email"
-            name="email"
-            id="email"
-            defaultValue={profile.email}
-          />
-          <label htmlFor="name">Tu nombre</label>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="name"
-            id="name"
-            defaultValue={profile.name}
-          />
-          <label htmlFor="avatar">Tu avatar</label>
-          <input
-            ref={register({ required: false })}
-            type="file"
-            name="avatar"
-            id="avatar"
-            accept="image/*"
-          />
 
-          <button type="submit">Guarda los cambios!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="email">Email</label>
+        <input
+          ref={register({ required: false })}
+          type="email"
+          name="email"
+          id="email"
+          defaultValue={profile.email}
+        />
+        <label htmlFor="name">Tu nombre</label>
+        <input
+          ref={register({ required: false })}
+          type="text"
+          name="name"
+          id="name"
+          defaultValue={profile.name}
+        />
+        <label htmlFor="avatar">Tu avatar</label>
+        <input
+          ref={register({ required: false })}
+          type="file"
+          name="avatar"
+          id="avatar"
+          accept="image/*"
+        />
+
+        <button type="submit">Guarda los cambios!</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+      </form>
     </section>
   );
 }

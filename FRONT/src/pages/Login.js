@@ -7,12 +7,10 @@ export default function Login() {
   const { signIn } = useAuth();
 
   return (
-    <section>
-      <>
-        <LoginForm signIn={signIn}></LoginForm>
-        <NewPassword></NewPassword>
-        <ResetPassword></ResetPassword>
-      </>
-    </section>
+    <>
+      <LoginForm signIn={signIn}></LoginForm>
+      <NewPassword></NewPassword>
+      <ResetPassword></ResetPassword>
+    </>
   );
 }

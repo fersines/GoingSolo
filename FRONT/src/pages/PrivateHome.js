@@ -7,10 +7,10 @@ export default function PrivateHome() {
 
   if (userData.role === "admin") {
     return (
-      <section>
-        <h1>Estos son los últimos Links subidos:</h1>
+      <>
+        <h1>Últimos Links subidos:</h1>
         <ListPosts></ListPosts>
-      </section>
+      </>
     );
   } else {
   }

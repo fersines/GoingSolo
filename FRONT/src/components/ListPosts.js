@@ -34,7 +34,6 @@ export default function ListPosts() {
   if (userData.role === "admin") {
     return (
       <section>
-        <h1>Aquí debería salir el listado de Posts</h1>
         <ul>
           {posts.map((post) => {
             return (
@@ -52,7 +51,6 @@ export default function ListPosts() {
   }
   return (
     <section>
-      <h1>Aquí debería salir el listado de Posts</h1>
       <ul>
         {posts.map((post) => {
           return (

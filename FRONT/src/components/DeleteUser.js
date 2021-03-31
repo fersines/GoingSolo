@@ -73,14 +73,10 @@ export default function EditUserProfile(data) {
 
   return (
     <section>
-      <h1>Detalle del Usuario a Desactivar</h1>
-
-      <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <button type="submit">Borrar Usuario</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <button type="submit">Borrar Usuario</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+      </form>
     </section>
   );
 }
