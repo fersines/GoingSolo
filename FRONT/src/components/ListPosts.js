@@ -40,7 +40,7 @@ export default function ListPosts() {
             return (
               <li key={post.id}>
                 <Link to={`/link/${post.id}`}>
-                  {post.link} {miDate}
+                  {post.link} {new Date(miDate).toLocaleString("es-ES")}
                 </Link>
               </li>
             );

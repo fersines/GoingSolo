@@ -24,12 +24,8 @@ export default function UserDetails() {
       });
   }, []);
 
-  console.log(Boolean(user.active));
-  console.log(Boolean.prototype.valueOf(user.active));
-  console.log(user.name);
+  console.log(user);
 
-  console.log(user.active);
-  console.log(user.deleted);
   return (
     <section>
       <h1>Perifl del Usuario con id: {id}</h1>
