@@ -69,11 +69,9 @@ export default function DeleteLink(data) {
   if (post) return <p>Buscando Link...</p>;
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <button type="submit">Eliminar Link</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </section>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="submit">Eliminar Link</button>
+      {errorMessage ? <p>{errorMessage}</p> : null}
+    </form>
   );
 }

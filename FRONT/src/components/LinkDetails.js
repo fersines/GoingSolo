@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import DeleteLink from "./DeleteLink";
 
 const apiUrl = "http://localhost:3000";
 
@@ -40,6 +41,9 @@ export default function LinkDetails() {
       <p>{post.story}</p>
       <div>
         <Link to="/editlink">Edita el Link</Link>
+      </div>
+      <div>
+        <DeleteLink></DeleteLink>
       </div>
     </section>
   );

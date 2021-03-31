@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
+import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
