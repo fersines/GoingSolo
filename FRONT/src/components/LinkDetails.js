@@ -25,8 +25,8 @@ export default function LinkDetails() {
       });
   }, []);
 
-  const stringDate = new Date();
-  const miDate = stringDate.toString(post.date);
+  const stringDate = new Date(post.date);
+  const miDate = stringDate.toString();
 
   return (
     <section>
@@ -41,8 +41,6 @@ export default function LinkDetails() {
       <p>{post.story}</p>
       <div>
         <Link to="/editlink">Edita el Link</Link>
-      </div>
-      <div>
         <DeleteLink></DeleteLink>
       </div>
     </section>

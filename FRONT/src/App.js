@@ -83,7 +83,7 @@ function App() {
             <EditLink></EditLink>
           </Route>
           <Route path="/link/:id">
-            <LinkInfo></LinkInfo>
+            <LinkDetails></LinkDetails>
             <DeleteLink></DeleteLink>
           </Route>
           <Route path="/usersarea">

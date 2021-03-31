@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
 export default function DeleteLink(data) {
   const { id } = useParams();
+  const history = useHistory();
   const [post, setPost] = useState([]);
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
   const token = localStorage.getItem("token");
@@ -20,7 +21,7 @@ export default function DeleteLink(data) {
       headers.append("Authorization", token);
       try {
         const response = await fetch(`${apiUrl}/posts/${id}`, {
-          method: "DELETE",
+          method: "GET",
           headers: headers,
         });
 
@@ -44,20 +45,13 @@ export default function DeleteLink(data) {
       const headers = new Headers();
       headers.append("Authorization", token);
 
-      const body = new FormData();
-      body.append("link", data.link);
-      body.append("title", data.title);
-
-      body.append("story", data.story);
-
       const response = await fetch(`${apiUrl}/posts/${id}`, {
         method: "DELETE",
         headers: headers,
-        body: body,
       });
       const json = await response.json();
       if (response.ok) {
-        return <h1>El Link ha sido borrado.</h1>;
+        history.push("/mislinks");
       } else {
         throw new Error(json.message);
       }
@@ -66,7 +60,7 @@ export default function DeleteLink(data) {
     }
   };
 
-  if (post) return <p>Buscando Link...</p>;
+  if (!post) return <p>Buscando Link...</p>;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

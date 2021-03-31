@@ -38,7 +38,7 @@ export default function NewPost(data) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="url">Linkito</label>
         <input ref={register({ required: true })} name="link" id="link" />
-        {errors.link && <p className="error">Falta Link</p>}
+        {errors.link && <p className="error">Falta el Link</p>}
         <label htmlFor="title">Ponle un título</label>
         <input
           ref={register({ required: true, minLength: 1 })}
@@ -46,7 +46,7 @@ export default function NewPost(data) {
           type="title"
           id="title"
         />
-        {errors.title && <p className="error">Falta el title</p>}
+        {errors.title && <p className="error">El título es obligatorio</p>}
         <label htmlFor="story">Cuéntanos algo sobre tu Link</label>
         <textarea
           ref={register({ required: true, minLength: 1 })}
@@ -54,7 +54,7 @@ export default function NewPost(data) {
           type="story"
           id="story"
         />
-        {errors.title && <p className="error">Falta story</p>}
+        {errors.title && <p className="error">Necesitas un comentario</p>}
 
         <button type="submit">LinkItUP!</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
