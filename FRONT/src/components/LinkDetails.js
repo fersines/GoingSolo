@@ -7,7 +7,7 @@ import LoveLink from "./LoveLink";
 const apiUrl = "http://localhost:3000";
 
 export default function LinkDetails() {
-  const { userData, tokenObject } = useAuth();
+  const { userData } = useAuth();
   const { id } = useParams();
   const [post, setpost] = useState([]);
 
@@ -28,9 +28,6 @@ export default function LinkDetails() {
       });
   }, []);
 
-  console.log(userData);
-  console.log(post);
-
   const stringDate = new Date(post.date);
   const miDate = stringDate.toString();
 
@@ -48,7 +45,7 @@ export default function LinkDetails() {
         <p>{post.story}</p>
         <div>
           <button>
-            <Link to="/editlink">Edita el Link</Link>
+            <Link to="/link/:id">Edita el Link</Link>
           </button>
           <button>
             <DeleteLink></DeleteLink>

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
+import useAuth from "../shared/hooks/useAuth";
+import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
 export default function EditLink(data) {
   const history = useHistory();
+  const { userData } = useAuth();
   const { id } = useParams();
-  console.log(id);
-  const [post, setPost] = useState();
+  const [post, setPost] = useState([]);
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
@@ -22,7 +24,7 @@ export default function EditLink(data) {
       headers.append("Authorization", token);
       try {
         const response = await fetch(`${apiUrl}/posts/${id}`, {
-          method: "PUT",
+          method: "GET",
           headers: headers,
         });
 
@@ -40,8 +42,7 @@ export default function EditLink(data) {
 
     getPost();
   }, [token, id]);
-  console.log(post.id);
-  console.log(id);
+
   const onSubmit = async (data) => {
     try {
       const headers = new Headers();
@@ -51,7 +52,7 @@ export default function EditLink(data) {
       body.append("link", data.link);
       body.append("title", data.title);
 
-      if (data.stoyr.length) {
+      if (data.story.length) {
         body.append("story", data.story);
       }
 
@@ -71,41 +72,60 @@ export default function EditLink(data) {
     }
   };
 
-  if (!post) return <p>Cargando...</p>;
+  if (userData.role === "admin" || userData.id === post.post_user_id) {
+    return (
+      <section>
+        <h2>Este es el detalle del Link a editar</h2>
 
-  return (
-    <section>
-      <h2>Este es el detalle del Link a editar</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="link">Link</label>
+          <input
+            ref={register({ required: false })}
+            type="text"
+            name="link"
+            id="link"
+            defaultValue={post.link}
+          />
+          <label htmlFor="title">Título</label>
+          <input
+            ref={register({ required: false })}
+            type="text"
+            name="title"
+            id="title"
+            defaultValue={post.title}
+          />
+          <label htmlFor="avatar">Story</label>
+          <input
+            ref={register({ required: false })}
+            type="text"
+            name="story"
+            id="story"
+            defaultValue={post.story}
+          />
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="link">Link</label>
-        <input
-          ref={register({ required: false })}
-          type="text"
-          name="link"
-          id="link"
-          defaultValue={post.link}
-        />
-        <label htmlFor="title">Título</label>
-        <input
-          ref={register({ required: false })}
-          type="text"
-          name="title"
-          id="title"
-          defaultValue={post.title}
-        />
-        <label htmlFor="avatar">Story</label>
-        <input
-          ref={register({ required: false })}
-          type="text"
-          name="story"
-          id="story"
-          defaultValue={post.story}
-        />
-
-        <button type="submit">Guarda los cambios!</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </section>
-  );
+          <button type="submit">Guarda los cambios!</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
+      </section>
+    );
+  } else {
+    return (
+      <section>
+        <h1>Detalles del Link con id: {id}</h1>
+        <h3>Link</h3>
+        <p>{post.link}</p>
+        <h3>Fue publicado:</h3>
+        <p>{post.date}</p>
+        <h3>Título</h3>
+        <p>{post.title}</p>
+        <h3>Story</h3>
+        <p>{post.story}</p>
+        <div>
+          <button>
+            <LoveLink></LoveLink>
+          </button>
+        </div>
+      </section>
+    );
+  }
 }

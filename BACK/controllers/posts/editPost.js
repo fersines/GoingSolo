@@ -28,7 +28,7 @@ const editPost = async (req, res, next) => {
       req.userAuth.role !== "admin"
     ) {
       const error = new Error(
-        `No es posible editar un Post si han pasado más de ${process.env.MAX_EDIT_POST_MARGIN} horas desde su publicación y han pasado ya ${difference} horas.`
+        `No es posible editar un Post si han pasado más de ${process.env.MAX_EDIT_POST_MARGIN} horas desde su publicación y han pasado ya ${difference} horas desde que fue publicado.`
       );
       error.httpStatus = 403;
       throw error;

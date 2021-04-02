@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 const apiUrl = "http://localhost:3000";
 
 export default function LoveLink(data) {
   const { id } = useParams();
+  const history = useHistory();
   const { register, handleSubmit } = useForm();
+  const [errorMessage, setErrorMessage] = useState();
   const [post, setPost] = useState([]);
 
   const token = localStorage.getItem("token");
@@ -49,13 +51,19 @@ export default function LoveLink(data) {
 
   const onSubmit = async (data) => {
     try {
-      await fetch(`${apiUrl}/posts/${post.id}/likes`, {
+      const response = await fetch(`${apiUrl}/posts/${post.id}/likes`, {
         headers: headers,
         method: "POST",
         body: JSON.stringify(data),
       });
+      const json = await response.json();
+      if (response.ok) {
+        history.push("/masvotados");
+      } else {
+        throw new Error(json.message);
+      }
     } catch (error) {
-      setPost(error.message);
+      setErrorMessage(error.message);
     }
   };
 
@@ -69,6 +77,7 @@ export default function LoveLink(data) {
         defaultValue="1"
       />
       <button type="submit">LoveIt!</button>
+      {errorMessage ? <p>{errorMessage}</p> : null}
     </form>
   );
 }

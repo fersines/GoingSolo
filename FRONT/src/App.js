@@ -79,7 +79,7 @@ function App() {
           <Route path="/comment/:id">
             <CommentDetails></CommentDetails>
           </Route>
-          <Route path="/editlink">
+          <Route path="/link/:id">
             <EditLink></EditLink>
           </Route>
           <Route path="/link/:id">
