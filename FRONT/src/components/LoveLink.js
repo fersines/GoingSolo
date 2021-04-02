@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:3000";
 
 export default function LoveLink(data) {
   const { id } = useParams();
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
   const [post, setPost] = useState([]);
 
   const token = localStorage.getItem("token");
@@ -61,6 +61,13 @@ export default function LoveLink(data) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        ref={register({ required: true })}
+        type="text"
+        name="love"
+        id="love"
+        defaultValue="1"
+      />
       <button type="submit">LoveIt!</button>
     </form>
   );
