@@ -51,7 +51,7 @@ export default function DeleteLink(data) {
       });
       const json = await response.json();
       if (response.ok) {
-        history.push("/mislinks");
+        history.push("/loggeduser");
       } else {
         throw new Error(json.message);
       }

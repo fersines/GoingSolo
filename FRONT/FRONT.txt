@@ -5,14 +5,14 @@ Componentes de Post:
     - GET - /posts - ListPosts.js - ✅ Lista de Posts General y búsqueda de Posts (faltan opciones de ordenación)
     - GET - /posts - FindPosts.js - Busqueda de Posts
     - GET - /posts/:id - LinkDetails.js - ✅ Detalle de un Post. 
-    - POST - /posts - NewPost.js - ✅ Añadir nuevo Post. 
-    - POST - /posts/:id/loves - Votar Post. 
-    - DELETE - /posts/:id - DeleteLink.js - ✅ Eliminar Post (falta asignar botón)
+    - POST - /posts - NewPost.js - ✅ - Añadir nuevo Post. 
+    - POST - /posts/:id/loves - ✅ - Votar Post. 
+    - DELETE - /posts/:id - DeleteLink.js - ✅ Eliminar Post.
     - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (falta poner opciones para ordenación)
-    - PUT - /posts - Editar Post. (Tanto por user normal o admin)
+    - PUT - /posts - ✅ - Editar Post. (Tanto por user normal o admin)
     - POST - /posts/:id/comments - Añadir Comentario. 
     - PUT - /comments/:id - Editar Comentario. 
-    - DELETE - /comments/:id - DeleteComment.js - ✅ Borrar Comentario (falta asignar botón)
+    - DELETE - /comments/:id - DeleteComment.js - ✅ Borrar Comentario.
     - GET - /comments - ListComments.js - ✅ Lista todos los comentarios a cualquier Post. 
     - GET - /comments/:id/list - UserComments.js - ✅ Lista los comentarios de un usuario a cualquier Post. 
 
@@ -21,16 +21,16 @@ Componentes de Post:
 
 Componentes de Usuario:
 
-    - POST - /users - SignUpForm.js - ✅ Registro de Usuario sin validar. 
-    - POST - /users/login - LoginForm.js - ✅ Login de Usuario. 
-    - GET - /users/:id - UserProfile.js - ✅ Detalle de Usuario. 
-    - GET - /users/:id - UserProfile.js - ✅ Detalle de Usuario para el Admin.
-    - DELETE - /users/:id - DeleteUser.js - ✅ Eliminar/desactivar un Usuario (sólo el admin). Acabado con reservas (habría que hacer botón)
-    - PUT - /users/:id - EditUserProfile.js - ✅ Editar Usuario.
-    - PUT - /users/:id/password - EditPassword.js - ✅ Editar contraseña de Usuario (sin devolver respuesta OK en pantalla)
-    - POST - /users/recover-password - ✅ NewPassword.js - Solicitar nueva contraseña (código) 
-    - POST - /users/reset-password - ✅ ResetPassword.js - Resetear contraseña olvidada (no se borran los datos en el submit, quedan en pantalla)
-    - GET - /users/list - ListUsers.js - ✅ Lista de Usuarios.
+    - POST - /users - SignUpForm.js - ✅ - Registro de Usuario sin validar. 
+    - POST - /users/login - LoginForm.js - ✅ - Login de Usuario. 
+    - GET - /users/:id - UserProfile.js - ✅ - Detalle de Usuario. 
+    - GET - /users/:id - UserProfile.js - ✅ - Detalle de Usuario para el Admin.
+    - DELETE - /users/:id - DeleteUser.js - ✅ - Eliminar/desactivar un Usuario (sólo el admin). Acabado con reservas (habría que hacer botón)
+    - PUT - /users/:id - EditUserProfile.js - ✅ - Editar Usuario.
+    - PUT - /users/:id/password - EditPassword.js - ✅ - Editar contraseña de Usuario (sin devolver respuesta OK en pantalla)
+    - POST - /users/recover-password - ✅ - NewPassword.js - Solicitar nueva contraseña.
+    - POST - /users/reset-password - ✅ - ResetPassword.js - Resetear contraseña olvidada (no se borran los datos en el submit, quedan en pantalla)
+    - GET - /users/list - ListUsers.js - ✅ - Lista de Usuarios.
     - GET - /users/list - Busqueda de Usuarios.
 
 Componentes de "atajos" y "piezas":
