@@ -35,7 +35,7 @@ export default function UserDetails() {
       <p>{user.name}</p>
       <h3>Activo</h3>
       <p>
-        {user.active === "1" ? (
+        {user.active === 1 ? (
           <p>El usuario está activado</p>
         ) : (
           <p>El usuario está pendiente de activación</p>
@@ -43,7 +43,7 @@ export default function UserDetails() {
       </p>
       <h3>Eliminado</h3>
       <p>
-        {user.deleted === "0" ? (
+        {user.deleted === 0 ? (
           <p>Este Usuario no está Eliminado</p>
         ) : (
           <p>Este Usuario ha sido Eliminado</p>

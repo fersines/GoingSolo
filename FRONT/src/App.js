@@ -84,7 +84,6 @@ function App() {
           </Route>
           <Route path="/link/:id">
             <LinkDetails></LinkDetails>
-            <DeleteLink></DeleteLink>
           </Route>
           <Route path="/usersarea">
             <UserInfo></UserInfo>
