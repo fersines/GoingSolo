@@ -35,14 +35,18 @@ export default function UserDetails() {
       <p>{user.name}</p>
       <h3>Activo</h3>
       <p>
-        {user.active === true ? <p>{user.active}</p> : <p>{user.active}</p>}
+        {user.active === "1" ? (
+          <p>El usuario está activado</p>
+        ) : (
+          <p>El usuario está pendiente de activación</p>
+        )}
       </p>
       <h3>Eliminado</h3>
       <p>
-        {user.deleted === false ? (
-          <p>Este Usuario ha sido Eliminado</p>
-        ) : (
+        {user.deleted === "0" ? (
           <p>Este Usuario no está Eliminado</p>
+        ) : (
+          <p>Este Usuario ha sido Eliminado</p>
         )}
       </p>
     </section>

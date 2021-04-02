@@ -12,7 +12,7 @@ const getUser = async (req, res, next) => {
     //Cojo la información del usuario
     const [user] = await connection.query(
       `
-        SELECT id, date, email, name, avatar, role
+        SELECT id, date, email, name, avatar, role, active, deleted
         FROM users
         WHERE id=?
     `,
@@ -30,6 +30,8 @@ const getUser = async (req, res, next) => {
       userInfo.date = user[0].date;
       userInfo.email = user[0].email;
       userInfo.role = user[0].role;
+      userInfo.active = user[0].active;
+      userInfo.deleted = user[0].deleted;
     }
 
     //Devuelvo respuesta
