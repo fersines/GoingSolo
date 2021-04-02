@@ -15,9 +15,9 @@ export default function PrivateHome() {
   } else {
   }
   return (
-    <section>
+    <>
       <h1>Bienvenido de nuevo! Estos son tus Links:</h1>
       <UserPosts></UserPosts>
-    </section>
+    </>
   );
 }

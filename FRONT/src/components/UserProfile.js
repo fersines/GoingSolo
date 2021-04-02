@@ -71,8 +71,12 @@ export default function UserProfile() {
         )}
       </div>
       <div>
-        <Link to="/edituser">Edita tu usuario</Link>
-        <Link to="/editpassword">Cambia tu contraseña</Link>
+        <button>
+          <Link to="/edituser">Edita tu usuario</Link>
+        </button>
+        <button>
+          <Link to="/editpassword">Cambia tu contraseña</Link>
+        </button>
       </div>
     </section>
   );

@@ -40,8 +40,12 @@ export default function LinkDetails() {
       <h3>Story</h3>
       <p>{post.story}</p>
       <div>
-        <Link to="/editlink">Edita el Link</Link>
-        <DeleteLink></DeleteLink>
+        <button>
+          <Link to="/editlink">Edita el Link</Link>
+        </button>
+        <button>
+          <DeleteLink></DeleteLink>
+        </button>
       </div>
     </section>
   );
