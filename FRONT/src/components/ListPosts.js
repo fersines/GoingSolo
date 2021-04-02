@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
+import LinkDetails from "./LinkDetails";
 import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
@@ -59,8 +60,11 @@ export default function ListPosts() {
               <p>
                 Link: <a href={post.link}>{post.link}</a>
               </p>
-              <p>Publicado el: {miDate}</p>
+              <p>Title: {post.title}</p>
               <p>Likes:{post.loves}</p>
+              <button>
+                <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+              </button>
             </li>
           );
         })}
