@@ -45,7 +45,7 @@ export default function LinkDetails() {
         <p>{post.story}</p>
         <div>
           <button>
-            <Link to="/link/:id">Edita el Link</Link>
+            <Link to={`/link/${id}/edit`}>Edita el Link</Link>
           </button>
           <button>
             <DeleteLink></DeleteLink>

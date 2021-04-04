@@ -79,11 +79,11 @@ function App() {
           <Route path="/comment/:id">
             <CommentDetails></CommentDetails>
           </Route>
-          <Route path="/link/:id">
+          <Route path="/link/:id/edit">
             <EditLink></EditLink>
           </Route>
           <Route path="/link/:id">
-            <LinkDetails></LinkDetails>
+            <LinkInfo></LinkInfo>
           </Route>
           <Route path="/usersarea">
             <UserInfo></UserInfo>

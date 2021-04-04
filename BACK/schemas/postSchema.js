@@ -9,15 +9,13 @@ const postSchema = Joi.object().keys({
     .required()
     .min(7)
     .max(150)
-    .error(new Error("El título ha de estar entre 7 y 150 caracteres")),
+    .error(new Error("El Título ha de estar entre 7 y 150 caracteres")),
   story: Joi.string()
     .required()
     .min(33)
     .max(1000)
     .error(
-      new Error(
-        "El comentario a tu link ha de estar entre 33 y 1000 caracteres"
-      )
+      new Error("El Story de tu link ha de estar entre 33 y 1000 caracteres")
     ),
 });
 
