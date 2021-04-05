@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteLink from "./DeleteLink";
 import LoveLink from "./LoveLink";
+import NewComment from "./NewComment";
 
 const apiUrl = "http://localhost:3000";
 
@@ -49,7 +50,7 @@ export default function LinkDetails() {
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
       <section>
-        <h1>Detalles del Link con id: {id}</h1>
+        <h1>Detalles del Link {id}</h1>
         <h3>Link</h3>
         <p>{post.link}</p>
         <h3>Fue publicado:</h3>
@@ -85,9 +86,12 @@ export default function LinkDetails() {
   } else {
     return (
       <section>
-        <h1>Detalles del Link con id: {id}</h1>
+        <h1>Detalles del Link {id}</h1>
         <h3>Link</h3>
-        <p>{post.link}</p>
+        <p>
+          {post.link} <LoveLink></LoveLink>
+        </p>
+
         <h3>Fue publicado:</h3>
         <p>{miDate}</p>
         <h3>Título</h3>
@@ -110,9 +114,7 @@ export default function LinkDetails() {
           })}
         </ul>
         <div>
-          <button>
-            <LoveLink></LoveLink>
-          </button>
+          <NewComment></NewComment>
         </div>
       </section>
     );
