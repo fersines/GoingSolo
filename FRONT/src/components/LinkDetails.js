@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteLink from "./DeleteLink";
 import LoveLink from "./LoveLink";
+import NewComment from "./NewComment";
 
 const apiUrl = "http://localhost:3000";
 
@@ -113,6 +114,8 @@ export default function LinkDetails() {
           <button>
             <LoveLink></LoveLink>
           </button>
+          <NewComment></NewComment>
+          <Link to={`/posts/${id}/comments`}>Comentar</Link>
         </div>
       </section>
     );

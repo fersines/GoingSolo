@@ -6,7 +6,8 @@ Componentes de Post:
     - GET - /posts - FindPosts.js - Busqueda de Posts
     - GET - /posts/:id - LinkDetails.js - ✅ Detalle de un Post. 
     - POST - /posts - NewPost.js - ✅ - Añadir nuevo Post. 
-    - POST - /posts/:id/loves - ✅ - Votar Post. 
+    - POST - /posts/:id/likes - ✅ - Like a un Post. 
+    - POST - /comments/:id/likes -  - Like a un Comentario. 
     - DELETE - /posts/:id - DeleteLink.js - ✅ Eliminar Post.
     - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (falta poner opciones para ordenación)
     - PUT - /posts - ✅ - Editar Post. (Tanto por user normal o admin)

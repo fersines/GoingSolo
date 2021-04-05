@@ -35,6 +35,7 @@ import LinkInfo from "./pages/LinkInfo";
 import DeleteLink from "./components/DeleteLink";
 import SignUpForm from "./components/SignUpForm";
 import Header from "./pages/Header";
+import NewComment from "./components/NewComment";
 
 function App() {
   return (
@@ -64,7 +65,6 @@ function App() {
             <MasVotados></MasVotados>
           </Route>
           <Route path="/miscomentarios">
-            <MasComentados></MasComentados>
             <UserComments></UserComments>
           </Route>
           <Route path="/editpassword">
@@ -84,6 +84,9 @@ function App() {
           </Route>
           <Route path="/link/:id">
             <LinkInfo></LinkInfo>
+          </Route>
+          <Route path="/posts/:id/comments">
+            <NewComment></NewComment>
           </Route>
           <Route path="/usersarea">
             <UserInfo></UserInfo>

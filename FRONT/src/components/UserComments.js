@@ -30,6 +30,8 @@ export default function UserComments() {
       });
   }, []);
 
+  console.log(comments);
+
   if (comments.length === 0) {
     return <h1>Aquí verás tus Comentarios, pero cuando los publiques...</h1>;
   } else {
@@ -43,7 +45,7 @@ export default function UserComments() {
             return (
               <li key={comment.id}>
                 <Link to={`/comment/${comment.id}`}>
-                  {comment.link} {miDate}
+                  {comment.comment} {miDate}
                 </Link>
               </li>
             );
