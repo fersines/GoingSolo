@@ -46,6 +46,7 @@ const {
   userExists,
 } = require("./middlewares");
 const getComment = require("./controllers/posts/getComment");
+const listPostComments = require("./controllers/posts/listPostComments");
 
 const { PORT } = process.env;
 
@@ -98,6 +99,10 @@ app.delete("/posts/:id", isUser, postExists, canEditPost, deletePost);
 //POST - /posts/:id/comments
 //Crea un comentario a un Post
 app.post("/posts/:id/comments", isUser, postExists, newComment);
+
+//GET - /posts/:id/comments
+//Devuelve todos los comentarios a un Post
+app.get("/posts/:id/comments", isUser, postExists, listPostComments);
 
 //GET - /comments
 //Lista todos los Comentarios

@@ -10,6 +10,7 @@ export default function LinkDetails() {
   const { userData } = useAuth();
   const { id } = useParams();
   const [post, setpost] = useState([]);
+  const [comments, setcomments] = useState([]);
 
   const token = localStorage.getItem("token");
 
@@ -28,6 +29,20 @@ export default function LinkDetails() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch(`${apiUrl}/posts/${id}/comments`, { method: "GET", headers: headers })
+      .then((response) => {
+        return response.json();
+      })
+      .then((results) => {
+        console.log(results);
+        setcomments(results.data);
+      });
+  }, []);
+
+  console.log(comments);
+  console.log(post.id);
+
   const stringDate = new Date(post.date);
   const miDate = stringDate.toString();
 
@@ -43,6 +58,20 @@ export default function LinkDetails() {
         <p>{post.title}</p>
         <h3>Story</h3>
         <p>{post.story}</p>
+        <h3>Comentarios</h3>
+        <ul>
+          {comments.map((comment) => {
+            if (post.id === comment.post_id) {
+              return (
+                <li key={comment.post_id}>
+                  {comment.comment} Publicado: {comment.comment_date}
+                </li>
+              );
+            } else {
+              return <p>Este Link no tiene comentarios</p>;
+            }
+          })}
+        </ul>
         <div>
           <button>
             <Link to={`/link/${id}/edit`}>Edita el Link</Link>
@@ -65,6 +94,21 @@ export default function LinkDetails() {
         <p>{post.title}</p>
         <h3>Story</h3>
         <p>{post.story}</p>
+        <h3>Comentarios</h3>
+        <ul>
+          {comments.map((comment) => {
+            if (post.id === comment.post_id) {
+              return (
+                <li key={comment.post_id}>
+                  {comment.comment}
+                  Publicado: {comment.comment_date}
+                </li>
+              );
+            } else {
+              return <p>Este Link no tiene comentarios</p>;
+            }
+          })}
+        </ul>
         <div>
           <button>
             <LoveLink></LoveLink>

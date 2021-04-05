@@ -30,11 +30,13 @@ export default function UserPosts() {
       });
   }, []);
 
+  console.log(posts);
+
   if (posts.length === 0) {
     return <h1>Aquí verás tus Links, pero cuando los publiques...</h1>;
   } else {
-    const stringDate = new Date();
-    const miDate = stringDate.toString(posts.date);
+    /* const stringDate = Date();
+    const miDate = stringDate.toString(posts.date); */
 
     return (
       <>
@@ -44,7 +46,7 @@ export default function UserPosts() {
               return (
                 <li key={post.id}>
                   <Link to={`/link/${post.id}`}>
-                    {post.link} {miDate}
+                    {post.link} {post.date}
                   </Link>
                 </li>
               );
