@@ -71,10 +71,10 @@ export default function LoveLink(data) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
         ref={register({ required: true })}
-        type="text"
+        type="hidden"
         name="love"
         id="love"
-        defaultValue="1"
+        value="1"
       />
       <button type="submit">LoveIt!</button>
       {errorMessage ? <p>{errorMessage}</p> : null}
