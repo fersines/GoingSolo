@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteLink from "./DeleteLink";
 import LoveLink from "./LoveLink";
-import NewComment from "./NewComment";
 
 const apiUrl = "http://localhost:3000";
 
@@ -29,6 +28,7 @@ export default function LinkDetails() {
         setpost(results.data);
       });
   }, []);
+  console.log(post);
 
   useEffect(() => {
     fetch(`${apiUrl}/posts/${id}/comments`, { method: "GET", headers: headers })
@@ -42,7 +42,6 @@ export default function LinkDetails() {
   }, []);
 
   console.log(comments);
-  console.log(post.id);
 
   const stringDate = new Date(post.date);
   const miDate = stringDate.toString();
@@ -114,8 +113,6 @@ export default function LinkDetails() {
           <button>
             <LoveLink></LoveLink>
           </button>
-          <NewComment></NewComment>
-          <Link to={`/posts/${id}/comments`}>Comentar</Link>
         </div>
       </section>
     );

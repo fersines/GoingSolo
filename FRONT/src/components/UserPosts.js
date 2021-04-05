@@ -41,6 +41,7 @@ export default function UserPosts() {
     return (
       <>
         <section>
+          <h1>Estos son los Links que has publicado hasta ahora</h1>
           <ul>
             {posts.map((post) => {
               return (
