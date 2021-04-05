@@ -16,6 +16,18 @@
   display: grid;
 }
 
+/* .backgroundProfile {
+  background-image: url('../images/infoper.jpg');
+  background-color: #cccccc;
+  min-height: 100vh;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 99;
+  }  */
+
 .home-title {
   margin-top: 0;
   margin-bottom: 0.5rem;

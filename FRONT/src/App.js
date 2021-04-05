@@ -36,6 +36,7 @@ import DeleteLink from "./components/DeleteLink";
 import SignUpForm from "./components/SignUpForm";
 import Header from "./pages/Header";
 import NewComment from "./components/NewComment";
+import EditComment from "./components/EditComment";
 
 function App() {
   return (
@@ -75,6 +76,9 @@ function App() {
           </Route>
           <Route path="/user/:id">
             <UserDetails></UserDetails>
+          </Route>
+          <Route path="/comment/:id/edit">
+            <EditComment></EditComment>
           </Route>
           <Route path="/comment/:id">
             <CommentDetails></CommentDetails>

@@ -11,8 +11,8 @@ Componentes de Post:
     - DELETE - /posts/:id - DeleteLink.js - ✅ Eliminar Post.
     - GET - /users/:id/posts - ✅ Lista de Posts de Usuario (falta poner opciones para ordenación)
     - PUT - /posts - ✅ - Editar Post. (Tanto por user normal o admin)
-    - POST - /posts/:id/comments - Añadir Comentario. 
-    - PUT - /comments/:id - Editar Comentario. 
+    - POST - /posts/:id/comments - ✅ - Añadir Comentario. 
+    - PUT - /comments/:id -  - Editar Comentario. 
     - DELETE - /comments/:id - DeleteComment.js - ✅ Borrar Comentario.
     - GET - /comments - ListComments.js - ✅ Lista todos los comentarios a cualquier Post. 
     - GET - /comments/:id/list - UserComments.js - ✅ Lista los comentarios de un usuario a cualquier Post. 
