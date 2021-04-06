@@ -63,11 +63,9 @@ export default function DeleteComment(data) {
   if (!comment) return <p>Buscando Comentario...</p>;
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <button type="submit">Eliminar Comentario</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </section>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="submit">Eliminar Comentario</button>
+      {errorMessage ? <p>{errorMessage}</p> : null}
+    </form>
   );
 }

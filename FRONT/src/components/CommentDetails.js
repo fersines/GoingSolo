@@ -48,7 +48,9 @@ export default function CommentDetails() {
           <button>
             <Link to={`/comment/${id}/edit`}>Edita el Comentario</Link>
           </button>
-          <DeleteComment></DeleteComment>
+          <button>
+            <DeleteComment></DeleteComment>
+          </button>
         </div>
       </section>
     );
