@@ -69,6 +69,9 @@ export default function NewComment(data) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="comment">
+        <h3>Deja aquí tu comentario</h3>
+      </label>
       <input
         ref={register({ required: true })}
         type="text"

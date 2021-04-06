@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteComment from "./DeleteComment";
+import LoveComment from "./LoveComment";
+import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
@@ -62,6 +64,7 @@ export default function CommentDetails() {
         <p>{comment.comment_user_id}</p>
         <h3>Link publicado por el usuario con id:</h3>
         <p>{comment.post_id}</p>
+        <LoveComment></LoveComment>
       </section>
     );
   }
