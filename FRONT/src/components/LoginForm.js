@@ -23,6 +23,7 @@ export default function LoginForm(props) {
           name="email"
           id="email"
           placeholder="Correo Electrónico"
+          autoComplete="username"
         />
         {errors.email && <p className="error">Falta email</p>}
 
@@ -32,6 +33,7 @@ export default function LoginForm(props) {
           type="password"
           id="password"
           placeholder="Contraseña"
+          autoComplete="current-password"
         />
         {errors.password && <p className="error">Falta contraseña</p>}
 

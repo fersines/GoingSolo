@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const apiUrl = "http://localhost:3000";
 
 export default function NewPassword(data) {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState();
 
   const headers = new Headers();

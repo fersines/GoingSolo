@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import EscapeHome from "./EscapeHome";
-import EscapeLogin from "./EscapeLogin";
 
 export default function SignUpForm(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -14,8 +12,6 @@ export default function SignUpForm(props) {
       setErrorMessage(error);
     }
   };
-
-  console.log(errors);
 
   return (
     <section className="page">
