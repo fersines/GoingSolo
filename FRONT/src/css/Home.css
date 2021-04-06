@@ -29,6 +29,8 @@
   position: absolute;
   top: 70px;
   left: 10px;
+  width: 50%;
+  height: 35%;
 }
 
 /* .backgroundProfile {
