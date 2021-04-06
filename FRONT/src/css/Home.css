@@ -16,6 +16,21 @@
   display: grid;
 }
 
+.portada img {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.bienvenida {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+}
+
 /* .backgroundProfile {
   background-image: url('../images/infoper.jpg');
   background-color: #cccccc;
