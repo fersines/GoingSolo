@@ -19,17 +19,40 @@ export default function SignUpForm(props) {
 
   return (
     <section className="page">
-      <h1>Regístrate en Link It UP!</h1>
+      <h1>Alístate en Link It UP!</h1>
+      <div class="intro">
+        <p>
+          ¿Quieres ser parte de la comunidad de LinkItUP!? Este puede ser tu
+          "Speakers' Corner" virtual.
+        </p>
+        <ul>
+          <li>
+            <b>¿Quieres que todos nos enteremos de eso con lo que flipas?</b>
+          </li>
+          <li>
+            <b>¿Quieres que el mundo sepa eso que aborreces?</b>
+          </li>
+          <li>
+            <b>¿O quieres saber lo que a los demás nos flipa o aborrece?</b>
+          </li>
+        </ul>
+        <p>Sea por el motivo que sea, aquí encontrarás tu sitio.</p>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 htmlFor="email">Email</h4>
-        <input ref={register({ required: true })} name="email" id="email" />
+        <input
+          ref={register({ required: true })}
+          name="email"
+          id="email"
+          placeholder="Correo Electrónico"
+        />
         {errors.email && <p className="error">Falta email</p>}
-        <h4 htmlFor="password">Contraseña</h4>
+
         <input
           ref={register({ required: true, minLength: 1 })}
           name="password"
           type="password"
           id="password"
+          placeholder="Contraseña"
         />
         {errors.password && <p className="error">Falta contraseña</p>}
 

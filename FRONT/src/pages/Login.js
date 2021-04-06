@@ -1,6 +1,5 @@
+import { Link } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
-import NewPassword from "../components/NewPassword";
-import ResetPassword from "../components/ResetPassword";
 import useAuth from "../shared/hooks/useAuth";
 
 export default function Login() {
@@ -9,8 +8,6 @@ export default function Login() {
   return (
     <>
       <LoginForm signIn={signIn}></LoginForm>
-      <NewPassword></NewPassword>
-      <ResetPassword></ResetPassword>
     </>
   );
 }

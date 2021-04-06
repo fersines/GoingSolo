@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function LoginForm(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -15,23 +16,36 @@ export default function LoginForm(props) {
 
   return (
     <section className="page">
-      <h1>Inicia tu sesión</h1>
+      <h1>Accede con tu claves</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email</label>
-        <input ref={register({ required: true })} name="email" id="email" />
+        <input
+          ref={register({ required: true })}
+          name="email"
+          id="email"
+          placeholder="Correo Electrónico"
+        />
         {errors.email && <p className="error">Falta email</p>}
-        <label htmlFor="password">Tu contraseña</label>
+
         <input
           ref={register({ required: true, minLength: 1 })}
           name="password"
           type="password"
           id="password"
+          placeholder="Contraseña"
         />
         {errors.password && <p className="error">Falta contraseña</p>}
-        <label htmlFor="button">Vamos!</label>
-        <button type="submit">Entra</button>
+
+        <button type="submit">Acceder</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
+      <div>
+        <button>
+          <Link to="/newpassword">Has olvidado tu contraseña?</Link>
+        </button>
+        <button>
+          <Link to="/register">Todavía no estás registrado?</Link>
+        </button>
+      </div>
     </section>
   );
 }

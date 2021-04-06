@@ -45,64 +45,67 @@ function App() {
       <AuthProvider>
         <Header></Header>
         <Switch>
-          <Route path="/findposts">
+          <Route exact path="/findposts">
             <FindPosts></FindPosts>
           </Route>
-          <Route path="/findcomments">
+          <Route exact path="/findcomments">
             <FindComments></FindComments>
             <ListComments></ListComments>
           </Route>
-          <Route path="/findusers">
+          <Route exact path="/findusers">
             <FindUsers></FindUsers>
             <ListUsers></ListUsers>
           </Route>
-          <Route path="/nuevolink">
+          <Route exact path="/nuevolink">
             <NewPost></NewPost>
           </Route>
-          <Route path="/mislinks">
+          <Route exact path="/mislinks">
             <UserPosts></UserPosts>
           </Route>
-          <Route path="/masvotados">
+          <Route exact path="/masvotados">
             <MasVotados></MasVotados>
           </Route>
-          <Route path="/miscomentarios">
+          <Route exact path="/miscomentarios">
             <UserComments></UserComments>
           </Route>
-          <Route path="/editpassword">
+          <Route exact path="/editpassword">
             <EditPassword></EditPassword>
           </Route>
-          <Route path="/edituser">
+          <Route exact path="/edituser">
             <EditUserProfile></EditUserProfile>
           </Route>
-          <Route path="/user/:id">
+          <Route exact path="/user/:id">
             <UserDetails></UserDetails>
           </Route>
-          <Route path="/comment/:id/edit">
+          <Route exact path="/comment/:id/edit">
             <EditComment></EditComment>
           </Route>
-          <Route path="/comment/:id">
+          <Route exact path="/comment/:id">
             <CommentDetails></CommentDetails>
           </Route>
-          <Route path="/link/:id/edit">
+          <Route exact path="/link/:id/edit">
             <EditLink></EditLink>
           </Route>
-          <Route path="/link/:id">
+          <Route exact path="/link/:id">
             <LinkInfo></LinkInfo>
           </Route>
-          <Route path="/posts/:id/comments">
+          <Route exact path="/posts/:id/comments">
             <NewComment></NewComment>
           </Route>
-          <Route path="/usersarea">
+          <Route exact path="/usersarea">
             <UserInfo></UserInfo>
           </Route>
-          <Route path="/loggeduser">
+          <Route exact path="/loggeduser">
             <PrivateHome></PrivateHome>
           </Route>
-          <Route path="/register">
-            <SignUpApi></SignUpApi>
+          <Route exact path="/newpassword">
+            <NewPassword></NewPassword>
+            <ResetPassword></ResetPassword>
+          </Route>
+          <Route exact path="/register">
             <SignUpForm></SignUpForm>
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login></Login>
           </Route>
           <Route exact path="/">

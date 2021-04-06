@@ -28,27 +28,25 @@ export default function ResetPassword(data) {
 
   return (
     <section className="page">
-      <h1>Desde aquí podrás recuperar tu Contraseña</h1>
+      <h1>Si has recibido el código de recuperación</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="recoverCode">
-          Pon aquí el código que has recibido por email
-        </label>
         <input
           ref={register({ required: true, minLength: 1 })}
           name="recoverCode"
           type="text"
           id="recoverCode"
+          placeholder="Código Recibido"
         />
 
-        <label htmlFor="newPassword">Elige una nueva Contraseña</label>
         <input
           ref={register({ required: true, minLength: 1 })}
           name="newPassword"
           type="password"
           id="newPassword"
+          placeholder="Nueva Contraseña"
         />
 
-        <button type="submit">Recuperar Contraseña</button>
+        <button type="submit">Restablecer Contraseña</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
     </section>
