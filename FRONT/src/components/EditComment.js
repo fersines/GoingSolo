@@ -50,7 +50,7 @@ export default function EditComment(data) {
       headers.append("Authorization", token);
 
       const body = new FormData();
-      body.append("link", data.comment);
+      body.append("comment", data.comment);
 
       const response = await fetch(`${apiUrl}/comments/${comment.id}`, {
         method: "PUT",
@@ -71,15 +71,15 @@ export default function EditComment(data) {
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
       <section>
-        <h2>Este es el detalle del Link a editar</h2>
+        <h2>Este es el detalle del Comentario a editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="comment">Comentario</label>
           <input
             ref={register({ required: false })}
             type="text"
-            name="link"
-            id="link"
+            name="comment"
+            id="comment"
             defaultValue={comment.comment}
           />
 

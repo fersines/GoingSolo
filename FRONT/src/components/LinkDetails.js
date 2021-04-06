@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteLink from "./DeleteLink";
+import LoveComment from "./LoveComment";
 import LoveLink from "./LoveLink";
 import NewComment from "./NewComment";
 
@@ -64,9 +65,12 @@ export default function LinkDetails() {
           {comments.map((comment) => {
             if (post.id === comment.post_id) {
               return (
-                <li key={comment.post_id}>
-                  {comment.comment} Publicado: {comment.comment_date}
-                </li>
+                <>
+                  <li key={comment.post_id}>
+                    {comment.comment} Publicado: {comment.comment_date}
+                  </li>
+                  <LoveComment></LoveComment>
+                </>
               );
             } else {
               return <p>Este Link no tiene comentarios</p>;
@@ -103,10 +107,14 @@ export default function LinkDetails() {
           {comments.map((comment) => {
             if (post.id === comment.post_id) {
               return (
-                <li key={comment.post_id}>
-                  {comment.comment}
-                  Publicado: {comment.comment_date}
-                </li>
+                <>
+                  <li key={comment.post_id}>
+                    <div>{comment.comment}</div>
+                    <div>Publicado: {comment.comment_date}</div>
+                    <div>Likes: {comment.loves}</div>
+                  </li>
+                  <LoveComment></LoveComment>
+                </>
               );
             } else {
               return <p>Este Link no tiene comentarios</p>;
