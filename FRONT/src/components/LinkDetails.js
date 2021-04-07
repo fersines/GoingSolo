@@ -44,9 +44,6 @@ export default function LinkDetails() {
 
   console.log(post.comments);
 
-  const stringDate = new Date(post.date);
-  const miDate = stringDate.toString();
-
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
       <section>
@@ -54,7 +51,7 @@ export default function LinkDetails() {
         <h3>Link</h3>
         <p>{post.link}</p>
         <h3>Fue publicado:</h3>
-        <p>{miDate}</p>
+        <p>{new Date(post.date).toLocaleString("es-ES")}</p>
         <h3>Título</h3>
         <p>{post.title}</p>
         <h3>Story</h3>
@@ -66,7 +63,8 @@ export default function LinkDetails() {
               return (
                 <li key={comment.id}>
                   <Link to={`/comment/${comment.id}`}>
-                    {comment.comment} Publicado: {comment.comment_date}
+                    {comment.comment} Publicado:
+                    {new Date(comment.comment_date).toLocaleString("es-ES")}
                   </Link>
                 </li>
               );
@@ -95,7 +93,7 @@ export default function LinkDetails() {
         </p>
 
         <h3>Fue publicado:</h3>
-        <p>{miDate}</p>
+        <p>{new Date(post.date).toLocaleString("es-ES")}</p>
         <h3>Título</h3>
         <p>{post.title}</p>
         <h3>Story</h3>
@@ -109,7 +107,8 @@ export default function LinkDetails() {
               return (
                 <li key={comment.id}>
                   <Link to={`/comment/${comment.id}`}>
-                    {comment.comment} Publicado: {comment.comment_date}
+                    {comment.comment} Publicado:
+                    {new Date(comment.comment_date).toLocaleString("es-ES")}
                   </Link>
                 </li>
               );

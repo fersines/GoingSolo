@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
-import LinkDetails from "./LinkDetails";
-import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
@@ -30,9 +28,6 @@ export default function ListPosts() {
 
   console.log(posts[0]);
 
-  const stringDate = new Date();
-  const miDate = stringDate.toString(posts.date);
-
   if (userData.role === "admin") {
     return (
       <section>
@@ -41,7 +36,7 @@ export default function ListPosts() {
             return (
               <li key={post.id}>
                 <Link to={`/link/${post.id}`}>
-                  {post.link} {new Date(miDate).toLocaleString("es-ES")}
+                  {post.link} {new Date(post.date).toLocaleString("es-ES")}
                 </Link>
               </li>
             );

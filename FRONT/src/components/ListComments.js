@@ -24,9 +24,6 @@ export default function ListComments() {
       });
   }, []);
 
-  const stringDate = new Date();
-  const miDate = stringDate.toString(comments.date);
-
   return (
     <section>
       <ul>
@@ -34,7 +31,8 @@ export default function ListComments() {
           return (
             <li key={comment.id}>
               <Link to={`/comment/${comment.id}`}>
-                {comment.comment} {miDate}
+                {comment.comment}{" "}
+                {new Date(comment.comment_date).toLocaleString("es-ES")}
               </Link>
             </li>
           );

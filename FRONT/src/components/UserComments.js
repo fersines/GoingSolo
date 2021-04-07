@@ -35,8 +35,6 @@ export default function UserComments() {
   if (comments.length === 0) {
     return <h1>Aquí verás tus Comentarios, pero cuando los publiques...</h1>;
   } else {
-    const stringDate = new Date();
-    const miDate = stringDate.toString(comments.date);
     return (
       <section>
         <h1>Estos son los Comentarios que has publicado hasta ahora</h1>
@@ -45,7 +43,8 @@ export default function UserComments() {
             return (
               <li key={comment.id}>
                 <Link to={`/comment/${comment.id}`}>
-                  {comment.comment} {miDate}
+                  {comment.comment}{" "}
+                  {new Date(comment.comment_date).toLocaleString("es-ES")}
                 </Link>
               </li>
             );

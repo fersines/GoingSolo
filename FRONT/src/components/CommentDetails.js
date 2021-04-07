@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteComment from "./DeleteComment";
 import LoveComment from "./LoveComment";
-import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
@@ -29,9 +28,6 @@ export default function CommentDetails() {
       });
   }, []);
 
-  const stringDate = new Date();
-  const miDate = stringDate.toString(comment.comment_date);
-
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
       <section>
@@ -39,7 +35,7 @@ export default function CommentDetails() {
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
         <h3>Fecha de publicación:</h3>
-        <p>{miDate}</p>
+        <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
         <h3>Comentado por el usuario con id:</h3>
         <p>{comment.comment_user_id}</p>
         <h3>Link publicado por el usuario con id:</h3>
@@ -61,7 +57,7 @@ export default function CommentDetails() {
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
         <h3>Fecha de publicación:</h3>
-        <p>{miDate}</p>
+        <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
         <h3>Comentado por el usuario con id:</h3>
         <p>{comment.comment_user_id}</p>
         <h3>Link publicado por el usuario con id:</h3>
