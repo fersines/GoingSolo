@@ -43,6 +43,7 @@ export default function LinkDetails() {
   }, []);
 
   console.log(post.comments);
+  console.log(userData);
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (

@@ -31,7 +31,7 @@ export default function CommentDetails() {
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
       <section>
-        <h1>Detalles del Comentario con id: {id}</h1>
+        <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
         <h3>Fecha de publicación:</h3>
@@ -53,7 +53,7 @@ export default function CommentDetails() {
   } else {
     return (
       <section>
-        <h1>Detalles del Comentario con id: {id}</h1>
+        <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
         <h3>Fecha de publicación:</h3>
