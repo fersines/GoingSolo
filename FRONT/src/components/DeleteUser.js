@@ -22,7 +22,7 @@ export default function EditUserProfile(data) {
       headers.append("Authorization", token);
       try {
         const response = await fetch(`${apiUrl}/users/${id}`, {
-          method: "DELETE",
+          method: "GET",
           headers: headers,
         });
 
@@ -46,18 +46,9 @@ export default function EditUserProfile(data) {
       const headers = new Headers();
       headers.append("Authorization", token);
 
-      const body = new FormData();
-      body.append("email", data.email);
-      body.append("name", data.name);
-
-      if (data.avatar.length) {
-        body.append("avatar", data.avatar[0]);
-      }
-
       const response = await fetch(`${apiUrl}/users/${id}`, {
         method: "DELETE",
         headers: headers,
-        body: body,
       });
       const json = await response.json();
       if (response.ok) {
@@ -72,11 +63,9 @@ export default function EditUserProfile(data) {
   if (!profile) return <p>Cargando...</p>;
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <button type="submit">Borrar Usuario</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </section>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="submit">Borrar Usuario</button>
+      {errorMessage ? <p>{errorMessage}</p> : null}
+    </form>
   );
 }
