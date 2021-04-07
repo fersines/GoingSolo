@@ -43,9 +43,14 @@ export default function UserPosts() {
             {posts.map((post) => {
               return (
                 <li key={post.id}>
-                  <Link to={`/link/${post.id}`}>
-                    {post.link} {new Date(post.date).toLocaleString("es-ES")}
-                  </Link>
+                  <p>
+                    Link: <a href={post.link}>{post.link}</a>
+                  </p>
+                  <p>Title: {post.title}</p>
+                  <p>Likes:{post.loves}</p>
+                  <button>
+                    <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                  </button>
                 </li>
               );
             })}

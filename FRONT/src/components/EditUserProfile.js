@@ -79,10 +79,13 @@ export default function EditUserProfile(data) {
       ) : (
         <h1>Hola de nuevo!</h1>
       )}
-      <h2>Estos son tus datos de perfil</h2>
+      <h3>Estos son tus datos de perfil</h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email</label>
+        <h4>
+          <label htmlFor="email">Email</label>
+        </h4>
+
         <input
           ref={register({ required: false })}
           type="email"
@@ -90,7 +93,10 @@ export default function EditUserProfile(data) {
           id="email"
           defaultValue={profile.email}
         />
-        <label htmlFor="name">Tu nombre</label>
+        <h4>
+          <label htmlFor="name">Nombre</label>
+        </h4>
+
         <input
           ref={register({ required: false })}
           type="text"
@@ -98,7 +104,10 @@ export default function EditUserProfile(data) {
           id="name"
           defaultValue={profile.name}
         />
-        <label htmlFor="avatar">Tu avatar</label>
+        <h4>
+          <label htmlFor="avatar">Tu avatar</label>
+        </h4>
+
         <input
           ref={register({ required: false })}
           type="file"

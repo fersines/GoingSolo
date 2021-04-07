@@ -36,10 +36,17 @@ export default function NewPost(data) {
     <section className="page">
       <h1>Sube aquí tu nuevo Link!</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="url">Linkito</label>
+        <h4>
+          <label htmlFor="url">URL del Link</label>
+        </h4>
+        <p>(Recuerda que empieza por http...)</p>
+
         <input ref={register({ required: true })} name="link" id="link" />
         {errors.link && <p className="error">Falta el Link</p>}
-        <label htmlFor="title">Ponle un título</label>
+        <h4>
+          <label htmlFor="title">Ponle un título</label>
+        </h4>
+
         <input
           ref={register({ required: true, minLength: 1 })}
           name="title"
@@ -47,7 +54,10 @@ export default function NewPost(data) {
           id="title"
         />
         {errors.title && <p className="error">El título es obligatorio</p>}
-        <label htmlFor="story">Cuéntanos algo sobre tu Link</label>
+        <h4>
+          <label htmlFor="story">Cuéntanos algo sobre tu Link</label>
+        </h4>
+
         <textarea
           ref={register({ required: true, minLength: 1 })}
           name="story"

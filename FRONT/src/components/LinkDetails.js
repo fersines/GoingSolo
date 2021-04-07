@@ -43,7 +43,7 @@ export default function LinkDetails() {
   }, []);
 
   console.log(post.comments);
-  console.log(userData);
+  console.log();
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
@@ -51,8 +51,11 @@ export default function LinkDetails() {
         <h1>Detalles del Link {id}</h1>
         <h3>Link</h3>
         <p>{post.link}</p>
-        <h3>Fue publicado:</h3>
-        <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+        <h3>Día y hora de publicación:</h3>
+        <p>{new Date(post.date).toLocaleString("es-ES")}</p>{" "}
+        {userData.role === "admin" ? (
+          <h3>por el usuario con id: {post.post_user_id}</h3>
+        ) : null}
         <h3>Título</h3>
         <p>{post.title}</p>
         <h3>Story</h3>
@@ -93,7 +96,7 @@ export default function LinkDetails() {
           {post.link} <LoveLink></LoveLink>
         </p>
 
-        <h3>Fue publicado:</h3>
+        <h3>Día y hora de publicación:</h3>
         <p>{new Date(post.date).toLocaleString("es-ES")}</p>
         <h3>Título</h3>
         <p>{post.title}</p>

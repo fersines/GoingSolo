@@ -78,7 +78,10 @@ export default function EditLink(data) {
         <h2>Este es el detalle del Link a editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="link">Link</label>
+          <h4>
+            <label htmlFor="link">Link</label>
+          </h4>
+
           <input
             ref={register({ required: false })}
             type="text"
@@ -86,7 +89,10 @@ export default function EditLink(data) {
             id="link"
             defaultValue={post.link}
           />
-          <label htmlFor="title">Título</label>
+          <h4>
+            <label htmlFor="title">Título</label>
+          </h4>
+
           <input
             ref={register({ required: false })}
             type="text"
@@ -94,7 +100,9 @@ export default function EditLink(data) {
             id="title"
             defaultValue={post.title}
           />
-          <label htmlFor="avatar">Story</label>
+          <h4>
+            <label htmlFor="avatar">Story</label>
+          </h4>
           <input
             ref={register({ required: false })}
             type="text"

@@ -34,7 +34,7 @@ export default function CommentDetails() {
         <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
-        <h3>Fecha de publicación:</h3>
+        <h3>Día y hora de publicación:</h3>
         <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
         <h3>Comentado por el usuario con id:</h3>
         <p>{comment.comment_user_id}</p>
@@ -56,7 +56,7 @@ export default function CommentDetails() {
         <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
-        <h3>Fecha de publicación:</h3>
+        <h3>Día y hora de publicación:</h3>
         <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
         <h3>Comentado por el usuario con id:</h3>
         <p>{comment.comment_user_id}</p>
