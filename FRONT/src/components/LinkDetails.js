@@ -13,6 +13,8 @@ export default function LinkDetails() {
   const [post, setpost] = useState([]);
   const [comments, setcomments] = useState([]);
 
+  const [errorMessage, setErrorMessage] = useState();
+
   const token = localStorage.getItem("token");
 
   const headers = new Headers();
@@ -42,8 +44,23 @@ export default function LinkDetails() {
       });
   }, []);
 
-  console.log(post.comments);
-  console.log();
+  const likeComment = async (id) => {
+    try {
+      const response = await fetch(`${apiUrl}/comments/${id}/likes`, {
+        headers: headers,
+        method: "POST",
+        body: JSON.stringify({ love: 1 }),
+      });
+      const json = await response.json();
+      if (response.ok) {
+        alert("pon esto bonito (like a comentario hecho)");
+      } else {
+        throw new Error(json.message);
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
@@ -62,20 +79,18 @@ export default function LinkDetails() {
         <p>{post.story}</p>
         <h3>Comentarios</h3>
         <ul>
-          {comments.map((comment) => {
-            if (post.id === comment.post_id) {
+          {comments.length > 0 ? (
+            comments.map((comment) => {
               return (
                 <li key={comment.id}>
-                  <Link to={`/comment/${comment.id}`}>
-                    {comment.comment} Publicado:
-                    {new Date(comment.comment_date).toLocaleString("es-ES")}
-                  </Link>
+                  {comment.comment} Publicado:
+                  {new Date(comment.comment_date).toLocaleString("es-ES")}
                 </li>
               );
-            } else {
-              return <p>Este Link no tiene comentarios</p>;
-            }
-          })}
+            })
+          ) : (
+            <p>no hay comentarios</p>
+          )}
         </ul>
         <div>
           <button>
@@ -104,21 +119,23 @@ export default function LinkDetails() {
         <p>{post.story}</p>
         <h3>Comentarios</h3>
         <ul>
-          {comments.map((comment) => {
-            if (!comment) {
-              return <p>Este Link no tiene comentarios</p>;
-            } else {
+          {comments.length > 0 ? (
+            comments.map((comment) => {
               return (
                 <li key={comment.id}>
-                  <Link to={`/comment/${comment.id}`}>
-                    {comment.comment} Publicado:
-                    {new Date(comment.comment_date).toLocaleString("es-ES")}
-                  </Link>
+                  {comment.comment} Publicado:
+                  {new Date(comment.comment_date).toLocaleString("es-ES")}
+                  <button onClick={() => likeComment(comment.id)}>
+                    LoveIt!
+                  </button>
                 </li>
               );
-            }
-          })}
+            })
+          ) : (
+            <p>no hay comentarios</p>
+          )}
         </ul>
+        {errorMessage ? <p>{errorMessage}</p> : null}
         <div>
           <NewComment></NewComment>
         </div>

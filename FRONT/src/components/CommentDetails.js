@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import DeleteComment from "./DeleteComment";
-import LoveComment from "./LoveComment";
 
 const apiUrl = "http://localhost:3000";
 
@@ -10,6 +9,8 @@ export default function CommentDetails() {
   const { userData } = useAuth();
   const { id } = useParams();
   const [comment, setcomment] = useState([]);
+
+  const [errorMessage, setErrorMessage] = useState();
 
   const token = localStorage.getItem("token");
 
@@ -27,6 +28,24 @@ export default function CommentDetails() {
         setcomment(results.data);
       });
   }, []);
+
+  const likeComment = async (id) => {
+    try {
+      const response = await fetch(`${apiUrl}/comments/${id}/likes`, {
+        headers: headers,
+        method: "POST",
+        body: JSON.stringify({ love: 1 }),
+      });
+      const json = await response.json();
+      if (response.ok) {
+        alert("pon esto bonito (like a comentario hecho)");
+      } else {
+        throw new Error(json.message);
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
 
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
@@ -62,7 +81,7 @@ export default function CommentDetails() {
         <p>{comment.comment_user_id}</p>
         <h3>Link publicado por el usuario con id:</h3>
         <p>{comment.post_id}</p>
-        <LoveComment></LoveComment>
+        <button onClick={() => likeComment(comment.id)}>LoveIt!</button>
       </section>
     );
   }
