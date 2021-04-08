@@ -37,20 +37,25 @@ export default function UserPosts() {
   } else {
     return (
       <>
+        <h1>Estos son los Links que has publicado hasta ahora</h1>
         <section>
-          <h1>Estos son los Links que has publicado hasta ahora</h1>
           <ul>
             {posts.map((post) => {
               return (
                 <li key={post.id}>
-                  <p>
-                    Link: <a href={post.link}>{post.link}</a>
-                  </p>
-                  <p>Title: {post.title}</p>
-                  <p>Likes:{post.loves}</p>
-                  <button>
-                    <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-                  </button>
+                  <article>
+                    <header>
+                      <h1>{post.title}</h1>
+                    </header>
+                    <h3>
+                      <a href={post.link}>{post.link}</a>{" "}
+                    </h3>
+                    <p>{post.story}</p>
+                    <h5>Likes:{post.loves}</h5>
+                    <button>
+                      <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                    </button>
+                  </article>
                 </li>
               );
             })}

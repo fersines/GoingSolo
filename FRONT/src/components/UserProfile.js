@@ -47,7 +47,7 @@ export default function UserProfile() {
   console.log(profile);
 
   return (
-    <section>
+    <section className="user">
       <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
       <h2>Estos son tus datos de perfil</h2>
       <div>

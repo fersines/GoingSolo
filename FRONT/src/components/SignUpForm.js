@@ -17,9 +17,8 @@ export default function SignUpForm(props) {
   return (
     <>
       <div className="register">
-        {/* 
         <img src="/register.jpg" alt="Tablon con muchos anuncios" />
-         */}
+
         <section className="formulario">
           <h1>Alístate en Link It UP!</h1>
           <div className="intro">

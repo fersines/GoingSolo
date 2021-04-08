@@ -75,46 +75,52 @@ export default function EditUserProfile(data) {
   return (
     <section>
       {profile.name ? (
-        <h1>{"Nos alegra verte " + profile.name + "!"}</h1>
+        <h2>{"Nos alegra verte " + profile.name + "!"}</h2>
       ) : (
-        <h1>Hola de nuevo!</h1>
+        <h2>Hola de nuevo!</h2>
       )}
-      <h3>Estos son tus datos de perfil</h3>
+      <h4>Estos son tus datos de perfil</h4>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4>
-          <label htmlFor="email">Email</label>
-        </h4>
+        <fieldset>
+          <h5>
+            <label htmlFor="email">Email</label>
+          </h5>
 
-        <input
-          ref={register({ required: false })}
-          type="email"
-          name="email"
-          id="email"
-          defaultValue={profile.email}
-        />
-        <h4>
-          <label htmlFor="name">Nombre</label>
-        </h4>
+          <input
+            ref={register({ required: false })}
+            type="email"
+            name="email"
+            id="email"
+            defaultValue={profile.email}
+          />
+        </fieldset>
+        <fieldset>
+          <h5>
+            <label htmlFor="name">Nombre</label>
+          </h5>
 
-        <input
-          ref={register({ required: false })}
-          type="text"
-          name="name"
-          id="name"
-          defaultValue={profile.name}
-        />
-        <h4>
-          <label htmlFor="avatar">Tu avatar</label>
-        </h4>
+          <input
+            ref={register({ required: false })}
+            type="text"
+            name="name"
+            id="name"
+            defaultValue={profile.name}
+          />
+        </fieldset>
+        <fieldset>
+          <h5>
+            <label htmlFor="avatar">Tu avatar</label>
+          </h5>
 
-        <input
-          ref={register({ required: false })}
-          type="file"
-          name="avatar"
-          id="avatar"
-          accept="image/*"
-        />
+          <input
+            ref={register({ required: false })}
+            type="file"
+            name="avatar"
+            id="avatar"
+            accept="image/*"
+          />
+        </fieldset>
 
         <button type="submit">Guarda los cambios!</button>
         {errorMessage ? <p>{errorMessage}</p> : null}

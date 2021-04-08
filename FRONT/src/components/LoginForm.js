@@ -15,7 +15,7 @@ export default function LoginForm(props) {
   };
 
   return (
-    <section className="page">
+    <section className="login">
       <h1>Accede con tu claves</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -40,14 +40,10 @@ export default function LoginForm(props) {
         <button type="submit">Acceder</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
-      <div>
-        <button>
-          <Link to="/newpassword">Has olvidado tu contraseña?</Link>
-        </button>
-        <button>
-          <Link to="/register">Todavía no estás registrado?</Link>
-        </button>
-      </div>
+
+      <Link to="/newpassword">Has olvidado tu contraseña?</Link>
+
+      <Link to="/register">Todavía no estás registrado?</Link>
     </section>
   );
 }

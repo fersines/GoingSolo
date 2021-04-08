@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
-import "../css/Header.css";
 
 export default function Header() {
   const { isUserLogged, signOut, userData } = useAuth();
@@ -8,7 +7,7 @@ export default function Header() {
   if (isUserLogged) {
     if (userData.role === "admin") {
       return (
-        <header>
+        <header className="logged">
           <Link to="/findposts">Buscar Posts</Link>
           <Link to="/findcomments">Buscar Comentarios</Link>
           <Link to="/findusers">Buscar Usuarios</Link>
@@ -19,7 +18,7 @@ export default function Header() {
       );
     } else {
       return (
-        <header>
+        <header className="logged">
           <Link to="/nuevolink">Nuevo Link</Link>
           <Link to="/masvotados">Más votados</Link>
           <Link to="/miscomentarios">Mis Comentarios</Link>
@@ -31,7 +30,7 @@ export default function Header() {
     }
   } else {
     return (
-      <header>
+      <header className="public">
         <div className="footer-logo">
           <Link to="/" className="social-logo">
             <img className="logoLIU" src="images/logoLIU.png" alt="" />

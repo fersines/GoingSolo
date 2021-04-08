@@ -29,7 +29,7 @@ const listPosts = async (req, res, next) => {
 
     [results] = await connection.query(
       `
-      SELECT posts.id, posts.link, posts.date, posts.title, posts.post_user_id, COUNT(link_likes.love) AS loves
+      SELECT posts.id, posts.link, posts.story, posts.title, posts.post_user_id, COUNT(link_likes.love) AS loves
       FROM posts LEFT JOIN link_likes ON (posts.id = link_likes.post_id)
       WHERE posts.post_user_id LIKE ?
       GROUP BY posts.id, posts.title, posts.story, posts.post_user_id
