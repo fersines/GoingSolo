@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
-import useAuth from "../shared/hooks/useAuth";
+import { useHistory, useParams } from "react-router-dom";
 
 const apiUrl = "http://localhost:3000";
 
 export default function EditUserProfile(data) {
   const { id } = useParams();
-  const { userData } = useAuth();
   const [profile, setProfile] = useState();
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
+  const history = useHistory();
   const [errorMessage, setErrorMessage] = useState();
 
   const token = localStorage.getItem("token");
@@ -52,6 +51,7 @@ export default function EditUserProfile(data) {
       });
       const json = await response.json();
       if (response.ok) {
+        history.push("/findusers");
       } else {
         throw new Error(json.message);
       }

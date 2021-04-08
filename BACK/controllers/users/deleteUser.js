@@ -32,7 +32,7 @@ const deleteUser = async (req, res, next) => {
     await connection.query(
       `
         UPDATE users
-        SET email="[borrado]", password="[borrado]", name="[borrado]", avatar=NULL, active=0, deleted=1, lastAuthUpdate=?
+        SET email="[borrado] User_id: ${id}", password="[borrado]", name="[borrado]", avatar=NULL, active=0, deleted=1, lastAuthUpdate=?
         WHERE id=?
     `,
       [new Date(), id]
