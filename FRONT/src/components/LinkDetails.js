@@ -89,7 +89,7 @@ export default function LinkDetails() {
               );
             })
           ) : (
-            <p>no hay comentarios</p>
+            <p>Este Lint todavía no ha sido comentado</p>
           )}
         </ul>
         <div>
@@ -132,7 +132,7 @@ export default function LinkDetails() {
               );
             })
           ) : (
-            <p>no hay comentarios</p>
+            <p>Este Link todavía no ha sido comentado</p>
           )}
         </ul>
         {errorMessage ? <p>{errorMessage}</p> : null}

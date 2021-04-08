@@ -1,0 +1,17 @@
+.register {
+  background-image: image("public/register.jpg");
+}
+
+.intro {
+  position: relative;
+  top: 100px;
+  left: 300px;
+  width: 50%;
+  height: 50%;
+}
+
+.formulario {
+  position: relative;
+  width: 50%;
+  height: 50%;
+}

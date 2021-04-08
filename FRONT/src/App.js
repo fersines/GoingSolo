@@ -11,6 +11,7 @@ import MasVotados from "./components/MasVotados";
 import FindUsers from "./components/FindUsers";
 import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
+import FindPosts2 from "./components/FindPosts2";
 import UserInfo from "./pages/UserInfo";
 import NewPost from "./components/NewPost";
 import NewPassword from "./components/NewPassword";
@@ -39,6 +40,7 @@ function App() {
         <Switch>
           <Route exact path="/findposts">
             <FindPosts></FindPosts>
+            <FindPosts2></FindPosts2>
           </Route>
           <Route exact path="/findcomments">
             <FindComments></FindComments>
