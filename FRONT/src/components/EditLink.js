@@ -74,8 +74,8 @@ export default function EditLink(data) {
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
-      <section>
-        <h2>Este es el detalle del Link a editar</h2>
+      <section className="editlink">
+        <h2>Estos son los campos que puedes editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
@@ -125,7 +125,7 @@ export default function EditLink(data) {
     );
   } else {
     return (
-      <section>
+      <section className="linkdetails">
         <h1>Detalles del Link con id: {id}</h1>
         <h3>Link</h3>
         <p>{post.link}</p>

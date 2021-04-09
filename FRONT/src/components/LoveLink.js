@@ -79,7 +79,7 @@ export default function LoveLink(data) {
         />
       </fieldset>
 
-      <button type="submit">LoveIt!</button>
+      <button type="submit">LoveLink!</button>
       {errorMessage ? <p>{errorMessage}</p> : null}
     </form>
   );

@@ -64,7 +64,7 @@ export default function LinkDetails() {
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
-      <section>
+      <section className="linkdetails">
         <h1>Detalles del Link {id}</h1>
         <h3>Link</h3>
         <p>{post.link}</p>
@@ -89,27 +89,24 @@ export default function LinkDetails() {
               );
             })
           ) : (
-            <p>Este Lint todavía no ha sido comentado</p>
+            <p>Este Link todavía no ha sido comentado</p>
           )}
         </ul>
         <div>
-          <button>
-            <Link to={`/link/${id}/edit`}>Edita el Link</Link>
-          </button>
-          <button>
-            <DeleteLink></DeleteLink>
-          </button>
+          <Link to={`/link/${id}/edit`}>Edita el Link</Link>
+
+          <DeleteLink></DeleteLink>
         </div>
       </section>
     );
   } else {
     return (
-      <section>
+      <section className="linkdetails">
         <h1>Detalles del Link {id}</h1>
         <h3>Link</h3>
-        <p>
-          {post.link} <LoveLink></LoveLink>
-        </p>
+
+        {post.link}
+        <LoveLink></LoveLink>
 
         <h3>Día y hora de publicación:</h3>
         <p>{new Date(post.date).toLocaleString("es-ES")}</p>
@@ -123,8 +120,12 @@ export default function LinkDetails() {
             comments.map((comment) => {
               return (
                 <li key={comment.id}>
-                  {comment.comment} Publicado:
-                  {new Date(comment.comment_date).toLocaleString("es-ES")}
+                  <p>{comment.comment}</p>
+                  <p>
+                    Publicado:{" "}
+                    {new Date(comment.comment_date).toLocaleString("es-ES")}
+                  </p>
+
                   <button onClick={() => likeComment(comment.id)}>
                     LoveIt!
                   </button>

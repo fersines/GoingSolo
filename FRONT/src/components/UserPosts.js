@@ -33,28 +33,31 @@ export default function UserPosts() {
   console.log(posts);
 
   if (posts.length === 0) {
-    return <h1>Aquí verás tus Links, pero cuando los publiques...</h1>;
+    return (
+      <section className="mislinks">
+        <h1>Aquí verás tus Links, pero cuando los publiques...</h1>
+      </section>
+    );
   } else {
     return (
       <>
-        <h1>Estos son los Links que has publicado hasta ahora</h1>
-        <section>
+        <section className="mislinks">
+          <h2>Tus Links hasta ahora</h2>
           <ul>
             {posts.map((post) => {
               return (
                 <li key={post.id}>
                   <article>
                     <header>
-                      <h1>{post.title}</h1>
+                      <h3>{post.title}</h3>
                     </header>
-                    <h3>
+                    <h4>
                       <a href={post.link}>{post.link}</a>{" "}
-                    </h3>
+                    </h4>
                     <p>{post.story}</p>
                     <h5>Likes:{post.loves}</h5>
-                    <button>
-                      <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-                    </button>
+
+                    <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
                   </article>
                 </li>
               );
