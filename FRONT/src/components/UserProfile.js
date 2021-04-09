@@ -47,37 +47,32 @@ export default function UserProfile() {
   console.log(profile);
 
   return (
-    <section className="user">
+    <section className="userprofile">
       <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
-      <h2>Estos son tus datos de perfil</h2>
-      <div>
-        <h3>Email</h3>
-        <p>{profile.email}</p>
-        <h3>Tu nombre</h3>
-        {profile.name ? (
-          <p>{profile.name}</p>
-        ) : (
-          <p>Todavía no tenemos tu nombre</p>
-        )}
-        <h3>Avatar</h3>
-        {profile.avatar ? (
-          <img
-            className="avatar"
-            alt="avatar"
-            src={`${apiUrl}/uploads/${profile.avatar}`}
-          />
-        ) : (
-          <p>No tienes avatar</p>
-        )}
-      </div>
-      <div>
-        <button>
-          <Link to="/edituser">Edita tu usuario</Link>
-        </button>
-        <button>
-          <Link to="/editpassword">Cambia tu contraseña</Link>
-        </button>
-      </div>
+      <h3>Estos son tus datos de perfil</h3>
+
+      <h4>Email</h4>
+      <p>{profile.email}</p>
+      <h4>Tu nombre</h4>
+      {profile.name ? (
+        <p>{profile.name}</p>
+      ) : (
+        <p>Todavía no tenemos tu nombre</p>
+      )}
+      <h4>Avatar</h4>
+      {profile.avatar ? (
+        <img
+          className="avatar"
+          alt="avatar"
+          src={`${apiUrl}/uploads/${profile.avatar}`}
+        />
+      ) : (
+        <p>No tienes avatar</p>
+      )}
+
+      <Link to="/edituser">Edita tu usuario</Link>
+
+      <Link to="/editpassword">Cambia tu contraseña</Link>
     </section>
   );
 }

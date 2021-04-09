@@ -16,57 +16,53 @@ export default function SignUpForm(props) {
 
   return (
     <>
-      <div className="register">
-        <img src="/register.jpg" alt="Tablon con muchos anuncios" />
+      {/*         <img src="/register.jpg" alt="Tablon con muchos anuncios" />
+       */}
+      <section className="register">
+        <h1>Alístate en Link It UP!</h1>
 
-        <section className="formulario">
-          <h1>Alístate en Link It UP!</h1>
-          <div className="intro">
-            <p>
-              ¿Quieres ser parte de la comunidad de LinkItUP!? Este puede ser tu
-              "Speakers' Corner" virtual.
-            </p>
-            <ul>
-              <li>
-                <b>
-                  ¿Quieres que todos nos enteremos de eso con lo que flipas?
-                </b>
-              </li>
-              <li>
-                <b>¿Quieres que el mundo sepa eso que aborreces?</b>
-              </li>
-              <li>
-                <b>¿O quieres saber lo que a los demás nos flipa o aborrece?</b>
-              </li>
-            </ul>
-            <p>Sea por el motivo que sea, aquí encontrarás tu sitio.</p>
-          </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <fieldset>
-              <input
-                ref={register({ required: true })}
-                name="email"
-                id="email"
-                placeholder="Correo Electrónico"
-              />
-              {errors.email && <p className="error">Falta email</p>}
-            </fieldset>
-            <fieldset>
-              <input
-                ref={register({ required: true, minLength: 1 })}
-                name="password"
-                type="password"
-                id="password"
-                placeholder="Contraseña"
-              />
-              {errors.password && <p className="error">Falta contraseña</p>}
-            </fieldset>
+        <b>
+          ¿Quieres ser parte de la comunidad de LinkItUP!? Aquí tienes tu
+          "Speakers' Corner" virtual.
+        </b>
+        <ul>
+          <li>
+            <p>¿Quieres que todos nos enteremos de eso con lo que flipas?</p>
+          </li>
+          <li>
+            <p>¿Quieres que el mundo sepa eso que aborreces?</p>
+          </li>
+          <li>
+            <p>¿O quieres saber lo que a los demás nos flipa o aborrece?</p>
+          </li>
+        </ul>
+        <p>Sea por el motivo que sea, aquí encontrarás tu sitio.</p>
 
-            <button type="submit">Regístrate</button>
-            {errorMessage ? <p>{errorMessage}</p> : null}
-          </form>
-        </section>
-      </div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <fieldset>
+            <input
+              ref={register({ required: true })}
+              name="email"
+              id="email"
+              placeholder="Correo Electrónico"
+            />
+            {errors.email && <p className="error">Falta email</p>}
+          </fieldset>
+          <fieldset>
+            <input
+              ref={register({ required: true, minLength: 1 })}
+              name="password"
+              type="password"
+              id="password"
+              placeholder="Contraseña"
+            />
+            {errors.password && <p className="error">Falta contraseña</p>}
+          </fieldset>
+
+          <button type="submit">Regístrate</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
+      </section>
     </>
   );
 }

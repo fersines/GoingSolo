@@ -26,7 +26,7 @@ export default function NewPassword(data) {
   };
 
   return (
-    <section className="page">
+    <section className="newpass">
       <h1>Si has olvidado tu Contraseña</h1>
       <h4>(Recibirás un código para poder recuperarla)</h4>
       <form onSubmit={handleSubmit(onSubmit)}>

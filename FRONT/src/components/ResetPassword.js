@@ -27,7 +27,7 @@ export default function ResetPassword(data) {
   };
 
   return (
-    <section className="page">
+    <section className="resetpass">
       <h1>Si has recibido el código de recuperación</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>

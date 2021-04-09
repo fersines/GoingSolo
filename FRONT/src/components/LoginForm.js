@@ -16,7 +16,7 @@ export default function LoginForm(props) {
 
   return (
     <section className="login">
-      <h1>Accede con tu claves</h1>
+      <h1>Accede con tus claves</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <input

@@ -120,6 +120,56 @@ a {
   align-items: center;
   font-size: 1.5rem;
 }
+
+.register {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.newpass {
+  width: 295px;
+  height: 321px;
+  margin: 26px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.resetpass {
+  width: 295px;
+  height: 321px;
+  margin: 27px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.userprofile {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.userprofile img {
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.userprofile a {
+  text-decoration: underline;
+}
 .error {
   color: whitesmoke;
   background-color: tomato;
