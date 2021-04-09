@@ -49,7 +49,7 @@ export default function CommentDetails() {
 
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
-      <section>
+      <section className="commentdetails">
         <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>
@@ -60,18 +60,15 @@ export default function CommentDetails() {
         <h3>Link publicado por el usuario con id:</h3>
         <p>{comment.post_id}</p>
         <div>
-          <button>
-            <Link to={`/comment/${id}/edit`}>Edita el Comentario</Link>
-          </button>
-          <button>
-            <DeleteComment></DeleteComment>
-          </button>
+          <Link to={`/comment/${id}/edit`}>Edita el Comentario</Link>
+
+          <DeleteComment></DeleteComment>
         </div>
       </section>
     );
   } else {
     return (
-      <section>
+      <section className="commentdetails">
         <h1>Detalles del Comentario {id}</h1>
         <h3>Comentario</h3>
         <p>{comment.comment}</p>

@@ -70,13 +70,16 @@ export default function EditComment(data) {
 
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
-      <section>
-        <h2>Este es el detalle del Comentario a editar</h2>
+      <section className="editcomment">
+        <h2>Este es el Comentario a editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
-            <label htmlFor="comment">Comentario</label>
-            <input
+            <h4>
+              <label htmlFor="comment">Comentario</label>
+            </h4>
+
+            <textarea
               ref={register({ required: false })}
               type="text"
               name="comment"

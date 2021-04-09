@@ -30,7 +30,7 @@ export default function ListPosts() {
 
   if (userData.role === "admin") {
     return (
-      <section className="listposts">
+      <section className="mislinks">
         <h1>Últimos Links</h1>
         <ul>
           {posts.map((post) => {
@@ -49,17 +49,17 @@ export default function ListPosts() {
   } else {
   }
   return (
-    <section className="listposts">
+    <section className="mislinks">
       <h1>Links más populares</h1>
       <ul>
         {posts.map((post) => {
           return (
             <li key={post.id}>
               <p>
-                Link: <a href={post.link}>{post.link}</a>
+                <a href={post.link}>{post.link}</a>
               </p>
-              <p>Title: {post.title}</p>
-              <p>Likes:{post.loves}</p>
+              <p>{post.title}</p>
+              <p>{post.loves}</p>
               <button>
                 <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
               </button>
