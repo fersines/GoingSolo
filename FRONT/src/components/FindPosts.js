@@ -1,40 +1,101 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useQueryString from "../shared/hooks/useQueryString";
+
+const apiUrl = "http://localhost:3000";
 
 export default function FindPosts() {
   const [query, path] = useQueryString();
   const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState();
 
-  const searchTitle = query.get("title");
+  const token = localStorage.getItem("token");
 
-  const [title, setTitle] = useState(searchTitle);
+  const search = query.get("search");
+
+  const [searchstring, setSearch] = useState(search);
+
+  const [order, setOrder] = useState("loves");
+  const [direction, setDirection] = useState("DESC");
+
+  const headers = new Headers();
+  headers.append("Authorization", token);
 
   useEffect(() => {
-    if (title) {
-      console.log(title);
+    if (search) {
+      console.log(search);
     }
-  }, [title]);
+  }, [search]);
+
+  const [searchResult, setSearchResult] = useState([]);
+
+  const listSearch = async (search) => {
+    try {
+      const response = await fetch(
+        `${apiUrl}/posts?search=${search}&order=${order}&direction=${direction}`,
+        {
+          method: "GET",
+          headers: headers,
+          params: (search = { search }),
+        }
+      );
+      const posts = await response.json();
+      console.log(posts);
+      setSearchResult(posts.data);
+      if (response.ok) {
+      } else {
+        throw new Error(posts.message);
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
 
   return (
     <>
-      <h1>Listado de posts filtrados por {title}</h1>
-      <form method="GET">
+      <h1>Listado de posts filtrados por {search}</h1>
+      <form onSubmit={(e) => e.preventDefault()} method="GET">
         <fieldset>
           <input
             type="search"
-            name="title"
+            name="search"
             style={{ border: "1px solid red" }}
-            value={title}
+            value={search}
             onChange={(e) => {
-              const newTitle = e.target.value;
-              query.set("title", newTitle);
+              const newsearch = e.target.value;
+              query.set("search", newsearch);
               history.push(`${path}?${query.toString()}`);
-              setTitle(newTitle);
+              setSearch(newsearch);
             }}
           />
         </fieldset>
+
+        <button onClick={() => listSearch(search)}>Búscalo!</button>
+        {errorMessage ? <p>{errorMessage}</p> : null}
       </form>
+
+      <h1>Resultado de la búsqueda</h1>
+      <button
+        onClick={() => {
+          const newOrder = order === "loves" ? "date" : "loves";
+          setOrder(newOrder);
+          listSearch(search);
+        }}
+      >
+        {order}
+      </button>
+      <ul>
+        {searchResult.map((post) => {
+          return (
+            <li key={post.id}>
+              <Link to={`/link/${post.id}`}>
+                <p>{post.link}</p>{" "}
+                <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 }
