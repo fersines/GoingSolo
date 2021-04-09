@@ -20,18 +20,20 @@ export default function FindPosts() {
     <>
       <h1>Listado de posts filtrados por {title}</h1>
       <form method="GET">
-        <input
-          type="search"
-          name="title"
-          style={{ border: "1px solid red" }}
-          value={title}
-          onChange={(e) => {
-            const newTitle = e.target.value;
-            query.set("title", newTitle);
-            history.push(`${path}?${query.toString()}`);
-            setTitle(newTitle);
-          }}
-        />
+        <fieldset>
+          <input
+            type="search"
+            name="title"
+            style={{ border: "1px solid red" }}
+            value={title}
+            onChange={(e) => {
+              const newTitle = e.target.value;
+              query.set("title", newTitle);
+              history.push(`${path}?${query.toString()}`);
+              setTitle(newTitle);
+            }}
+          />
+        </fieldset>
       </form>
     </>
   );

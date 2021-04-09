@@ -62,22 +62,26 @@ export default function UserDetails() {
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>Email</h3>
-          <input
-            ref={register({ required: false })}
-            type="email"
-            name="email"
-            id="email"
-            defaultValue={user.email}
-          />
-          <h3>Nombre</h3>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="name"
-            id="name"
-            defaultValue={user.name}
-          />
+          <fieldset>
+            <h3>Email</h3>
+            <input
+              ref={register({ required: false })}
+              type="email"
+              name="email"
+              id="email"
+              defaultValue={user.email}
+            />
+          </fieldset>
+          <fieldset>
+            <h3>Nombre</h3>
+            <input
+              ref={register({ required: false })}
+              type="text"
+              name="name"
+              id="name"
+              defaultValue={user.name}
+            />
+          </fieldset>
 
           <button type="submit">Edita el usuario</button>
           {errorMessage ? <p>{errorMessage}</p> : null}

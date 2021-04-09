@@ -42,22 +42,25 @@ export default function SignUpForm(props) {
             <p>Sea por el motivo que sea, aquí encontrarás tu sitio.</p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              ref={register({ required: true })}
-              name="email"
-              id="email"
-              placeholder="Correo Electrónico"
-            />
-            {errors.email && <p className="error">Falta email</p>}
-
-            <input
-              ref={register({ required: true, minLength: 1 })}
-              name="password"
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-            />
-            {errors.password && <p className="error">Falta contraseña</p>}
+            <fieldset>
+              <input
+                ref={register({ required: true })}
+                name="email"
+                id="email"
+                placeholder="Correo Electrónico"
+              />
+              {errors.email && <p className="error">Falta email</p>}
+            </fieldset>
+            <fieldset>
+              <input
+                ref={register({ required: true, minLength: 1 })}
+                name="password"
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+              />
+              {errors.password && <p className="error">Falta contraseña</p>}
+            </fieldset>
 
             <button type="submit">Regístrate</button>
             {errorMessage ? <p>{errorMessage}</p> : null}

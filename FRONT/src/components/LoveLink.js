@@ -69,13 +69,16 @@ export default function LoveLink(data) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        ref={register({ required: true })}
-        type="hidden"
-        name="love"
-        id="love"
-        value="1"
-      />
+      <fieldset>
+        <input
+          ref={register({ required: true })}
+          type="hidden"
+          name="love"
+          id="love"
+          value="1"
+        />
+      </fieldset>
+
       <button type="submit">LoveIt!</button>
       {errorMessage ? <p>{errorMessage}</p> : null}
     </form>

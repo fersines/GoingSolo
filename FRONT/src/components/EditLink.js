@@ -78,38 +78,45 @@ export default function EditLink(data) {
         <h2>Este es el detalle del Link a editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h4>
-            <label htmlFor="link">Link</label>
-          </h4>
+          <fieldset>
+            <h4>
+              <label htmlFor="link">Link</label>
+            </h4>
 
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="link"
-            id="link"
-            defaultValue={post.link}
-          />
-          <h4>
-            <label htmlFor="title">Título</label>
-          </h4>
+            <input
+              ref={register({ required: false })}
+              type="text"
+              name="link"
+              id="link"
+              defaultValue={post.link}
+            />
+          </fieldset>
+          <fieldset>
+            <h4>
+              <label htmlFor="title">Título</label>
+            </h4>
 
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="title"
-            id="title"
-            defaultValue={post.title}
-          />
-          <h4>
-            <label htmlFor="avatar">Story</label>
-          </h4>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="story"
-            id="story"
-            defaultValue={post.story}
-          />
+            <input
+              ref={register({ required: false })}
+              type="text"
+              name="title"
+              id="title"
+              defaultValue={post.title}
+            />
+          </fieldset>
+          <fieldset>
+            {" "}
+            <h4>
+              <label htmlFor="avatar">Story</label>
+            </h4>
+            <input
+              ref={register({ required: false })}
+              type="text"
+              name="story"
+              id="story"
+              defaultValue={post.story}
+            />
+          </fieldset>
 
           <button type="submit">Guarda los cambios!</button>
           {errorMessage ? <p>{errorMessage}</p> : null}

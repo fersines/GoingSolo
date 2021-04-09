@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:3000";
 
 export default function EditPassword(data) {
   const { userData } = useAuth();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState([]);
 
   const token = localStorage.getItem("token");
@@ -37,20 +37,25 @@ export default function EditPassword(data) {
   return (
     <section>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="oldPassword">Contraseña Actual</label>
-        <input
-          ref={register({ required: true, minLength: 1 })}
-          name="oldPassword"
-          type="password"
-          id="oldPassword"
-        />
-        <label htmlFor="newPassword">Nueva contraseña</label>
-        <input
-          ref={register({ required: true, minLength: 1 })}
-          name="newPassword"
-          type="password"
-          id="newPassword"
-        />
+        <fieldset>
+          <label htmlFor="oldPassword">Contraseña Actual</label>
+          <input
+            ref={register({ required: true, minLength: 1 })}
+            name="oldPassword"
+            type="password"
+            id="oldPassword"
+          />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="newPassword">Nueva contraseña</label>
+          <input
+            ref={register({ required: true, minLength: 1 })}
+            name="newPassword"
+            type="password"
+            id="newPassword"
+          />
+        </fieldset>
+
         <button type="submit">Cambiar Contraseña</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>

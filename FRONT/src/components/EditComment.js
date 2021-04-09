@@ -74,14 +74,16 @@ export default function EditComment(data) {
         <h2>Este es el detalle del Comentario a editar</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="comment">Comentario</label>
-          <input
-            ref={register({ required: false })}
-            type="text"
-            name="comment"
-            id="comment"
-            defaultValue={comment.comment}
-          />
+          <fieldset>
+            <label htmlFor="comment">Comentario</label>
+            <input
+              ref={register({ required: false })}
+              type="text"
+              name="comment"
+              id="comment"
+              defaultValue={comment.comment}
+            />
+          </fieldset>
 
           <button type="submit">Guarda los cambios!</button>
           {errorMessage ? <p>{errorMessage}</p> : null}

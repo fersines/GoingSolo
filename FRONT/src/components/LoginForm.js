@@ -18,25 +18,28 @@ export default function LoginForm(props) {
     <section className="login">
       <h1>Accede con tu claves</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          ref={register({ required: true })}
-          name="email"
-          id="email"
-          placeholder="Correo Electrónico"
-          autoComplete="username"
-        />
-        {errors.email && <p className="error">Falta email</p>}
+        <fieldset>
+          <input
+            ref={register({ required: true })}
+            name="email"
+            id="email"
+            placeholder="Correo Electrónico"
+            autoComplete="username"
+          />
+          {errors.email && <p className="error">Falta email</p>}
+        </fieldset>
 
-        <input
-          ref={register({ required: true, minLength: 1 })}
-          name="password"
-          type="password"
-          id="password"
-          placeholder="Contraseña"
-          autoComplete="current-password"
-        />
-        {errors.password && <p className="error">Falta contraseña</p>}
-
+        <fieldset>
+          <input
+            ref={register({ required: true, minLength: 1 })}
+            name="password"
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+            autoComplete="current-password"
+          />
+          {errors.password && <p className="error">Falta contraseña</p>}
+        </fieldset>
         <button type="submit">Acceder</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
       </form>

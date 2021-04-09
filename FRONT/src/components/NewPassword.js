@@ -30,13 +30,15 @@ export default function NewPassword(data) {
       <h1>Si has olvidado tu Contraseña</h1>
       <h4>(Recibirás un código para poder recuperarla)</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          ref={register({ required: true, minLength: 1 })}
-          name="email"
-          type="email"
-          id="email"
-          placeholder="Correo Electrónico"
-        />
+        <fieldset>
+          <input
+            ref={register({ required: true, minLength: 1 })}
+            name="email"
+            type="email"
+            id="email"
+            placeholder="Correo Electrónico"
+          />
+        </fieldset>
 
         <button type="submit">Recuperar Contraseña</button>
         {errorMessage ? <p>{errorMessage}</p> : null}
