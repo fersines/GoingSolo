@@ -73,19 +73,19 @@ export default function EditUserProfile(data) {
   if (!profile) return <p>Cargando...</p>;
 
   return (
-    <section>
+    <section className="edituser">
       {profile.name ? (
-        <h2>{"Nos alegra verte " + profile.name + "!"}</h2>
+        <h3>{"Edita tu perfil " + profile.name}</h3>
       ) : (
-        <h2>Hola de nuevo!</h2>
+        <h3>Aquí puedes editar tu perfil</h3>
       )}
-      <h4>Estos son tus datos de perfil</h4>
+      <h5>Así lo tienes ahora</h5>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-          <h5>
+          <h6>
             <label htmlFor="email">Email</label>
-          </h5>
+          </h6>
 
           <input
             ref={register({ required: false })}
@@ -96,9 +96,9 @@ export default function EditUserProfile(data) {
           />
         </fieldset>
         <fieldset>
-          <h5>
+          <h6>
             <label htmlFor="name">Nombre</label>
-          </h5>
+          </h6>
 
           <input
             ref={register({ required: false })}
@@ -109,10 +109,18 @@ export default function EditUserProfile(data) {
           />
         </fieldset>
         <fieldset>
-          <h5>
+          <h6>
             <label htmlFor="avatar">Tu avatar</label>
-          </h5>
-
+          </h6>
+          {profile.avatar ? (
+            <img
+              className="avatar"
+              alt="avatar"
+              src={`${apiUrl}/uploads/${profile.avatar}`}
+            />
+          ) : (
+            <p>No tienes avatar</p>
+          )}
           <input
             ref={register({ required: false })}
             type="file"

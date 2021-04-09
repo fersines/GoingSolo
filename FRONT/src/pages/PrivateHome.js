@@ -8,7 +8,6 @@ export default function PrivateHome() {
   if (userData.role === "admin") {
     return (
       <>
-        <h1>Últimos Links subidos:</h1>
         <ListPosts></ListPosts>
       </>
     );
@@ -16,7 +15,6 @@ export default function PrivateHome() {
   }
   return (
     <>
-      <h1>Bienvenido de nuevo! Estos son tus Links:</h1>
       <UserPosts></UserPosts>
     </>
   );

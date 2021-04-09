@@ -35,7 +35,7 @@ export default function EditPassword(data) {
   };
 
   return (
-    <section>
+    <section className="editpass">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <label htmlFor="oldPassword">Contraseña Actual</label>
@@ -47,7 +47,7 @@ export default function EditPassword(data) {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="newPassword">Nueva contraseña</label>
+          <label htmlFor="newPassword">Nueva Contraseña</label>
           <input
             ref={register({ required: true, minLength: 1 })}
             name="newPassword"

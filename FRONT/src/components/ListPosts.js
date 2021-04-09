@@ -30,13 +30,15 @@ export default function ListPosts() {
 
   if (userData.role === "admin") {
     return (
-      <section>
+      <section className="listposts">
+        <h1>Últimos Links</h1>
         <ul>
           {posts.map((post) => {
             return (
               <li key={post.id}>
                 <Link to={`/link/${post.id}`}>
-                  {post.link} {new Date(post.date).toLocaleString("es-ES")}
+                  <p>{post.link}</p>{" "}
+                  <p>{new Date(post.date).toLocaleString("es-ES")}</p>
                 </Link>
               </li>
             );
@@ -47,7 +49,8 @@ export default function ListPosts() {
   } else {
   }
   return (
-    <section>
+    <section className="listposts">
+      <h1>Links más populares</h1>
       <ul>
         {posts.map((post) => {
           return (
