@@ -212,6 +212,62 @@ a {
   padding: 1rem;
   overflow-y: scroll;
 }
+
+.mislinks {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.mislinks a {
+  text-decoration: underline;
+}
+
+.mislinks li {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.linkdetails {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.linkdetails a {
+  text-decoration: underline;
+}
+
+.linkdetails h1,
+h3 {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.editlink {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.editlink button {
+  background: var(--dark);
+}
 .error {
   color: whitesmoke;
   background-color: tomato;
