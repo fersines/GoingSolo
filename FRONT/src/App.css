@@ -212,10 +212,19 @@ textarea {
   height: 642px;
   margin: 40px 40px;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.75rem;
   text-align: center;
   padding: 1rem;
   overflow-y: scroll;
+}
+
+.listposts a {
+  text-decoration: underline;
+}
+
+.listposts li {
+  color: var(--medium);
+  padding: 0.5rem;
 }
 
 .mislinks {
@@ -360,6 +369,10 @@ h3 {
   text-align: center;
   padding: 1rem;
   overflow-y: scroll;
+}
+
+.buscador a {
+  text-decoration: underline;
 }
 
 .error {

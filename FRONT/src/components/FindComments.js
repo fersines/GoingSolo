@@ -54,10 +54,14 @@ export default function FindComments() {
 
   return (
     <>
-      <section>
-        <h1>Buscando Comentarios filtrados por {search}</h1>
+      <section className="buscador">
+        <h1>Buscador de Comentarios</h1>
         <form onSubmit={(e) => e.preventDefault()} method="GET">
           <fieldset>
+            <label>
+              <h3>Término de búsqueda</h3>
+              <p>(Busca por el texto del comentario)</p>
+            </label>
             <input
               type="search"
               name="search"
@@ -90,12 +94,17 @@ export default function FindComments() {
           {searchResult.map((comment) => {
             return (
               <li key={comment.id}>
-                <Link to={`/link/${comment.id}`}>
-                  <p>{comment.comment}</p>{" "}
-                  <p>
-                    {new Date(comment.comment_date).toLocaleString("es-ES")}
-                  </p>
-                </Link>
+                <article>
+                  <header>
+                    <Link to={`/comment/${comment.id}`}>
+                      <h3>
+                        Publicado el:{" "}
+                        {new Date(comment.comment_date).toLocaleString("es-ES")}
+                      </h3>{" "}
+                    </Link>
+                  </header>
+                  <h4>{comment.comment}</h4>
+                </article>
               </li>
             );
           })}

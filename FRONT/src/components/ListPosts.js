@@ -30,7 +30,7 @@ export default function ListPosts() {
 
   if (userData.role === "admin") {
     return (
-      <section className="mislinks">
+      <section className="listposts">
         <h2>Últimos Links</h2>
         <ul>
           {posts.map((post) => {
@@ -57,7 +57,7 @@ export default function ListPosts() {
   } else {
   }
   return (
-    <section className="mislinks">
+    <section className="listposts">
       <h2>Links más populares</h2>
       <ul>
         {posts.map((post) => {

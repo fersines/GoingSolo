@@ -53,10 +53,14 @@ export default function FindPosts() {
 
   return (
     <>
-      <section>
-        <h1>Listado de posts filtrados por {search}</h1>
+      <section className="buscador">
+        <h1>Buscador de Links</h1>
         <form onSubmit={(e) => e.preventDefault()} method="GET">
           <fieldset>
+            <label>
+              <h3>Término de búsqueda</h3>
+              <p>(Se puede buscar por Título, Story o Id del autor)</p>
+            </label>
             <input
               type="search"
               name="search"
@@ -143,10 +147,19 @@ export default function FindPosts() {
           {searchResult.map((post) => {
             return (
               <li key={post.id}>
-                <Link to={`/link/${post.id}`}>
-                  <p>{post.link}</p>{" "}
-                  <p>{new Date(post.date).toLocaleString("es-ES")}</p>
-                </Link>
+                <article>
+                  <header>
+                    <Link to={`/link/${post.id}`}>
+                      <h3>{post.link}</h3>{" "}
+                    </Link>
+                  </header>
+                  <h4>{post.title}</h4>
+
+                  <h5>
+                    Fecha de alta:
+                    <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+                  </h5>
+                </article>
               </li>
             );
           })}

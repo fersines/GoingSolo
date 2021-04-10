@@ -16,10 +16,8 @@ import NewPost from "./components/NewPost";
 import NewPassword from "./components/NewPassword";
 import EditPassword from "./components/EditPassword";
 import ResetPassword from "./components/ResetPassword";
-import ListUsers from "./components/ListUsers";
 import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
-import ListComments from "./components/ListComments";
 import UserComments from "./components/UserComments";
 import UserDetails from "./components/UserDetails";
 import CommentDetails from "./components/CommentDetails";
@@ -42,7 +40,6 @@ function App() {
           </Route>
           <Route exact path="/findcomments">
             <FindComments></FindComments>
-            <ListComments></ListComments>
           </Route>
           <Route exact path="/findusers">
             <FindUsers></FindUsers>
