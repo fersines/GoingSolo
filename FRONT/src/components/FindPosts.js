@@ -84,6 +84,60 @@ export default function FindPosts() {
       >
         {order}
       </button>
+
+      {/* <select id="order">
+        <option
+          value={() => {
+            const newOrder = "loves";
+            setOrder(newOrder);
+          }}
+          onClick={() => {
+            listSearch(search);
+          }}
+        >
+          Más votados
+        </option>
+        <option
+          value={() => {
+            const newOrder = "date";
+            setOrder(newOrder);
+          }}
+          onClick={() => {
+            listSearch(search);
+          }}
+        >
+          Más recientes
+        </option>
+        <option
+          value={() => {
+            const newDirection = "DESC";
+            setOrder(newDirection);
+            listSearch(search);
+          }}
+        >
+          Menos votados
+        </option>
+        <option
+          value={() => {
+            const newDirection = "ASC";
+            setOrder(newDirection);
+            listSearch(search);
+          }}
+        >
+          Más antiguos
+        </option>
+      </select> */}
+
+      {/* <button
+        onClick={() => {
+          const newDirection = direction === "DESC" ? "ASC" : "DESC";
+          setDirection(newDirection);
+          listSearch(search);
+        }}
+      >
+        {direction}
+      </button>
+ */}
       <ul>
         {searchResult.map((post) => {
           return (
