@@ -33,7 +33,7 @@ export default function NewPost(data) {
   };
 
   return (
-    <section className="page">
+    <section className="newlink">
       <h1>Sube aquí tu nuevo Link!</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>

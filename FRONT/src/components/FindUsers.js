@@ -53,49 +53,51 @@ export default function FindUsers() {
 
   return (
     <>
-      <h1>Listado de users filtrados por {search}</h1>
-      <form onSubmit={(e) => e.preventDefault()} method="GET">
-        <fieldset>
-          <input
-            type="search"
-            name="search"
-            style={{ border: "1px solid red" }}
-            value={search}
-            onChange={(e) => {
-              const newsearch = e.target.value;
-              query.set("search", newsearch);
-              history.push(`${path}?${query.toString()}`);
-              setSearch(newsearch);
-            }}
-          />
-        </fieldset>
+      <section>
+        <h1>Listado de users filtrados por {search}</h1>
+        <form onSubmit={(e) => e.preventDefault()} method="GET">
+          <fieldset>
+            <input
+              type="search"
+              name="search"
+              style={{ border: "1px solid red" }}
+              value={search}
+              onChange={(e) => {
+                const newsearch = e.target.value;
+                query.set("search", newsearch);
+                history.push(`${path}?${query.toString()}`);
+                setSearch(newsearch);
+              }}
+            />
+          </fieldset>
 
-        <button onClick={() => listSearch(search)}>Búscalo!</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
+          <button onClick={() => listSearch(search)}>Búscalo!</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
 
-      <h1>Resultado de la búsqueda</h1>
-      <button
-        onClick={() => {
-          const newOrder = order === "email" ? "date" : "email";
-          setOrder(newOrder);
-          listSearch(search);
-        }}
-      >
-        {order}
-      </button>
-      <ul>
-        {searchResult.map((user) => {
-          return (
-            <li key={user.id}>
-              <Link to={`/link/${user.id}`}>
-                <p>{user.email}</p> <p>{user.name}</p>
-                <p>{new Date(user.date).toLocaleString("es-ES")}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+        <h1>Resultado de la búsqueda</h1>
+        <button
+          onClick={() => {
+            const newOrder = order === "email" ? "date" : "email";
+            setOrder(newOrder);
+            listSearch(search);
+          }}
+        >
+          {order}
+        </button>
+        <ul>
+          {searchResult.map((user) => {
+            return (
+              <li key={user.id}>
+                <Link to={`/link/${user.id}`}>
+                  <p>{user.email}</p> <p>{user.name}</p>
+                  <p>{new Date(user.date).toLocaleString("es-ES")}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </>
   );
 }

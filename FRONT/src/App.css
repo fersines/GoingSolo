@@ -330,6 +330,23 @@ h3 {
   padding: 0.5rem;
 }
 
+.newlink {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.newlink h1,
+h4 {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
 .error {
   color: whitesmoke;
   background-color: tomato;

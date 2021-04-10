@@ -54,49 +54,53 @@ export default function FindComments() {
 
   return (
     <>
-      <h1>Buscando Comentarios filtrados por {search}</h1>
-      <form onSubmit={(e) => e.preventDefault()} method="GET">
-        <fieldset>
-          <input
-            type="search"
-            name="search"
-            style={{ border: "1px solid red" }}
-            value={search}
-            onChange={(e) => {
-              const newsearch = e.target.value;
-              query.set("search", newsearch);
-              history.push(`${path}?${query.toString()}`);
-              setSearch(newsearch);
-            }}
-          />
-        </fieldset>
+      <section>
+        <h1>Buscando Comentarios filtrados por {search}</h1>
+        <form onSubmit={(e) => e.preventDefault()} method="GET">
+          <fieldset>
+            <input
+              type="search"
+              name="search"
+              style={{ border: "1px solid red" }}
+              value={search}
+              onChange={(e) => {
+                const newsearch = e.target.value;
+                query.set("search", newsearch);
+                history.push(`${path}?${query.toString()}`);
+                setSearch(newsearch);
+              }}
+            />
+          </fieldset>
 
-        <button onClick={() => listSearch(search)}>Búscalo!</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
+          <button onClick={() => listSearch(search)}>Búscalo!</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
 
-      <h1>Resultado de la búsqueda</h1>
-      <button
-        onClick={() => {
-          const newOrder = order === "loves" ? "comment_date" : "loves";
-          setOrder(newOrder);
-          listSearch(search);
-        }}
-      >
-        {order}
-      </button>
-      <ul>
-        {searchResult.map((comment) => {
-          return (
-            <li key={comment.id}>
-              <Link to={`/link/${comment.id}`}>
-                <p>{comment.comment}</p>{" "}
-                <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+        <h1>Resultado de la búsqueda</h1>
+        <button
+          onClick={() => {
+            const newOrder = order === "loves" ? "comment_date" : "loves";
+            setOrder(newOrder);
+            listSearch(search);
+          }}
+        >
+          {order}
+        </button>
+        <ul>
+          {searchResult.map((comment) => {
+            return (
+              <li key={comment.id}>
+                <Link to={`/link/${comment.id}`}>
+                  <p>{comment.comment}</p>{" "}
+                  <p>
+                    {new Date(comment.comment_date).toLocaleString("es-ES")}
+                  </p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </>
   );
 }

@@ -31,15 +31,23 @@ export default function ListPosts() {
   if (userData.role === "admin") {
     return (
       <section className="mislinks">
-        <h1>Últimos Links</h1>
+        <h2>Últimos Links</h2>
         <ul>
           {posts.map((post) => {
             return (
               <li key={post.id}>
-                <Link to={`/link/${post.id}`}>
-                  <p>{post.link}</p>{" "}
-                  <p>{new Date(post.date).toLocaleString("es-ES")}</p>
-                </Link>
+                <article>
+                  <header>
+                    <h3>{post.title}</h3>
+                  </header>
+                  <h4>
+                    <a href={post.link}>{post.link}</a>{" "}
+                  </h4>
+                  <p>{post.story}</p>
+                  <h5>Likes:{post.loves}</h5>
+
+                  <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                </article>
               </li>
             );
           })}
@@ -50,19 +58,23 @@ export default function ListPosts() {
   }
   return (
     <section className="mislinks">
-      <h1>Links más populares</h1>
+      <h2>Links más populares</h2>
       <ul>
         {posts.map((post) => {
           return (
             <li key={post.id}>
-              <p>
-                <a href={post.link}>{post.link}</a>
-              </p>
-              <p>{post.title}</p>
-              <p>{post.loves}</p>
-              <button>
+              <article>
+                <header>
+                  <h3>{post.title}</h3>
+                </header>
+                <h4>
+                  <a href={post.link}>{post.link}</a>{" "}
+                </h4>
+                <p>{post.story}</p>
+                <h5>Likes:{post.loves}</h5>
+
                 <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-              </button>
+              </article>
             </li>
           );
         })}

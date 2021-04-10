@@ -53,39 +53,40 @@ export default function FindPosts() {
 
   return (
     <>
-      <h1>Listado de posts filtrados por {search}</h1>
-      <form onSubmit={(e) => e.preventDefault()} method="GET">
-        <fieldset>
-          <input
-            type="search"
-            name="search"
-            style={{ border: "1px solid red" }}
-            value={search}
-            onChange={(e) => {
-              const newsearch = e.target.value;
-              query.set("search", newsearch);
-              history.push(`${path}?${query.toString()}`);
-              setSearch(newsearch);
-            }}
-          />
-        </fieldset>
+      <section>
+        <h1>Listado de posts filtrados por {search}</h1>
+        <form onSubmit={(e) => e.preventDefault()} method="GET">
+          <fieldset>
+            <input
+              type="search"
+              name="search"
+              style={{ border: "1px solid red" }}
+              value={search}
+              onChange={(e) => {
+                const newsearch = e.target.value;
+                query.set("search", newsearch);
+                history.push(`${path}?${query.toString()}`);
+                setSearch(newsearch);
+              }}
+            />
+          </fieldset>
 
-        <button onClick={() => listSearch(search)}>Búscalo!</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
+          <button onClick={() => listSearch(search)}>Búscalo!</button>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+        </form>
 
-      <h1>Resultado de la búsqueda</h1>
-      <button
-        onClick={() => {
-          const newOrder = order === "loves" ? "date" : "loves";
-          setOrder(newOrder);
-          listSearch(search);
-        }}
-      >
-        {order}
-      </button>
+        <h1>Resultado de la búsqueda</h1>
+        <button
+          onClick={() => {
+            const newOrder = order === "loves" ? "date" : "loves";
+            setOrder(newOrder);
+            listSearch(search);
+          }}
+        >
+          {order}
+        </button>
 
-      {/* <select id="order">
+        {/* <select id="order">
         <option
           value={() => {
             const newOrder = "loves";
@@ -128,7 +129,7 @@ export default function FindPosts() {
         </option>
       </select> */}
 
-      {/* <button
+        {/* <button
         onClick={() => {
           const newDirection = direction === "DESC" ? "ASC" : "DESC";
           setDirection(newDirection);
@@ -138,18 +139,19 @@ export default function FindPosts() {
         {direction}
       </button>
  */}
-      <ul>
-        {searchResult.map((post) => {
-          return (
-            <li key={post.id}>
-              <Link to={`/link/${post.id}`}>
-                <p>{post.link}</p>{" "}
-                <p>{new Date(post.date).toLocaleString("es-ES")}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+        <ul>
+          {searchResult.map((post) => {
+            return (
+              <li key={post.id}>
+                <Link to={`/link/${post.id}`}>
+                  <p>{post.link}</p>{" "}
+                  <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </>
   );
 }
