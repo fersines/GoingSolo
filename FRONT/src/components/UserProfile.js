@@ -59,16 +59,18 @@ export default function UserProfile() {
       ) : (
         <p>Todavía no tenemos tu nombre</p>
       )}
-      <h4>Avatar</h4>
-      {profile.avatar ? (
-        <img
-          className="avatar"
-          alt="avatar"
-          src={`${apiUrl}/uploads/${profile.avatar}`}
-        />
-      ) : (
-        <p>No tienes avatar</p>
-      )}
+      <div>
+        <h4>Avatar</h4>
+        {profile.avatar ? (
+          <img
+            className="avatar"
+            alt="avatar"
+            src={`${apiUrl}/uploads/${profile.avatar}`}
+          />
+        ) : (
+          <p>No tienes avatar</p>
+        )}
+      </div>
 
       <Link to="/edituser">Edita tu usuario</Link>
 

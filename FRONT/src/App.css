@@ -11,6 +11,11 @@ html {
   --medium: #c09f80;
   --accent: #76323f;
 }
+
+/* body {
+  font-family: Trispace;
+} */
+
 img {
   max-width: 100%;
 }
@@ -28,16 +33,19 @@ section {
   padding: 2rem;
   border-radius: 1rem;
   background-color: var(--dark);
+  /* background-size: cover;
+  background-position:center; */
   /* -webkit-backdrop-filter: blur(10px); */
   align-items: center;
   display: grid;
   color: #d7cec7;
-  margin: 1.5rem 1rem;
-  min-height: 42.1rem;
+  margin: 3vh 5vh;
+  height: 81.5vh;
   display: grid;
   grid-column: auto;
   align-items: center;
   text-align: center;
+  overflow-y: scroll;
 }
 
 form {
@@ -68,7 +76,8 @@ textarea {
 }
 
 .public {
-  height: 50px;
+  height: 7.5vh;
+  width: 100vw;
   background-color: var(--medium);
   color: black;
   display: flex;
@@ -77,7 +86,8 @@ textarea {
 }
 
 .logged {
-  height: 50px;
+  height: 7.5vh;
+  width: 100vw;
   background-color: var(--medium);
   color: black;
   display: flex;
@@ -87,7 +97,7 @@ textarea {
 }
 
 .footer {
-  height: 40px;
+  height: 5vh;
   background-color: var(--medium);
   color: var(--dark);
   display: flex;
@@ -98,12 +108,11 @@ textarea {
 
 .portada {
   padding: 0rem;
-  display: flex;
   background-image: url(/src/pics/movil.jpg);
   background-size: cover;
   background-position: center;
   padding: 1rem;
-  min-height: 45.1rem;
+  height: 87.5vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -116,42 +125,27 @@ textarea {
 }
 
 .register {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
-  padding: 1rem;
 }
 
 .newpass {
-  width: 295px;
-  height: 321px;
-  margin: 26px 40px;
-  align-items: center;
+  width: 78vw;
+  height: 40vh;
+  margin: 2.5vh 11vw;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
 }
 
 .resetpass {
-  width: 295px;
-  height: 321px;
-  margin: 27px 40px;
-  align-items: center;
+  width: 78vw;
+  height: 40vh;
+  margin: 2.5vh 11vw;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
 }
 
 .userprofile {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
   background-color: var(--accent);
 }
@@ -166,12 +160,7 @@ textarea {
 }
 
 .edituser {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1.5rem;
-  text-align: center;
   padding: 1rem;
   background-color: var(--accent);
 }
@@ -181,12 +170,7 @@ textarea {
 }
 
 .editpass {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1.5rem;
-  text-align: center;
   padding: 1rem;
   background-color: var(--accent);
 }
@@ -196,12 +180,7 @@ textarea {
 }
 
 .listposts {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 0.75rem;
-  text-align: center;
   padding: 1rem;
   overflow-y: scroll;
 }
@@ -216,14 +195,8 @@ textarea {
 }
 
 .mislinks {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .mislinks a {
@@ -236,14 +209,8 @@ textarea {
 }
 
 .linkdetails {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .linkdetails a {
@@ -253,16 +220,11 @@ textarea {
 .linkdetails h1,
 h3 {
   color: var(--medium);
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .editlink {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1.5rem;
-  text-align: center;
   padding: 1rem;
   background-color: var(--accent);
 }
@@ -272,14 +234,8 @@ h3 {
 }
 
 .usercomments {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .usercomments a {
@@ -288,16 +244,11 @@ h3 {
 
 .usercomments li {
   color: var(--medium);
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .editcomment {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1.5rem;
-  text-align: center;
   padding: 1rem;
   background-color: var(--accent);
 }
@@ -307,14 +258,8 @@ h3 {
 }
 
 .commentdetails {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 1rem;
-  text-align: center;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .commentdetails a {
@@ -328,14 +273,8 @@ h3 {
 }
 
 .newlink {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 1.25rem;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .newlink a {
@@ -349,14 +288,8 @@ h3 {
 }
 
 .buscador {
-  width: 295px;
-  height: 642px;
-  margin: 40px 40px;
-  align-items: center;
   font-size: 0.75rem;
-  text-align: center;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .buscador a {
