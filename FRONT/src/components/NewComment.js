@@ -73,7 +73,7 @@ export default function NewComment(data) {
         <label htmlFor="comment">
           <h3>Deja aquí tu comentario</h3>
         </label>
-        <input
+        <textarea
           ref={register({ required: true })}
           type="text"
           name="comment"
