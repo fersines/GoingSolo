@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Trispace:wght@400;600;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  --bright: #d7cec7;
+  --dark: #565656;
+  --medium: #c09f80;
+  --accent: #76323f;
+}
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  text-align: center;
+  flex-grow: 1;
+}
+
+section {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: var(--dark);
+  /* -webkit-backdrop-filter: blur(10px); */
+  align-items: center;
+  display: grid;
+  color: #d7cec7;
+}
+
+form {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5 1rem;
+}
+
+button {
+  background: var(--accent);
+  color: var(--bright);
+  border-radius: 5px;
+  margin: 1.5rem 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+a {
+  margin: 5px 15px;
+  color: var(--bright);
+  text-decoration: none;
+  text-align: center;
+}
+
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.public {
+  height: 50px;
+  background-color: var(--medium);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logged {
+  height: 50px;
+  background-color: var(--medium);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 0.6rem;
+}
+
+.footer {
+  height: 40px;
+  background-color: var(--medium);
+  color: var(--dark);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.portada {
+  padding: 0rem;
+  display: flex;
+  background-image: url(/src/pics/movil.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+}
+
+.portada img {
+  width: 500px;
+  height: 722px;
+  position: center;
+  padding: 1rem;
+  min-height: 25rem;
+  size: cover;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.bienvenida {
+  position: absolute;
+  top: 78%;
+  left: 25px;
+  width: 90%;
+  height: 35%;
+  max-width: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.register {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.newpass {
+  width: 295px;
+  height: 321px;
+  margin: 26px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.resetpass {
+  width: 295px;
+  height: 321px;
+  margin: 27px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.userprofile {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.userprofile img {
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.userprofile a {
+  text-decoration: underline;
+}
+
+.edituser {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.edituser button {
+  background: var(--dark);
+}
+
+.editpass {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.editpass button {
+  background: var(--dark);
+}
+
+.listposts {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.listposts a {
+  text-decoration: underline;
+}
+
+.listposts li {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.mislinks {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.mislinks a {
+  text-decoration: underline;
+}
+
+.mislinks li {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.linkdetails {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.linkdetails a {
+  text-decoration: underline;
+}
+
+.linkdetails h1,
+h3 {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.editlink {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.editlink button {
+  background: var(--dark);
+}
+
+.usercomments {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.usercomments a {
+  text-decoration: underline;
+}
+
+.usercomments li {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.editcomment {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--accent);
+}
+
+.editcomment button {
+  background: var(--dark);
+}
+
+.commentdetails {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.commentdetails a {
+  text-decoration: underline;
+}
+
+.commentdetails h1,
+h3 {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.newlink {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.newlink a {
+  text-decoration: underline;
+}
+
+.newlink h1,
+h3 {
+  color: var(--medium);
+  padding: 0.5rem;
+}
+
+.buscador {
+  width: 295px;
+  height: 642px;
+  margin: 40px 40px;
+  align-items: center;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.buscador a {
+  text-decoration: underline;
+}
+
+.error {
+  color: whitesmoke;
+  background-color: tomato;
+}
