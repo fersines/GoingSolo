@@ -57,8 +57,8 @@ export default function UserDetails() {
   };
 
   return (
-    <section>
-      <h1>Perifl del Usuario con id: {id}</h1>
+    <section className="linkdetails">
+      <h1>Perfil del Usuario con id: {id}</h1>
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>

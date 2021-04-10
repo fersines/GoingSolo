@@ -53,10 +53,14 @@ export default function FindUsers() {
 
   return (
     <>
-      <section>
-        <h1>Listado de users filtrados por {search}</h1>
+      <section className="buscador">
+        <h1>Buscador de Usuarios</h1>
         <form onSubmit={(e) => e.preventDefault()} method="GET">
           <fieldset>
+            <label>
+              <h3>Término de búsqueda</h3>
+              <p>(Se puede buscar por el Email del usuario)</p>
+            </label>
             <input
               type="search"
               name="search"
@@ -83,16 +87,25 @@ export default function FindUsers() {
             listSearch(search);
           }}
         >
-          {order}
+          Cambia el orden!
         </button>
         <ul>
           {searchResult.map((user) => {
             return (
               <li key={user.id}>
-                <Link to={`/link/${user.id}`}>
-                  <p>{user.email}</p> <p>{user.name}</p>
-                  <p>{new Date(user.date).toLocaleString("es-ES")}</p>
-                </Link>
+                <article>
+                  <header>
+                    <Link to={`/user/${user.id}`}>
+                      <h3>{user.email}</h3>
+                    </Link>
+                  </header>
+                  <h4>{user.name}</h4>
+
+                  <h5>
+                    Fecha de alta:
+                    <p>{new Date(user.date).toLocaleString("es-ES")}</p>
+                  </h5>
+                </article>
               </li>
             );
           })}

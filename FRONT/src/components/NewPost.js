@@ -37,18 +37,18 @@ export default function NewPost(data) {
       <h1>Sube aquí tu nuevo Link!</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-          <h4>
+          <h3>
             <label htmlFor="url">URL del Link</label>
-          </h4>
+          </h3>
           <p>(Recuerda que empieza por http...)</p>
 
           <input ref={register({ required: true })} name="link" id="link" />
           {errors.link && <p className="error">Falta el Link</p>}
         </fieldset>
         <fieldset>
-          <h4>
+          <h3>
             <label htmlFor="title">Ponle un título</label>
-          </h4>
+          </h3>
 
           <input
             ref={register({ required: true, minLength: 1 })}
@@ -60,9 +60,9 @@ export default function NewPost(data) {
         </fieldset>
         <fieldset>
           {" "}
-          <h4>
+          <h3>
             <label htmlFor="story">Cuéntanos algo sobre tu Link</label>
-          </h4>
+          </h3>
           <textarea
             ref={register({ required: true, minLength: 1 })}
             name="story"

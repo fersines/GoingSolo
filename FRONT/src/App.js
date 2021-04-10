@@ -46,7 +46,6 @@ function App() {
           </Route>
           <Route exact path="/findusers">
             <FindUsers></FindUsers>
-            <ListUsers></ListUsers>
           </Route>
           <Route exact path="/nuevolink">
             <NewPost></NewPost>
