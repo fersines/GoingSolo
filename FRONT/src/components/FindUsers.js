@@ -65,7 +65,6 @@ export default function FindUsers() {
               <input
                 type="search"
                 name="search"
-                style={{ border: "1px solid red" }}
                 value={search}
                 onChange={(e) => {
                   const newsearch = e.target.value;

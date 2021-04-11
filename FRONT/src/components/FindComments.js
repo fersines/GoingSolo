@@ -66,7 +66,6 @@ export default function FindComments() {
               <input
                 type="search"
                 name="search"
-                style={{ border: "1px solid red" }}
                 value={search}
                 onChange={(e) => {
                   const newsearch = e.target.value;
@@ -89,7 +88,7 @@ export default function FindComments() {
               listSearch(search);
             }}
           >
-            {order}
+            Cambia el orden!
           </button>
           <ul>
             {searchResult.map((comment) => {

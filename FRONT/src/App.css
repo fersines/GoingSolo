@@ -496,29 +496,102 @@ h3 {
     text-decoration: underline;
   }
 
+  .body-edituser {
+    background-image: url(/src/pics/userprofile.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .edituser {
-    font-size: 1.5rem;
+    background: rgba(118, 50, 63, 0.7);
+    font-size: 1.25rem;
     padding: 1rem;
-    background-color: var(--accent);
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    font-size: 1rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .edituser button {
     background: var(--dark);
   }
 
+  .body-editpass {
+    background-image: url(/src/pics/userprofile.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .editpass {
-    font-size: 1.5rem;
+    background: rgba(118, 50, 63, 0.7);
     padding: 1rem;
-    background-color: var(--accent);
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    font-size: 2rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .editpass button {
     background: var(--dark);
   }
 
+  .body-buscador {
+    background-image: url(/src/pics/buscador.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
+  .buscador {
+    font-size: 1rem;
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+
+  .body-listposts {
+    background-image: url(/src/pics/listposts.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .listposts {
-    font-size: 0.75rem;
-    padding: 1rem;
+    font-size: 1rem;
+    width: 84vw;
+    margin: 3vh 8vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
     overflow-y: scroll;
   }
 
@@ -531,9 +604,26 @@ h3 {
     padding: 0.5rem;
   }
 
+  .body-mislinks {
+    background-image: url(/src/pics/mislinks.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .mislinks {
     font-size: 1rem;
-    padding: 1rem;
+    width: 84vw;
+    margin: 3vh 8vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
   }
 
   .mislinks a {
@@ -545,9 +635,26 @@ h3 {
     padding: 0.5rem;
   }
 
+  .body-linkdetails {
+    background-image: url(/src/pics/listcomments.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .linkdetails {
-    font-size: 0.75rem;
-    padding: 1rem;
+    font-size: 1rem;
+    width: 84vw;
+    margin: 3vh 8vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
   }
 
   .linkdetails a {
@@ -560,19 +667,53 @@ h3 {
     padding: 1rem;
   }
 
+  .body-editlink {
+    background-image: url(/src/pics/listcomments.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .editlink {
-    font-size: 1.5rem;
-    padding: 1rem;
-    background-color: var(--accent);
+    background: rgba(118, 50, 63, 0.7);
+    padding: 1.5rem;
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    font-size: 2rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .editlink button {
     background: var(--dark);
   }
 
+  .body-usercomments {
+    background-image: url(/src/pics/comentarios.jpeg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .usercomments {
     font-size: 1rem;
-    padding: 1rem;
+    width: 74vw;
+    margin: 3vh 13vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
   }
 
   .usercomments a {
@@ -584,19 +725,53 @@ h3 {
     padding: 1rem;
   }
 
+  .body-editcomment {
+    background-image: url(/src/pics/comentarios.jpeg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .editcomment {
-    font-size: 1.5rem;
+    background: rgba(118, 50, 63, 0.7);
     padding: 1rem;
-    background-color: var(--accent);
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    font-size: 2rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .editcomment button {
     background: var(--dark);
   }
 
+  .body-commentdetails {
+    background-image: url(/src/pics/comentarios.jpeg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .commentdetails {
     font-size: 1rem;
-    padding: 1rem;
+    width: 74vw;
+    margin: 3vh 13vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
   }
 
   .commentdetails a {
@@ -609,9 +784,26 @@ h3 {
     padding: 0.5rem;
   }
 
+  .body-newlink {
+    background-image: url(/src/pics/newpost.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .newlink {
-    font-size: 1.25rem;
-    padding: 1rem;
+    font-size: 1rem;
+    width: 74vw;
+    margin: 3vh 13vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    overflow-y: scroll;
   }
 
   .newlink a {
@@ -624,17 +816,13 @@ h3 {
     padding: 0.5rem;
   }
 
-  .buscador {
-    font-size: 0.75rem;
-    padding: 1rem;
-  }
-
-  .buscador a {
-    text-decoration: underline;
-  }
-
   .error {
-    color: whitesmoke;
-    background-color: tomato;
+    color: rebeccapurple;
+    background-color: gold;
   }
+}
+
+.errorMessage {
+  color: rebeccapurple;
+  background-color: gold;
 }

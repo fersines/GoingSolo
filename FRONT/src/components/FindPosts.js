@@ -65,7 +65,6 @@ export default function FindPosts() {
               <input
                 type="search"
                 name="search"
-                style={{ border: "1px solid red" }}
                 value={search}
                 onChange={(e) => {
                   const newsearch = e.target.value;
@@ -88,7 +87,7 @@ export default function FindPosts() {
               listSearch(search);
             }}
           >
-            {order}
+            Cambia el orden!
           </button>
 
           {/* <select id="order">
