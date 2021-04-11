@@ -39,42 +39,51 @@ export default function UserProfile() {
 
   if (!profile)
     return (
-      <div>
-        Puede que estemos yendo un poco lentos hoy..., o también puede que hayas
-        realizado un cambio en tu perfil y no lo hayas validado todavía!
-      </div>
+      <>
+        <body className="body-userprofile">
+          <div className="userprofile">
+            Puede que estemos yendo un poco lentos hoy..., o también puede que
+            hayas realizado un cambio en tu perfil y no lo hayas validado
+            todavía!
+          </div>
+        </body>
+      </>
     );
   console.log(profile);
 
   return (
-    <section className="userprofile">
-      <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
-      <h3>Estos son tus datos de perfil</h3>
+    <>
+      <body className="body-userprofile">
+        <section className="userprofile">
+          <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
+          <h3>Estos son tus datos de perfil</h3>
 
-      <h4>Email</h4>
-      <p>{profile.email}</p>
-      <h4>Tu nombre</h4>
-      {profile.name ? (
-        <p>{profile.name}</p>
-      ) : (
-        <p>Todavía no tenemos tu nombre</p>
-      )}
-      <div>
-        <h4>Avatar</h4>
-        {profile.avatar ? (
-          <img
-            className="avatar"
-            alt="avatar"
-            src={`${apiUrl}/uploads/${profile.avatar}`}
-          />
-        ) : (
-          <p>No tienes avatar</p>
-        )}
-      </div>
+          <h4>Email</h4>
+          <p>{profile.email}</p>
+          <h4>Tu nombre</h4>
+          {profile.name ? (
+            <p>{profile.name}</p>
+          ) : (
+            <p>Todavía no tenemos tu nombre</p>
+          )}
+          <div>
+            <h4>Avatar</h4>
+            {profile.avatar ? (
+              <img
+                className="avatar"
+                alt="avatar"
+                src={`${apiUrl}/uploads/${profile.avatar}`}
+              />
+            ) : (
+              <p>No tienes avatar</p>
+            )}
+          </div>
 
-      <Link to="/edituser">Edita tu usuario</Link>
+          <Link to="/edituser">Edita tu usuario</Link>
 
-      <Link to="/editpassword">Cambia tu contraseña</Link>
-    </section>
+          <Link to="/editpassword">Cambia tu contraseña</Link>
+        </section>
+      </body>
+    </>
   );
 }

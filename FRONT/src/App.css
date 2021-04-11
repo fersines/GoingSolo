@@ -24,10 +24,10 @@ ul {
   list-style: none;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   flex-grow: 1;
-}
+} */
 
 section {
   padding: 2rem;
@@ -134,7 +134,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
   text-align: center;
 }
 
@@ -317,4 +316,290 @@ h3 {
 .error {
   color: whitesmoke;
   background-color: tomato;
+}
+
+@media (min-width: 600px) {
+  input {
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  textarea {
+    width: 50vw;
+    height: 15vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  section {
+    padding: 2rem;
+    background-color: var(--dark);
+    /* background: transparent 0.7; */
+    align-items: center;
+    display: grid;
+    color: #d7cec7;
+    margin: 3vh 5vh;
+    height: 81.5vh;
+    display: grid;
+    grid-column: auto;
+    align-items: center;
+    text-align: center;
+    overflow-y: scroll hidden;
+  }
+
+  button {
+    background: var(--accent);
+    color: var(--bright);
+    border-radius: 5px;
+    margin: 1.5rem 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  a {
+    margin: 0.5rem 1rem;
+    color: var(--bright);
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .public {
+    height: 7.5vh;
+    width: 100vw;
+    background-color: var(--medium);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.25rem;
+  }
+
+  .logged {
+    height: 7.5vh;
+    width: 100vw;
+    background-color: var(--medium);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .footer {
+    height: 5vh;
+    background-color: var(--medium);
+    color: var(--dark);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .portada {
+    background-image: url(/src/pics/portada.jpg);
+    background-size: cover;
+    padding: 1rem;
+    margin: 1rem 1rem;
+    height: 84.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: left;
+    text-align: left;
+  }
+
+  .login {
+    font-size: 1.5rem;
+  }
+
+  .register {
+    font-size: 1rem;
+  }
+
+  .newpass {
+    width: 78vw;
+    height: 40vh;
+    margin: 2.5vh 11vw;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .resetpass {
+    width: 78vw;
+    height: 40vh;
+    margin: 2.5vh 11vw;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .body-userprofile {
+    background-image: url(/src/pics/login.jpg);
+    padding: 02rem;
+    background-size: cover;
+    background-position: center;
+    margin: 1rem 1rem;
+    height: 87.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+  }
+
+  .userprofile {
+    background: transparent;
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
+
+  .avatar {
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+
+  .userprofile a {
+    text-decoration: underline;
+  }
+
+  .edituser {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: var(--accent);
+  }
+
+  .edituser button {
+    background: var(--dark);
+  }
+
+  .editpass {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: var(--accent);
+  }
+
+  .editpass button {
+    background: var(--dark);
+  }
+
+  .listposts {
+    font-size: 0.75rem;
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+
+  .listposts a {
+    text-decoration: underline;
+  }
+
+  .listposts li {
+    color: var(--medium);
+    padding: 0.5rem;
+  }
+
+  .mislinks {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .mislinks a {
+    text-decoration: underline;
+  }
+
+  .mislinks li {
+    color: var(--medium);
+    padding: 0.5rem;
+  }
+
+  .linkdetails {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  .linkdetails a {
+    text-decoration: underline;
+  }
+
+  .linkdetails h1,
+  h3 {
+    color: var(--medium);
+    padding: 1rem;
+  }
+
+  .editlink {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: var(--accent);
+  }
+
+  .editlink button {
+    background: var(--dark);
+  }
+
+  .usercomments {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .usercomments a {
+    text-decoration: underline;
+  }
+
+  .usercomments li {
+    color: var(--medium);
+    padding: 1rem;
+  }
+
+  .editcomment {
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: var(--accent);
+  }
+
+  .editcomment button {
+    background: var(--dark);
+  }
+
+  .commentdetails {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .commentdetails a {
+    text-decoration: underline;
+  }
+
+  .commentdetails h1,
+  h3 {
+    color: var(--medium);
+    padding: 0.5rem;
+  }
+
+  .newlink {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
+
+  .newlink a {
+    text-decoration: underline;
+  }
+
+  .newlink h1,
+  h3 {
+    color: var(--medium);
+    padding: 0.5rem;
+  }
+
+  .buscador {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  .buscador a {
+    text-decoration: underline;
+  }
+
+  .error {
+    color: whitesmoke;
+    background-color: tomato;
+  }
 }
