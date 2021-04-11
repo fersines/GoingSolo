@@ -34,37 +34,47 @@ export default function UserComments() {
 
   if (comments.length === 0) {
     return (
-      <section className="usercomments">
-        <h1>Aquí verás tus Comentarios, pero cuando los publiques...</h1>
-      </section>
+      <>
+        <body className="body-usercomments">
+          <section className="usercomments">
+            <h1>Aquí verás tus Comentarios, pero cuando los publiques...</h1>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (
-      <section className="usercomments">
-        <h2>Estos son los Comentarios que has publicado hasta ahora</h2>
-        <ul>
-          {comments.map((comment) => {
-            return (
-              <li key={comment.id}>
-                <article>
-                  <header>
-                    <h3>
-                      {" "}
-                      Publicado:{" "}
-                      {new Date(comment.comment_date).toLocaleString("es-ES")}
-                    </h3>
-                  </header>
-                  <h4>
-                    <Link to={`/comment/${comment.id}`}>
-                      {comment.comment}{" "}
-                    </Link>
-                  </h4>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+      <>
+        <body className="body-usercomments">
+          <section className="usercomments">
+            <h2>Estos son los Comentarios que has publicado hasta ahora</h2>
+            <ul>
+              {comments.map((comment) => {
+                return (
+                  <li key={comment.id}>
+                    <article>
+                      <header>
+                        <h3>
+                          {" "}
+                          Publicado:{" "}
+                          {new Date(comment.comment_date).toLocaleString(
+                            "es-ES"
+                          )}
+                        </h3>
+                      </header>
+                      <h4>
+                        <Link to={`/comment/${comment.id}`}>
+                          {comment.comment}{" "}
+                        </Link>
+                      </h4>
+                    </article>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </body>
+      </>
     );
   }
 }

@@ -49,37 +49,45 @@ export default function CommentDetails() {
 
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
-      <section className="commentdetails">
-        <h1>Detalles del Comentario {id}</h1>
-        <h3>Comentario</h3>
-        <p>{comment.comment}</p>
-        <h3>Día y hora de publicación:</h3>
-        <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
-        <h3>Comentado por el usuario con id:</h3>
-        <p>{comment.comment_user_id}</p>
-        <h3>Link publicado por el usuario con id:</h3>
-        <p>{comment.post_id}</p>
-        <div>
-          <Link to={`/comment/${id}/edit`}>Edita el Comentario</Link>
+      <>
+        <body className="body-commentdetails">
+          <section className="commentdetails">
+            <h1>Detalles del Comentario {id}</h1>
+            <h3>Comentario</h3>
+            <p>{comment.comment}</p>
+            <h3>Día y hora de publicación:</h3>
+            <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
+            <h3>Comentado por el usuario con id:</h3>
+            <p>{comment.comment_user_id}</p>
+            <h3>Link publicado por el usuario con id:</h3>
+            <p>{comment.post_id}</p>
+            <div>
+              <Link to={`/comment/${id}/edit`}>Edita el Comentario</Link>
 
-          <DeleteComment></DeleteComment>
-        </div>
-      </section>
+              <DeleteComment></DeleteComment>
+            </div>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (
-      <section className="commentdetails">
-        <h1>Detalles del Comentario {id}</h1>
-        <h3>Comentario</h3>
-        <p>{comment.comment}</p>
-        <h3>Día y hora de publicación:</h3>
-        <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
-        <h3>Comentado por el usuario con id:</h3>
-        <p>{comment.comment_user_id}</p>
-        <h3>Link publicado por el usuario con id:</h3>
-        <p>{comment.post_id}</p>
-        <button onClick={() => likeComment(comment.id)}>LoveIt!</button>
-      </section>
+      <>
+        <body className="body-commentdetails">
+          <section className="commentdetails">
+            <h1>Detalles del Comentario {id}</h1>
+            <h3>Comentario</h3>
+            <p>{comment.comment}</p>
+            <h3>Día y hora de publicación:</h3>
+            <p>{new Date(comment.comment_date).toLocaleString("es-ES")}</p>
+            <h3>Comentado por el usuario con id:</h3>
+            <p>{comment.comment_user_id}</p>
+            <h3>Link publicado por el usuario con id:</h3>
+            <p>{comment.post_id}</p>
+            <button onClick={() => likeComment(comment.id)}>LoveIt!</button>
+          </section>
+        </body>
+      </>
     );
   }
 }

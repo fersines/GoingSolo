@@ -53,118 +53,120 @@ export default function FindPosts() {
 
   return (
     <>
-      <section className="buscador">
-        <h1>Buscador de Links</h1>
-        <form onSubmit={(e) => e.preventDefault()} method="GET">
-          <fieldset>
-            <label>
-              <h3>Término de búsqueda</h3>
-              <p>(Se puede buscar por Título, Story o Id del autor)</p>
-            </label>
-            <input
-              type="search"
-              name="search"
-              style={{ border: "1px solid red" }}
-              value={search}
-              onChange={(e) => {
-                const newsearch = e.target.value;
-                query.set("search", newsearch);
-                history.push(`${path}?${query.toString()}`);
-                setSearch(newsearch);
-              }}
-            />
-          </fieldset>
+      <body className="body-buscador">
+        <section className="buscador">
+          <h1>Buscador de Links</h1>
+          <form onSubmit={(e) => e.preventDefault()} method="GET">
+            <fieldset>
+              <label>
+                <h3>Término de búsqueda</h3>
+                <p>(Se puede buscar por Título, Story o Id del autor)</p>
+              </label>
+              <input
+                type="search"
+                name="search"
+                style={{ border: "1px solid red" }}
+                value={search}
+                onChange={(e) => {
+                  const newsearch = e.target.value;
+                  query.set("search", newsearch);
+                  history.push(`${path}?${query.toString()}`);
+                  setSearch(newsearch);
+                }}
+              />
+            </fieldset>
 
-          <button onClick={() => listSearch(search)}>Búscalo!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
+            <button onClick={() => listSearch(search)}>Búscalo!</button>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+          </form>
 
-        <h1>Resultado de la búsqueda</h1>
-        <button
-          onClick={() => {
-            const newOrder = order === "loves" ? "date" : "loves";
-            setOrder(newOrder);
-            listSearch(search);
-          }}
-        >
-          {order}
-        </button>
+          <h1>Resultado de la búsqueda</h1>
+          <button
+            onClick={() => {
+              const newOrder = order === "loves" ? "date" : "loves";
+              setOrder(newOrder);
+              listSearch(search);
+            }}
+          >
+            {order}
+          </button>
 
-        {/* <select id="order">
-        <option
-          value={() => {
-            const newOrder = "loves";
-            setOrder(newOrder);
-          }}
-          onClick={() => {
-            listSearch(search);
-          }}
-        >
-          Más votados
-        </option>
-        <option
-          value={() => {
-            const newOrder = "date";
-            setOrder(newOrder);
-          }}
-          onClick={() => {
-            listSearch(search);
-          }}
-        >
-          Más recientes
-        </option>
-        <option
-          value={() => {
-            const newDirection = "DESC";
-            setOrder(newDirection);
-            listSearch(search);
-          }}
-        >
-          Menos votados
-        </option>
-        <option
-          value={() => {
-            const newDirection = "ASC";
-            setOrder(newDirection);
-            listSearch(search);
-          }}
-        >
-          Más antiguos
-        </option>
-      </select> */}
+          {/* <select id="order">
+    <option
+      value={() => {
+        const newOrder = "loves";
+        setOrder(newOrder);
+      }}
+      onClick={() => {
+        listSearch(search);
+      }}
+    >
+      Más votados
+    </option>
+    <option
+      value={() => {
+        const newOrder = "date";
+        setOrder(newOrder);
+      }}
+      onClick={() => {
+        listSearch(search);
+      }}
+    >
+      Más recientes
+    </option>
+    <option
+      value={() => {
+        const newDirection = "DESC";
+        setOrder(newDirection);
+        listSearch(search);
+      }}
+    >
+      Menos votados
+    </option>
+    <option
+      value={() => {
+        const newDirection = "ASC";
+        setOrder(newDirection);
+        listSearch(search);
+      }}
+    >
+      Más antiguos
+    </option>
+  </select> */}
 
-        {/* <button
-        onClick={() => {
-          const newDirection = direction === "DESC" ? "ASC" : "DESC";
-          setDirection(newDirection);
-          listSearch(search);
-        }}
-      >
-        {direction}
-      </button>
- */}
-        <ul>
-          {searchResult.map((post) => {
-            return (
-              <li key={post.id}>
-                <article>
-                  <header>
-                    <Link to={`/link/${post.id}`}>
-                      <h3>{post.link}</h3>{" "}
-                    </Link>
-                  </header>
-                  <h4>{post.title}</h4>
+          {/* <button
+    onClick={() => {
+      const newDirection = direction === "DESC" ? "ASC" : "DESC";
+      setDirection(newDirection);
+      listSearch(search);
+    }}
+  >
+    {direction}
+  </button>
+*/}
+          <ul>
+            {searchResult.map((post) => {
+              return (
+                <li key={post.id}>
+                  <article>
+                    <header>
+                      <Link to={`/link/${post.id}`}>
+                        <h3>{post.link}</h3>{" "}
+                      </Link>
+                    </header>
+                    <h4>{post.title}</h4>
 
-                  <h5>
-                    Fecha de alta:
-                    <p>{new Date(post.date).toLocaleString("es-ES")}</p>
-                  </h5>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+                    <h5>
+                      Fecha de alta:
+                      <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+                    </h5>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
     </>
   );
 }

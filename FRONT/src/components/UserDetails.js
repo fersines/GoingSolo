@@ -57,55 +57,59 @@ export default function UserDetails() {
   };
 
   return (
-    <section className="linkdetails">
-      <h1>Perfil del Usuario con id: {id}</h1>
+    <>
+      <body className="body-linkdetails">
+        <section className="linkdetails">
+          <h1>Perfil del Usuario con id: {id}</h1>
 
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset>
-            <h3>Email</h3>
-            <input
-              ref={register({ required: false })}
-              type="email"
-              name="email"
-              id="email"
-              defaultValue={user.email}
-            />
-          </fieldset>
-          <fieldset>
-            <h3>Nombre</h3>
-            <input
-              ref={register({ required: false })}
-              type="text"
-              name="name"
-              id="name"
-              defaultValue={user.name}
-            />
-          </fieldset>
+          <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <fieldset>
+                <h3>Email</h3>
+                <input
+                  ref={register({ required: false })}
+                  type="email"
+                  name="email"
+                  id="email"
+                  defaultValue={user.email}
+                />
+              </fieldset>
+              <fieldset>
+                <h3>Nombre</h3>
+                <input
+                  ref={register({ required: false })}
+                  type="text"
+                  name="name"
+                  id="name"
+                  defaultValue={user.name}
+                />
+              </fieldset>
 
-          <button type="submit">Edita el usuario</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-        <h3>Activo</h3>
-        <p>
-          {user.active === 1 ? (
-            <p>El usuario está activado</p>
-          ) : (
-            <p>El usuario está pendiente de activación</p>
-          )}
-        </p>
-        <h3>Eliminado</h3>
-        <p>
-          {user.deleted === 0 ? (
-            <p>Este Usuario no está Eliminado</p>
-          ) : (
-            <p>Este Usuario ha sido Eliminado</p>
-          )}
-        </p>
-      </div>
-      <div>
-        <DeleteUser></DeleteUser>
-      </div>
-    </section>
+              <button type="submit">Edita el usuario</button>
+              {errorMessage ? <p>{errorMessage}</p> : null}
+            </form>
+            <h3>Activo</h3>
+            <p>
+              {user.active === 1 ? (
+                <p>El usuario está activado</p>
+              ) : (
+                <p>El usuario está pendiente de activación</p>
+              )}
+            </p>
+            <h3>Eliminado</h3>
+            <p>
+              {user.deleted === 0 ? (
+                <p>Este Usuario no está Eliminado</p>
+              ) : (
+                <p>Este Usuario ha sido Eliminado</p>
+              )}
+            </p>
+          </div>
+          <div>
+            <DeleteUser></DeleteUser>
+          </div>
+        </section>
+      </body>
+    </>
   );
 }

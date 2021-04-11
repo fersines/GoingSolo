@@ -25,16 +25,20 @@ export default function ListPosts() {
   }, []);
 
   return (
-    <section>
-      <ul>
-        {users.map((user) => {
-          return (
-            <li key={user.id}>
-              <Link to={`/user/${user.id}`}>{user.email}</Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+    <>
+      <body className="body-users">
+        <section className="users">
+          <ul>
+            {users.map((user) => {
+              return (
+                <li key={user.id}>
+                  <Link to={`/user/${user.id}`}>{user.email}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
+    </>
   );
 }

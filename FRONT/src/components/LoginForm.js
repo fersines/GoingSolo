@@ -15,38 +15,42 @@ export default function LoginForm(props) {
   };
 
   return (
-    <section className="login">
-      <h1>Accede con tus claves</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset>
-          <input
-            ref={register({ required: true })}
-            name="email"
-            id="email"
-            placeholder="Correo Electrónico"
-            autoComplete="username"
-          />
-          {errors.email && <p className="error">Falta email</p>}
-        </fieldset>
+    <>
+      <body className="body-login">
+        <section className="login">
+          <h1>Accede con tus claves</h1>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <fieldset>
+              <input
+                ref={register({ required: true })}
+                name="email"
+                id="email"
+                placeholder="Correo Electrónico"
+                autoComplete="username"
+              />
+              {errors.email && <p className="error">Falta email</p>}
+            </fieldset>
 
-        <fieldset>
-          <input
-            ref={register({ required: true, minLength: 1 })}
-            name="password"
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-            autoComplete="current-password"
-          />
-          {errors.password && <p className="error">Falta contraseña</p>}
-        </fieldset>
-        <button type="submit">Acceder</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
+            <fieldset>
+              <input
+                ref={register({ required: true, minLength: 1 })}
+                name="password"
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                autoComplete="current-password"
+              />
+              {errors.password && <p className="error">Falta contraseña</p>}
+            </fieldset>
+            <button type="submit">Acceder</button>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+          </form>
 
-      <Link to="/newpassword">Has olvidado tu contraseña?</Link>
+          <Link to="/newpassword">Has olvidado tu contraseña?</Link>
 
-      <Link to="/register">Todavía no estás registrado?</Link>
-    </section>
+          <Link to="/register">Todavía no estás registrado?</Link>
+        </section>
+      </body>
+    </>
   );
 }

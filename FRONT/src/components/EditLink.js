@@ -74,73 +74,81 @@ export default function EditLink(data) {
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
-      <section className="editlink">
-        <h2>Estos son los campos que puedes editar</h2>
+      <>
+        <body className="body-editlink">
+          <section className="editlink">
+            <h2>Estos son los campos que puedes editar</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset>
-            <h4>
-              <label htmlFor="link">Link</label>
-            </h4>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <fieldset>
+                <h4>
+                  <label htmlFor="link">Link</label>
+                </h4>
 
-            <input
-              ref={register({ required: false })}
-              type="text"
-              name="link"
-              id="link"
-              defaultValue={post.link}
-            />
-          </fieldset>
-          <fieldset>
-            <h4>
-              <label htmlFor="title">Título</label>
-            </h4>
+                <input
+                  ref={register({ required: false })}
+                  type="text"
+                  name="link"
+                  id="link"
+                  defaultValue={post.link}
+                />
+              </fieldset>
+              <fieldset>
+                <h4>
+                  <label htmlFor="title">Título</label>
+                </h4>
 
-            <input
-              ref={register({ required: false })}
-              type="text"
-              name="title"
-              id="title"
-              defaultValue={post.title}
-            />
-          </fieldset>
-          <fieldset>
-            {" "}
-            <h4>
-              <label htmlFor="avatar">Story</label>
-            </h4>
-            <input
-              ref={register({ required: false })}
-              type="text"
-              name="story"
-              id="story"
-              defaultValue={post.story}
-            />
-          </fieldset>
+                <input
+                  ref={register({ required: false })}
+                  type="text"
+                  name="title"
+                  id="title"
+                  defaultValue={post.title}
+                />
+              </fieldset>
+              <fieldset>
+                {" "}
+                <h4>
+                  <label htmlFor="avatar">Story</label>
+                </h4>
+                <input
+                  ref={register({ required: false })}
+                  type="text"
+                  name="story"
+                  id="story"
+                  defaultValue={post.story}
+                />
+              </fieldset>
 
-          <button type="submit">Guarda los cambios!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+              <button type="submit">Guarda los cambios!</button>
+              {errorMessage ? <p>{errorMessage}</p> : null}
+            </form>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (
-      <section className="linkdetails">
-        <h1>Detalles del Link con id: {id}</h1>
-        <h3>Link</h3>
-        <p>{post.link}</p>
-        <h3>Fue publicado:</h3>
-        <p>{post.date}</p>
-        <h3>Título</h3>
-        <p>{post.title}</p>
-        <h3>Story</h3>
-        <p>{post.story}</p>
-        <div>
-          <button>
-            <LoveLink></LoveLink>
-          </button>
-        </div>
-      </section>
+      <>
+        <body className="body-linkdetails">
+          <section className="linkdetails">
+            <h1>Detalles del Link con id: {id}</h1>
+            <h3>Link</h3>
+            <p>{post.link}</p>
+            <h3>Fue publicado:</h3>
+            <p>{post.date}</p>
+            <h3>Título</h3>
+            <p>{post.title}</p>
+            <h3>Story</h3>
+            <p>{post.story}</p>
+            <div>
+              <button>
+                <LoveLink></LoveLink>
+              </button>
+            </div>
+          </section>
+        </body>
+      </>
     );
   }
 }

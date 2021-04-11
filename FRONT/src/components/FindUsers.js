@@ -53,64 +53,66 @@ export default function FindUsers() {
 
   return (
     <>
-      <section className="buscador">
-        <h1>Buscador de Usuarios</h1>
-        <form onSubmit={(e) => e.preventDefault()} method="GET">
-          <fieldset>
-            <label>
-              <h3>Término de búsqueda</h3>
-              <p>(Se puede buscar por el Email del usuario)</p>
-            </label>
-            <input
-              type="search"
-              name="search"
-              style={{ border: "1px solid red" }}
-              value={search}
-              onChange={(e) => {
-                const newsearch = e.target.value;
-                query.set("search", newsearch);
-                history.push(`${path}?${query.toString()}`);
-                setSearch(newsearch);
-              }}
-            />
-          </fieldset>
+      <body className="body-buscador">
+        <section className="buscador">
+          <h1>Buscador de Usuarios</h1>
+          <form onSubmit={(e) => e.preventDefault()} method="GET">
+            <fieldset>
+              <label>
+                <h3>Término de búsqueda</h3>
+                <p>(Se puede buscar por el Email del usuario)</p>
+              </label>
+              <input
+                type="search"
+                name="search"
+                style={{ border: "1px solid red" }}
+                value={search}
+                onChange={(e) => {
+                  const newsearch = e.target.value;
+                  query.set("search", newsearch);
+                  history.push(`${path}?${query.toString()}`);
+                  setSearch(newsearch);
+                }}
+              />
+            </fieldset>
 
-          <button onClick={() => listSearch(search)}>Búscalo!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
+            <button onClick={() => listSearch(search)}>Búscalo!</button>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+          </form>
 
-        <h1>Resultado de la búsqueda</h1>
-        <button
-          onClick={() => {
-            const newOrder = order === "email" ? "date" : "email";
-            setOrder(newOrder);
-            listSearch(search);
-          }}
-        >
-          Cambia el orden!
-        </button>
-        <ul>
-          {searchResult.map((user) => {
-            return (
-              <li key={user.id}>
-                <article>
-                  <header>
-                    <Link to={`/user/${user.id}`}>
-                      <h3>{user.email}</h3>
-                    </Link>
-                  </header>
-                  <h4>{user.name}</h4>
+          <h1>Resultado de la búsqueda</h1>
+          <button
+            onClick={() => {
+              const newOrder = order === "email" ? "date" : "email";
+              setOrder(newOrder);
+              listSearch(search);
+            }}
+          >
+            Cambia el orden!
+          </button>
+          <ul>
+            {searchResult.map((user) => {
+              return (
+                <li key={user.id}>
+                  <article>
+                    <header>
+                      <Link to={`/user/${user.id}`}>
+                        <h3>{user.email}</h3>
+                      </Link>
+                    </header>
+                    <h4>{user.name}</h4>
 
-                  <h5>
-                    Fecha de alta:
-                    <p>{new Date(user.date).toLocaleString("es-ES")}</p>
-                  </h5>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+                    <h5>
+                      Fecha de alta:
+                      <p>{new Date(user.date).toLocaleString("es-ES")}</p>
+                    </h5>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
     </>
   );
 }

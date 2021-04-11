@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import useAuth from "../shared/hooks/useAuth";
 import CommentDetails from "./CommentDetails";
-import LoveLink from "./LoveLink";
 
 const apiUrl = "http://localhost:3000";
 
@@ -70,28 +69,32 @@ export default function EditComment(data) {
 
   if (userData.role === "admin" || userData.id === comment.comment_user_id) {
     return (
-      <section className="editcomment">
-        <h2>Este es el Comentario a editar</h2>
+      <>
+        <body className="body-editcomment">
+          <section className="editcomment">
+            <h2>Este es el Comentario a editar</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <fieldset>
-            <h4>
-              <label htmlFor="comment">Comentario</label>
-            </h4>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <fieldset>
+                <h4>
+                  <label htmlFor="comment">Comentario</label>
+                </h4>
 
-            <textarea
-              ref={register({ required: false })}
-              type="text"
-              name="comment"
-              id="comment"
-              defaultValue={comment.comment}
-            />
-          </fieldset>
+                <textarea
+                  ref={register({ required: false })}
+                  type="text"
+                  name="comment"
+                  id="comment"
+                  defaultValue={comment.comment}
+                />
+              </fieldset>
 
-          <button type="submit">Guarda los cambios!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
-      </section>
+              <button type="submit">Guarda los cambios!</button>
+              {errorMessage ? <p>{errorMessage}</p> : null}
+            </form>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (

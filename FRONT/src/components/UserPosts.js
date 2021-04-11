@@ -34,36 +34,42 @@ export default function UserPosts() {
 
   if (posts.length === 0) {
     return (
-      <section className="mislinks">
-        <h1>Aquí verás tus Links, pero cuando los publiques...</h1>
-      </section>
+      <>
+        <body className="body-mislinks">
+          <section className="mislinks">
+            <h1>Aquí verás tus Links, pero cuando los publiques...</h1>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (
       <>
-        <section className="mislinks">
-          <h2>Tus Links hasta ahora</h2>
-          <ul>
-            {posts.map((post) => {
-              return (
-                <li key={post.id}>
-                  <article>
-                    <header>
-                      <h3>{post.title}</h3>
-                    </header>
-                    <h4>
-                      <a href={post.link}>{post.link}</a>{" "}
-                    </h4>
-                    <p>{post.story}</p>
-                    <h5>Likes:{post.loves}</h5>
+        <body className="body-mislinks">
+          <section className="mislinks">
+            <h2>Tus Links hasta ahora</h2>
+            <ul>
+              {posts.map((post) => {
+                return (
+                  <li key={post.id}>
+                    <article>
+                      <header>
+                        <h3>{post.title}</h3>
+                      </header>
+                      <h4>
+                        <a href={post.link}>{post.link}</a>{" "}
+                      </h4>
+                      <p>{post.story}</p>
+                      <h5>Likes:{post.loves}</h5>
 
-                    <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-                  </article>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
+                      <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                    </article>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </body>
       </>
     );
   }

@@ -64,83 +64,91 @@ export default function LinkDetails() {
 
   if (userData.role === "admin" || userData.id === post.post_user_id) {
     return (
-      <section className="linkdetails">
-        <h1>Detalles del Link {id}</h1>
-        <h3>Link</h3>
-        <p>{post.link}</p>
-        <h3>Día y hora de publicación:</h3>
-        <p>{new Date(post.date).toLocaleString("es-ES")}</p>{" "}
-        {userData.role === "admin" ? (
-          <h3>por el usuario con id: {post.post_user_id}</h3>
-        ) : null}
-        <h3>Título</h3>
-        <p>{post.title}</p>
-        <h3>Story</h3>
-        <p>{post.story}</p>
-        <h3>Comentarios</h3>
-        <ul>
-          {comments.length > 0 ? (
-            comments.map((comment) => {
-              return (
-                <li key={comment.id}>
-                  {comment.comment} Publicado:
-                  {new Date(comment.comment_date).toLocaleString("es-ES")}
-                </li>
-              );
-            })
-          ) : (
-            <p>Este Link todavía no ha sido comentado</p>
-          )}
-        </ul>
-        <div>
-          <Link to={`/link/${id}/edit`}>Edita el Link</Link>
+      <>
+        <body className="body-linkdetails">
+          <section className="linkdetails">
+            <h1>Detalles del Link {id}</h1>
+            <h3>Link</h3>
+            <p>{post.link}</p>
+            <h3>Día y hora de publicación:</h3>
+            <p>{new Date(post.date).toLocaleString("es-ES")}</p>{" "}
+            {userData.role === "admin" ? (
+              <h3>por el usuario con id: {post.post_user_id}</h3>
+            ) : null}
+            <h3>Título</h3>
+            <p>{post.title}</p>
+            <h3>Story</h3>
+            <p>{post.story}</p>
+            <h3>Comentarios</h3>
+            <ul>
+              {comments.length > 0 ? (
+                comments.map((comment) => {
+                  return (
+                    <li key={comment.id}>
+                      {comment.comment} Publicado:
+                      {new Date(comment.comment_date).toLocaleString("es-ES")}
+                    </li>
+                  );
+                })
+              ) : (
+                <p>Este Link todavía no ha sido comentado</p>
+              )}
+            </ul>
+            <div>
+              <Link to={`/link/${id}/edit`}>Edita el Link</Link>
 
-          <DeleteLink></DeleteLink>
-        </div>
-      </section>
+              <DeleteLink></DeleteLink>
+            </div>
+          </section>
+        </body>
+      </>
     );
   } else {
     return (
-      <section className="linkdetails">
-        <h1>Detalles del Link {id}</h1>
-        <h3>Link</h3>
+      <>
+        <body className="body-linkdetails">
+          <section className="linkdetails">
+            <h1>Detalles del Link {id}</h1>
+            <h3>Link</h3>
 
-        {post.link}
-        <LoveLink></LoveLink>
+            {post.link}
+            <LoveLink></LoveLink>
 
-        <h3>Día y hora de publicación:</h3>
-        <p>{new Date(post.date).toLocaleString("es-ES")}</p>
-        <h3>Título</h3>
-        <p>{post.title}</p>
-        <h3>Story</h3>
-        <p>{post.story}</p>
-        <h3>Comentarios</h3>
-        <ul>
-          {comments.length > 0 ? (
-            comments.map((comment) => {
-              return (
-                <li key={comment.id}>
-                  <p>{comment.comment}</p>
-                  <p>
-                    Publicado:{" "}
-                    {new Date(comment.comment_date).toLocaleString("es-ES")}
-                  </p>
+            <h3>Día y hora de publicación:</h3>
+            <p>{new Date(post.date).toLocaleString("es-ES")}</p>
+            <h3>Título</h3>
+            <p>{post.title}</p>
+            <h3>Story</h3>
+            <p>{post.story}</p>
+            <h3>Comentarios</h3>
+            <ul>
+              {comments.length > 0 ? (
+                comments.map((comment) => {
+                  return (
+                    <li key={comment.id}>
+                      <p>{comment.comment}</p>
+                      <p>
+                        Publicado:{" "}
+                        {new Date(comment.comment_date).toLocaleString("es-ES")}
+                      </p>
 
-                  <button onClick={() => likeComment(comment.id)}>
-                    LoveIt!
-                  </button>
-                </li>
-              );
-            })
-          ) : (
-            <p>Este Link todavía no ha sido comentado</p>
-          )}
-        </ul>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-        <div>
-          <NewComment></NewComment>
-        </div>
-      </section>
+                      <button onClick={() => likeComment(comment.id)}>
+                        LoveIt!
+                      </button>
+                    </li>
+                  );
+                })
+              ) : (
+                <p>Este Link todavía no ha sido comentado</p>
+              )}
+            </ul>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+            <div>
+              <NewComment></NewComment>
+            </div>
+          </section>
+        </body>
+      </>
     );
   }
 }

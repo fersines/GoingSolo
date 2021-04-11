@@ -30,55 +30,63 @@ export default function ListPosts() {
 
   if (userData.role === "admin") {
     return (
-      <section className="listposts">
-        <h2>Últimos Links</h2>
-        <ul>
-          {posts.map((post) => {
-            return (
-              <li key={post.id}>
-                <article>
-                  <header>
-                    <h3>{post.title}</h3>
-                  </header>
-                  <h4>
-                    <a href={post.link}>{post.link}</a>{" "}
-                  </h4>
-                  <p>{post.story}</p>
-                  <h5>Likes:{post.loves}</h5>
+      <>
+        <body className="body-listposts">
+          <section className="listposts">
+            <h2>Últimos Links</h2>
+            <ul>
+              {posts.map((post) => {
+                return (
+                  <li key={post.id}>
+                    <article>
+                      <header>
+                        <h3>{post.title}</h3>
+                      </header>
+                      <h4>
+                        <a href={post.link}>{post.link}</a>{" "}
+                      </h4>
+                      <p>{post.story}</p>
+                      <h5>Likes:{post.loves}</h5>
 
-                  <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+                      <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                    </article>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </body>
+      </>
     );
   } else {
   }
   return (
-    <section className="listposts">
-      <h2>Links más populares</h2>
-      <ul>
-        {posts.map((post) => {
-          return (
-            <li key={post.id}>
-              <article>
-                <header>
-                  <h3>{post.title}</h3>
-                </header>
-                <h4>
-                  <a href={post.link}>{post.link}</a>{" "}
-                </h4>
-                <p>{post.story}</p>
-                <h5>Likes:{post.loves}</h5>
+    <>
+      <body className="body-listposts">
+        <section className="listposts">
+          <h2>Links más populares</h2>
+          <ul>
+            {posts.map((post) => {
+              return (
+                <li key={post.id}>
+                  <article>
+                    <header>
+                      <h3>{post.title}</h3>
+                    </header>
+                    <h4>
+                      <a href={post.link}>{post.link}</a>{" "}
+                    </h4>
+                    <p>{post.story}</p>
+                    <h5>Likes:{post.loves}</h5>
 
-                <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
-              </article>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+                    <Link to={`/link/${post.id}`}>Ver Detalle del Link</Link>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
+    </>
   );
 }

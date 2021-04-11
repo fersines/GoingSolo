@@ -54,62 +54,66 @@ export default function FindComments() {
 
   return (
     <>
-      <section className="buscador">
-        <h1>Buscador de Comentarios</h1>
-        <form onSubmit={(e) => e.preventDefault()} method="GET">
-          <fieldset>
-            <label>
-              <h3>Término de búsqueda</h3>
-              <p>(Busca por el texto del comentario)</p>
-            </label>
-            <input
-              type="search"
-              name="search"
-              style={{ border: "1px solid red" }}
-              value={search}
-              onChange={(e) => {
-                const newsearch = e.target.value;
-                query.set("search", newsearch);
-                history.push(`${path}?${query.toString()}`);
-                setSearch(newsearch);
-              }}
-            />
-          </fieldset>
+      <body className="body-buscador">
+        <section className="buscador">
+          <h1>Buscador de Comentarios</h1>
+          <form onSubmit={(e) => e.preventDefault()} method="GET">
+            <fieldset>
+              <label>
+                <h3>Término de búsqueda</h3>
+                <p>(Busca por el texto del comentario)</p>
+              </label>
+              <input
+                type="search"
+                name="search"
+                style={{ border: "1px solid red" }}
+                value={search}
+                onChange={(e) => {
+                  const newsearch = e.target.value;
+                  query.set("search", newsearch);
+                  history.push(`${path}?${query.toString()}`);
+                  setSearch(newsearch);
+                }}
+              />
+            </fieldset>
 
-          <button onClick={() => listSearch(search)}>Búscalo!</button>
-          {errorMessage ? <p>{errorMessage}</p> : null}
-        </form>
+            <button onClick={() => listSearch(search)}>Búscalo!</button>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+          </form>
 
-        <h1>Resultado de la búsqueda</h1>
-        <button
-          onClick={() => {
-            const newOrder = order === "loves" ? "comment_date" : "loves";
-            setOrder(newOrder);
-            listSearch(search);
-          }}
-        >
-          {order}
-        </button>
-        <ul>
-          {searchResult.map((comment) => {
-            return (
-              <li key={comment.id}>
-                <article>
-                  <header>
-                    <Link to={`/comment/${comment.id}`}>
-                      <h3>
-                        Publicado el:{" "}
-                        {new Date(comment.comment_date).toLocaleString("es-ES")}
-                      </h3>{" "}
-                    </Link>
-                  </header>
-                  <h4>{comment.comment}</h4>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+          <h1>Resultado de la búsqueda</h1>
+          <button
+            onClick={() => {
+              const newOrder = order === "loves" ? "comment_date" : "loves";
+              setOrder(newOrder);
+              listSearch(search);
+            }}
+          >
+            {order}
+          </button>
+          <ul>
+            {searchResult.map((comment) => {
+              return (
+                <li key={comment.id}>
+                  <article>
+                    <header>
+                      <Link to={`/comment/${comment.id}`}>
+                        <h3>
+                          Publicado el:{" "}
+                          {new Date(comment.comment_date).toLocaleString(
+                            "es-ES"
+                          )}
+                        </h3>{" "}
+                      </Link>
+                    </header>
+                    <h4>{comment.comment}</h4>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
     </>
   );
 }

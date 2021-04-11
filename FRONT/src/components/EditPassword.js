@@ -35,30 +35,34 @@ export default function EditPassword(data) {
   };
 
   return (
-    <section className="editpass">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset>
-          <label htmlFor="oldPassword">Contraseña Actual</label>
-          <input
-            ref={register({ required: true, minLength: 1 })}
-            name="oldPassword"
-            type="password"
-            id="oldPassword"
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="newPassword">Nueva Contraseña</label>
-          <input
-            ref={register({ required: true, minLength: 1 })}
-            name="newPassword"
-            type="password"
-            id="newPassword"
-          />
-        </fieldset>
+    <>
+      <body className="body-editpass">
+        <section className="editpass">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <fieldset>
+              <label htmlFor="oldPassword">Contraseña Actual</label>
+              <input
+                ref={register({ required: true, minLength: 1 })}
+                name="oldPassword"
+                type="password"
+                id="oldPassword"
+              />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="newPassword">Nueva Contraseña</label>
+              <input
+                ref={register({ required: true, minLength: 1 })}
+                name="newPassword"
+                type="password"
+                id="newPassword"
+              />
+            </fieldset>
 
-        <button type="submit">Cambiar Contraseña</button>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-      </form>
-    </section>
+            <button type="submit">Cambiar Contraseña</button>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+          </form>
+        </section>
+      </body>
+    </>
   );
 }

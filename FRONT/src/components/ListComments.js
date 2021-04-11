@@ -25,19 +25,23 @@ export default function ListComments() {
   }, []);
 
   return (
-    <section>
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.id}>
-              <Link to={`/comment/${comment.id}`}>
-                {comment.comment}{" "}
-                {new Date(comment.comment_date).toLocaleString("es-ES")}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+    <>
+      <body className="body-comments">
+        <section>
+          <ul>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.id}>
+                  <Link to={`/comment/${comment.id}`}>
+                    {comment.comment}{" "}
+                    {new Date(comment.comment_date).toLocaleString("es-ES")}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </body>
+    </>
   );
 }
