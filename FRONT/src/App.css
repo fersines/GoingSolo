@@ -33,9 +33,8 @@ section {
   padding: 2rem;
   border-radius: 1rem;
   background-color: var(--dark);
-  /* background-size: cover;
-  background-position:center; */
-  /* -webkit-backdrop-filter: blur(10px); */
+  background-size: cover;
+  background-position: center;
   align-items: center;
   display: grid;
   color: #d7cec7;
@@ -43,9 +42,8 @@ section {
   height: 81.5vh;
   display: grid;
   grid-column: auto;
-  align-items: center;
   text-align: center;
-  overflow-y: scroll;
+  overflow-y: scroll hidden;
 }
 
 form {
@@ -333,12 +331,11 @@ h3 {
   }
   section {
     padding: 2rem;
-    background-color: var(--dark);
+    background: rgba(86, 86, 86, 0.7);
     /* background: transparent 0.7; */
     align-items: center;
     display: grid;
     color: #d7cec7;
-    margin: 3vh 5vh;
     height: 81.5vh;
     display: grid;
     grid-column: auto;
@@ -399,7 +396,7 @@ h3 {
     background-image: url(/src/pics/portada.jpg);
     background-size: cover;
     padding: 1rem;
-    margin: 1rem 1rem;
+    margin: 1.5vh 1rem;
     height: 84.5vh;
     display: flex;
     flex-direction: column;
@@ -408,48 +405,86 @@ h3 {
     text-align: left;
   }
 
+  .body-login {
+    background-image: url(/src/pics/login.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
   .login {
     font-size: 1.5rem;
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
+
+  .body-register {
+    background-image: url(/src/pics/register1.jpg);
+    background-size: cover;
+    padding: 1vh;
+    margin: 1vh 1vw;
+    height: 85.5vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .register {
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
     font-size: 1rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .newpass {
-    width: 78vw;
-    height: 40vh;
-    margin: 2.5vh 11vw;
+    width: 54vw;
+    height: 37vh;
+    margin: 2.5vh 23vw;
     font-size: 1rem;
     padding: 1rem;
   }
 
   .resetpass {
-    width: 78vw;
-    height: 40vh;
-    margin: 2.5vh 11vw;
+    width: 54vw;
+    height: 37vh;
+    margin: 2.5vh 23vw;
     font-size: 1rem;
     padding: 1rem;
   }
 
   .body-userprofile {
-    background-image: url(/src/pics/login.jpg);
-    padding: 02rem;
+    background-image: url(/src/pics/userprofile.jpg);
+    background-size: cover;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+    height: 85.5vh;
     background-size: cover;
     background-position: center;
-    margin: 1rem 1rem;
-    height: 87.5vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    text-align: center;
   }
 
   .userprofile {
-    background: transparent;
+    background: rgba(118, 50, 63, 0.7);
     font-size: 1.25rem;
     padding: 1rem;
+    width: 54vw;
+    margin: 3vh 23vw;
+    height: 77.5vh;
+    font-size: 1rem;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
   }
 
   .avatar {

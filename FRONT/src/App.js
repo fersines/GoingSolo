@@ -13,9 +13,7 @@ import FindComments from "./components/FindComments";
 import FindPosts from "./components/FindPosts";
 import UserInfo from "./pages/UserInfo";
 import NewPost from "./components/NewPost";
-import NewPassword from "./components/NewPassword";
 import EditPassword from "./components/EditPassword";
-import ResetPassword from "./components/ResetPassword";
 import UserPosts from "./components/UserPosts";
 import EditUserProfile from "./components/EditUserProfile";
 import UserComments from "./components/UserComments";
@@ -27,6 +25,7 @@ import SignUpForm from "./components/SignUpForm";
 import Header from "./pages/Header";
 import NewComment from "./components/NewComment";
 import EditComment from "./components/EditComment";
+import NewPass from "./pages/NewPass";
 
 function App() {
   return (
@@ -87,8 +86,7 @@ function App() {
             <PrivateHome></PrivateHome>
           </Route>
           <Route exact path="/newpassword">
-            <NewPassword></NewPassword>
-            <ResetPassword></ResetPassword>
+            <NewPass></NewPass>
           </Route>
           <Route exact path="/register">
             <SignUpForm></SignUpForm>
