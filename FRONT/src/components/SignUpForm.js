@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import("../css/SignUpForm.css");
 
 export default function SignUpForm(props) {
   const { register, handleSubmit, errors } = useForm();
