@@ -37,6 +37,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="left">
+          {/* <img src="/movil.jpg" alt="logo altavoz" /> */}
           <h3>
             <Link to="/">Home</Link>
           </h3>

@@ -47,7 +47,7 @@ export default function UserPosts() {
       <>
         <body className="body-mislinks">
           <section className="mislinks">
-            <h2>Tus Links hasta ahora</h2>
+            <h2>Tus Links publicados</h2>
             <ul>
               {posts.map((post) => {
                 return (
