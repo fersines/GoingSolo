@@ -8,7 +8,7 @@ export default function Header() {
     if (userData.role === "admin") {
       return (
         <header className="logged">
-          <Link to="/findposts">Buscar Posts</Link>
+          <Link to="/findposts">Buscar Links</Link>
           <Link to="/findcomments">Buscar Comentarios</Link>
           <Link to="/findusers">Buscar Usuarios</Link>
           <Link to="/loggeduser">Admin Home</Link>
