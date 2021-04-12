@@ -32,7 +32,7 @@ ul {
 section {
   padding: 2rem;
   border-radius: 1rem;
-  background-color: var(--dark);
+  background: rgba(86, 86, 86, 0.8);
   background-size: cover;
   background-position: center;
   align-items: center;
@@ -43,7 +43,7 @@ section {
   display: grid;
   grid-column: auto;
   text-align: center;
-  overflow-y: scroll hidden;
+  overflow-y: scroll;
 }
 
 form {
@@ -63,13 +63,17 @@ label {
 }
 
 input {
-  background-color: var(--medium);
+  background-color: var(--bright);
   border-radius: 5px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 textarea {
+  background-color: var(--bright);
+  border-style: inset;
+  border-width: 2px;
+  border-radius: 5px;
   width: 50vw;
   height: 15vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -135,8 +139,30 @@ a {
   text-align: center;
 }
 
+.body-login {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .login {
   font-size: 1.5rem;
+}
+
+.body-register {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .register {
@@ -146,7 +172,7 @@ a {
 .newpass {
   width: 78vw;
   height: 40vh;
-  margin: 2.5vh 11vw;
+  margin: 1vh 11vw;
   font-size: 1rem;
   padding: 1rem;
 }
@@ -159,10 +185,20 @@ a {
   padding: 1rem;
 }
 
+.body-userprofile {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .userprofile {
   font-size: 1rem;
   padding: 1rem;
-  background-color: var(--accent);
 }
 
 .avatar {
@@ -174,24 +210,46 @@ a {
   text-decoration: underline;
 }
 
+.body-edituser {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .edituser {
   font-size: 1.5rem;
   padding: 1rem;
-  background-color: var(--accent);
 }
 
-.edituser button {
-  background: var(--dark);
+.body-editpass {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
-
 .editpass {
   font-size: 1.5rem;
   padding: 1rem;
-  background-color: var(--accent);
 }
 
-.editpass button {
-  background: var(--dark);
+.body-listposts {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .listposts {
@@ -209,6 +267,16 @@ a {
   padding: 0.5rem;
 }
 
+.body-mislinks {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
 .mislinks {
   font-size: 1rem;
   padding: 1rem;
@@ -221,6 +289,17 @@ a {
 .mislinks li {
   color: var(--medium);
   padding: 0.5rem;
+}
+
+.body-linkdetails {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .linkdetails {
@@ -238,14 +317,31 @@ h3 {
   padding: 1rem;
 }
 
+.body-editlink {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .editlink {
   font-size: 1.5rem;
   padding: 1rem;
-  background-color: var(--accent);
 }
 
-.editlink button {
-  background: var(--dark);
+.body-usercomments {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .usercomments {
@@ -262,14 +358,31 @@ h3 {
   padding: 1rem;
 }
 
+.body-editcomment {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .editcomment {
   font-size: 1.5rem;
   padding: 1rem;
-  background-color: var(--accent);
 }
 
-.editcomment button {
-  background: var(--dark);
+.body-commentdetails {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .commentdetails {
@@ -287,6 +400,17 @@ h3 {
   padding: 0.5rem;
 }
 
+.body-newlink {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
 .newlink {
   font-size: 1.25rem;
   padding: 1rem;
@@ -300,6 +424,17 @@ h3 {
 h3 {
   color: var(--medium);
   padding: 0.5rem;
+}
+
+.body-buscador {
+  background-image: url(/src/pics/movilbg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .buscador {
@@ -342,21 +477,6 @@ h3 {
     align-items: center;
     text-align: center;
     overflow-y: scroll hidden;
-  }
-
-  button {
-    background: var(--accent);
-    color: var(--bright);
-    border-radius: 5px;
-    margin: 1.5rem 1.5rem;
-    padding: 0.5rem 1rem;
-  }
-
-  a {
-    margin: 0.5rem 1rem;
-    color: var(--bright);
-    text-decoration: none;
-    text-align: center;
   }
 
   .public {
@@ -475,7 +595,6 @@ h3 {
   }
 
   .userprofile {
-    background: rgba(118, 50, 63, 0.7);
     font-size: 1.25rem;
     padding: 1rem;
     width: 54vw;
@@ -508,7 +627,6 @@ h3 {
   }
 
   .edituser {
-    background: rgba(118, 50, 63, 0.7);
     font-size: 1.25rem;
     padding: 1rem;
     width: 54vw;
@@ -518,10 +636,6 @@ h3 {
     background-size: cover;
     background-position: center;
     align-items: center;
-  }
-
-  .edituser button {
-    background: var(--dark);
   }
 
   .body-editpass {
@@ -536,7 +650,6 @@ h3 {
   }
 
   .editpass {
-    background: rgba(118, 50, 63, 0.7);
     padding: 1rem;
     width: 54vw;
     margin: 3vh 23vw;
@@ -545,10 +658,6 @@ h3 {
     background-size: cover;
     background-position: center;
     align-items: center;
-  }
-
-  .editpass button {
-    background: var(--dark);
   }
 
   .body-buscador {
@@ -679,7 +788,6 @@ h3 {
   }
 
   .editlink {
-    background: rgba(118, 50, 63, 0.7);
     padding: 1.5rem;
     width: 54vw;
     margin: 3vh 23vw;
@@ -688,10 +796,6 @@ h3 {
     background-size: cover;
     background-position: center;
     align-items: center;
-  }
-
-  .editlink button {
-    background: var(--dark);
   }
 
   .body-usercomments {
@@ -737,7 +841,6 @@ h3 {
   }
 
   .editcomment {
-    background: rgba(118, 50, 63, 0.7);
     padding: 1rem;
     width: 54vw;
     margin: 3vh 23vw;
@@ -746,10 +849,6 @@ h3 {
     background-size: cover;
     background-position: center;
     align-items: center;
-  }
-
-  .editcomment button {
-    background: var(--dark);
   }
 
   .body-commentdetails {
