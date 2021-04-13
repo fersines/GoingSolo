@@ -31,19 +31,26 @@ export default function Header() {
   } else {
     return (
       <header className="public">
+        <div className="footer-logo">
+          <Link to="/" className="social-logo">
+            <img className="logoLIU" src="images/logoLIU.png" alt="" />
+          </Link>
+        </div>
         <div className="left">
+          {/* <img src="/movil.jpg" alt="logo altavoz" /> */}
           <h3>
-            <img src="/logo.png" alt="logo altavoz" /> <Link to="/">Home</Link>
+            <Link to="/">Home</Link>
           </h3>
-          <div className="right">
-            <h3>
-              <Link to="/login">Login</Link>
-            </h3>
-
-            <h3>
-              <Link to="/register">Registro</Link>
-            </h3>
-          </div>
+        </div>
+        <div className="right">
+          <h3>
+            <Link to="/login">Login</Link>
+          </h3>
+        </div>
+        <div className="right">
+          <h3>
+            <Link to="/register">Registro</Link>
+          </h3>
         </div>
       </header>
     );
