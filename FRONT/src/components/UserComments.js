@@ -46,8 +46,8 @@ export default function UserComments() {
     return (
       <>
         <body className="body-usercomments">
+          <h2>Mis Comentarios</h2>
           <section className="usercomments">
-            <h2>Estos son los Comentarios que has publicado hasta ahora</h2>
             <ul>
               {comments.map((comment) => {
                 return (

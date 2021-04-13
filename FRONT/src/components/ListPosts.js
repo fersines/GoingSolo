@@ -63,8 +63,8 @@ export default function ListPosts() {
   return (
     <>
       <body className="body-listposts">
+        <h2>Estos son los Links más populares</h2>
         <section className="listposts">
-          <h2>Links más populares</h2>
           <ul>
             {posts.map((post) => {
               return (
