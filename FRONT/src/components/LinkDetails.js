@@ -53,7 +53,6 @@ export default function LinkDetails() {
       });
       const json = await response.json();
       if (response.ok) {
-        alert("pon esto bonito (like a comentario hecho)");
       } else {
         throw new Error(json.message);
       }
@@ -66,8 +65,8 @@ export default function LinkDetails() {
     return (
       <>
         <body className="body-linkdetails">
+          <h1>Detalles del Link {id}</h1>
           <section className="linkdetails">
-            <h1>Detalles del Link {id}</h1>
             <h3>Link</h3>
             <p>{post.link}</p>
             <h3>Día y hora de publicación:</h3>
@@ -107,8 +106,8 @@ export default function LinkDetails() {
     return (
       <>
         <body className="body-linkdetails">
+          <h1>Detalles del Link {id}</h1>
           <section className="linkdetails">
-            <h1>Detalles del Link {id}</h1>
             <h3>Link</h3>
 
             {post.link}
@@ -141,8 +140,9 @@ export default function LinkDetails() {
               ) : (
                 <p>Este Link todavía no ha sido comentado</p>
               )}
+              {errorMessage ? <p>{errorMessage}</p> : null}
             </ul>
-            {errorMessage ? <p>{errorMessage}</p> : null}
+
             <div>
               <NewComment></NewComment>
             </div>

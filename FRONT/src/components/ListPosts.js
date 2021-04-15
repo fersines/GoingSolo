@@ -32,8 +32,8 @@ export default function ListPosts() {
     return (
       <>
         <body className="body-listposts">
+          <h1>Últimos Links</h1>
           <section className="listposts">
-            <h2>Últimos Links</h2>
             <ul>
               {posts.map((post) => {
                 return (
@@ -63,7 +63,7 @@ export default function ListPosts() {
   return (
     <>
       <body className="body-listposts">
-        <h2>Estos son los Links más populares</h2>
+        <h1>Estos son los Links más populares</h1>
         <section className="listposts">
           <ul>
             {posts.map((post) => {

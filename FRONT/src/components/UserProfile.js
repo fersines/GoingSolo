@@ -54,8 +54,8 @@ export default function UserProfile() {
   return (
     <>
       <body className="body-userprofile">
+        <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
         <section className="userprofile">
-          <h1>{"Bienvenido de nuevo " + profile.name + "!"}</h1>
           <h3>Estos son tus datos de perfil</h3>
 
           <h4>Email</h4>

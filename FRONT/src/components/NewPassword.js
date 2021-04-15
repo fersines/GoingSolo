@@ -29,7 +29,7 @@ export default function NewPassword(data) {
     <>
       <body className="body-newpass">
         <section className="newpass">
-          <h1>Si has olvidado tu Contraseña</h1>
+          <h2>Si has olvidado tu Contraseña</h2>
           <h4>(Recibirás un código para poder recuperarla)</h4>
           <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>

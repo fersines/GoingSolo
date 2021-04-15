@@ -30,7 +30,7 @@ export default function ResetPassword(data) {
     <>
       <body className="body-resetpass">
         <section className="resetpass">
-          <h1>Si has recibido el código de recuperación</h1>
+          <h2>Si has recibido el código de recuperación</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
               <input

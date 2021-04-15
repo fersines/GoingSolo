@@ -35,8 +35,8 @@ export default function NewPost(data) {
   return (
     <>
       <body className="body-newlink">
+        <h1>Sube aquí tu nuevo Link!</h1>
         <section className="newlink">
-          <h1>Sube aquí tu nuevo Link!</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
               <h3>
@@ -73,7 +73,9 @@ export default function NewPost(data) {
                 type="story"
                 id="story"
               />
-              {errors.title && <p className="error">Necesitas un comentario</p>}
+              {errors.title && (
+                <p className="error">Necesitas incluir un comentario</p>
+              )}
             </fieldset>
 
             <button type="submit">LinkItUP!</button>

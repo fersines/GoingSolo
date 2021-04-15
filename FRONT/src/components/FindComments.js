@@ -55,8 +55,8 @@ export default function FindComments() {
   return (
     <>
       <body className="body-buscador">
+        <h1>Buscador de Comentarios</h1>
         <section className="buscador">
-          <h1>Buscador de Comentarios</h1>
           <form onSubmit={(e) => e.preventDefault()} method="GET">
             <fieldset>
               <label>
@@ -80,7 +80,7 @@ export default function FindComments() {
             {errorMessage ? <p>{errorMessage}</p> : null}
           </form>
 
-          <h1>Resultado de la búsqueda</h1>
+          <h2>Resultado de la búsqueda</h2>
           <button
             onClick={() => {
               const newOrder = order === "loves" ? "comment_date" : "loves";

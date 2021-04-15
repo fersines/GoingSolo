@@ -38,7 +38,6 @@ export default function CommentDetails() {
       });
       const json = await response.json();
       if (response.ok) {
-        alert("pon esto bonito (like a comentario hecho)");
       } else {
         throw new Error(json.message);
       }
@@ -51,8 +50,8 @@ export default function CommentDetails() {
     return (
       <>
         <body className="body-commentdetails">
+          <h1>Detalles del Comentario {id}</h1>
           <section className="commentdetails">
-            <h1>Detalles del Comentario {id}</h1>
             <h3>Comentario</h3>
             <p>{comment.comment}</p>
             <h3>Día y hora de publicación:</h3>
@@ -74,8 +73,8 @@ export default function CommentDetails() {
     return (
       <>
         <body className="body-commentdetails">
+          <h1>Detalles del Comentario {id}</h1>
           <section className="commentdetails">
-            <h1>Detalles del Comentario {id}</h1>
             <h3>Comentario</h3>
             <p>{comment.comment}</p>
             <h3>Día y hora de publicación:</h3>

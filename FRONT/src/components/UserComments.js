@@ -46,7 +46,7 @@ export default function UserComments() {
     return (
       <>
         <body className="body-usercomments">
-          <h2>Mis Comentarios</h2>
+          <h1>Mis Comentarios</h1>
           <section className="usercomments">
             <ul>
               {comments.map((comment) => {

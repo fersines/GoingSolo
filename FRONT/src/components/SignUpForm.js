@@ -17,7 +17,7 @@ export default function SignUpForm(props) {
     <>
       <body className="body-register">
         <section className="register">
-          <h1>Alístate en Link It UP!</h1>
+          <h2>Alístate en Link It UP!</h2>
 
           <b>
             ¿Quieres ser parte de la comunidad de LinkItUP!? Aquí tienes tu

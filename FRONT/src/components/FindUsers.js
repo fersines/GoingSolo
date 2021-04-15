@@ -54,8 +54,8 @@ export default function FindUsers() {
   return (
     <>
       <body className="body-buscador">
+        <h1>Buscador de Usuarios</h1>
         <section className="buscador">
-          <h1>Buscador de Usuarios</h1>
           <form onSubmit={(e) => e.preventDefault()} method="GET">
             <fieldset>
               <label>
@@ -79,7 +79,7 @@ export default function FindUsers() {
             {errorMessage ? <p>{errorMessage}</p> : null}
           </form>
 
-          <h1>Resultado de la búsqueda</h1>
+          <h2>Resultado de la búsqueda</h2>
           <button
             onClick={() => {
               const newOrder = order === "email" ? "date" : "email";
@@ -96,7 +96,7 @@ export default function FindUsers() {
                   <article>
                     <header>
                       <Link to={`/user/${user.id}`}>
-                        <h3>{user.email}</h3>
+                        <h4>{user.email}</h4>
                       </Link>
                     </header>
                     <h4>{user.name}</h4>

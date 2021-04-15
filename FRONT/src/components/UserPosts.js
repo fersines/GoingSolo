@@ -17,7 +17,7 @@ export default function UserPosts() {
 
   useEffect(() => {
     console.log(userData);
-    fetch(`${apiUrl}/users/${userData.id}/posts`, {
+    fetch(`${apiUrl}/users/${userData.id}/posts?order=date`, {
       method: "GET",
       headers: headers,
     })
@@ -46,8 +46,8 @@ export default function UserPosts() {
     return (
       <>
         <body className="body-mislinks">
+          <h1>Tus Links publicados</h1>
           <section className="mislinks">
-            <h2>Tus Links publicados</h2>
             <ul>
               {posts.map((post) => {
                 return (
